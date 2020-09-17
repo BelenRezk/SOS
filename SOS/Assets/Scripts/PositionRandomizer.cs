@@ -33,7 +33,8 @@ public class PositionRandomizer : MonoBehaviour
     void RandomSpawner(GameObject objectToInstantiate, List<Vector3> randomPositions)
     {
         int randomIndex = Random.Range(0, randomPositions.Count);
-        Instantiate(objectToInstantiate, randomPositions[randomIndex], Quaternion.identity);
+        GameObject clone = Instantiate(objectToInstantiate, randomPositions[randomIndex], Quaternion.identity) as GameObject;
+        clone.SetActive(true);
         //Prevents objects overlapping
         randomPositions.RemoveAt(randomIndex);
     }
