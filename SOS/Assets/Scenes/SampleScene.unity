@@ -324,8 +324,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1821baf81d060e2418eab8eeaee8226b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randomPositions: []
-  objectToInstantiate: {fileID: 6590799591860668702, guid: cb99e6703622dab4b9ed0f9ae7af541a, type: 3}
+  waterRandomPositions: []
+  landRandomPositions: []
+  boat: {fileID: 4723121879202817395, guid: d9d7b5ed9a66c0d449ae3fb58bdde9e1, type: 3}
+  oars: {fileID: 6615323862023697409, guid: 47fb7025ac510514cb9314ab02764dab, type: 3}
 --- !u!4 &267361410
 Transform:
   m_ObjectHideFlags: 0

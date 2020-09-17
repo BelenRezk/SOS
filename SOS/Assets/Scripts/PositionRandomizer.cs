@@ -4,24 +4,33 @@ using UnityEngine;
 
 public class PositionRandomizer : MonoBehaviour
 {
-    public List<Vector3> randomPositions;
-    
-    //TODO: Create GameObject variables for each object type (coconut, boat oar, etc.) 
-    public GameObject objectToInstantiate;
+    public List<Vector3> waterRandomPositions;
+    public List<Vector3> landRandomPositions;
+     
+    public GameObject boat;
+    public GameObject oars;
      
     void Start () 
     {
-        ValidInstantiationPositionsGenerator();
-        RandomSpawner();
+        ValidInstantiationLandPositionsGenerator();
+        ValidInstantiationWaterPositionsGenerator();
+        RandomSpawner(boat, waterRandomPositions);
+        RandomSpawner(oars,landRandomPositions);
     }
 
-    void ValidInstantiationPositionsGenerator()
+    void ValidInstantiationLandPositionsGenerator()
     {
-        randomPositions.Add(new Vector3(2,2,6));
-        randomPositions.Add(new Vector3(-2,2,6));
+        landRandomPositions.Add(new Vector3(2,2,6));
+        landRandomPositions.Add(new Vector3(-2,2,6));
     }
 
-    void RandomSpawner()
+    void ValidInstantiationWaterPositionsGenerator()
+    {
+        waterRandomPositions.Add(new Vector3(1,4,3));
+        waterRandomPositions.Add(new Vector3(-1,4,3));
+    }
+
+    void RandomSpawner(GameObject objectToInstantiate, List<Vector3> randomPositions)
     {
         int randomIndex = Random.Range(0, randomPositions.Count);
         Instantiate(objectToInstantiate, randomPositions[randomIndex], Quaternion.identity);
