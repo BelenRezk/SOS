@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Cube : MonoBehaviour, IInventoryItem
 {
+    public GameObject player;
     public string Name
     {
         get
         {
-            return "Cube";
+            return "Oar";
         }
     }
 
@@ -23,6 +24,7 @@ public class Cube : MonoBehaviour, IInventoryItem
 
     public void OnPickup()
     {
+        this.transform.parent = player.transform;
         gameObject.SetActive(false);
     }
 }
