@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cube : MonoBehaviour, IInventoryItem
+public class Cube : InventoryItemBase
 {
-    public GameObject player;
-    public string Name
+    public override string Name
     {
         get
         {
@@ -13,18 +12,12 @@ public class Cube : MonoBehaviour, IInventoryItem
         }
     }
 
-    public Sprite _Image = null;
-    public Sprite Image
+    public override void OnDrop()
     {
-        get
-        {
-            return _Image;
-        }
-    }
-
-    public void OnPickup()
-    {
-        this.transform.parent = player.transform;
-        gameObject.SetActive(false);
+        gameObject.SetActive(true);
+        this.transform.parent = null;
+        GetComponent<Rigidbody>().useGravity = true;
+        GetComponent<Rigidbody>().isKinematic = false;
+        GetComponent<BoxCollider>().enabled = true;
     }
 }

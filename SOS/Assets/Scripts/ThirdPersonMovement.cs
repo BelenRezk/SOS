@@ -36,7 +36,7 @@ public class ThirdPersonMovement : MonoBehaviour
             velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
         }
         //gravity
-        velocity.y += gravity * Time.deltaTime*2;
+        velocity.y += gravity * Time.deltaTime * 2;
         controller.Move(velocity * Time.deltaTime);
 
         float horizontal = Input.GetAxisRaw("Horizontal");
@@ -51,6 +51,15 @@ public class ThirdPersonMovement : MonoBehaviour
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
         }
+
+        for (int i = 1; i <= 9; i++)
+        {
+            string action = "Position" + i;
+            if (Input.GetButtonDown(action))
+                inventory.ChangeSelectedPosition(i - 1);
+        }
+        if (Input.GetButtonDown("UseItem"))
+            inventory.RemoveSelectedItem();
     }
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
