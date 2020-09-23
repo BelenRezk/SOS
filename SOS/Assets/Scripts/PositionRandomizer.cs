@@ -15,9 +15,9 @@ public class PositionRandomizer : MonoBehaviour
     {
         ValidInstantiationLandPositionsGenerator();
         ValidInstantiationWaterPositionsGenerator();
-        RandomSpawner(boat, waterRandomPositions);
-        RandomSpawner(oars,landRandomPositions);
-        RandomSpawner(flareGun,landRandomPositions);
+        RandomSpawner(boat, waterRandomPositions,true);
+        RandomSpawner(oars,landRandomPositions,false);
+        RandomSpawner(flareGun,landRandomPositions,false);
     }
 
     void ValidInstantiationLandPositionsGenerator()
@@ -28,15 +28,23 @@ public class PositionRandomizer : MonoBehaviour
 
     void ValidInstantiationWaterPositionsGenerator()
     {
-        waterRandomPositions.Add(new Vector3(1,4,3));
-        waterRandomPositions.Add(new Vector3(-1,4,3));
+        waterRandomPositions.Add(new Vector3(10,1,3));
+        waterRandomPositions.Add(new Vector3(-10,4,3));
     }
 
-    void RandomSpawner(GameObject objectToInstantiate, List<Vector3> randomPositions)
+    void RandomSpawner(GameObject objectToInstantiate, List<Vector3> randomPositions, bool isBoat)
     {
         int randomIndex = Random.Range(0, randomPositions.Count);
         GameObject clone = Instantiate(objectToInstantiate, randomPositions[randomIndex], Quaternion.identity) as GameObject;
         clone.SetActive(true);
+        if(isBoat)
+        {
+            clone.tag = "BoatTag";
+        }
+        else
+        {
+            clone.tag = "CollectiblesTag";   
+        }
         //Prevents objects overlapping
         randomPositions.RemoveAt(randomIndex);
     }
