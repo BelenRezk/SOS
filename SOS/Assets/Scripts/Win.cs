@@ -8,6 +8,7 @@ public class Win : MonoBehaviour
 
     private void OnTriggerEnter(Collider player)
     {
+        Debug.Log("player " + player.transform.name);
         //TODO: Revisar por qué el jugador AI no colisiona con el trigger
         int itemCount = player.transform.childCount;
         for (int i = 0; i < itemCount; i++)

@@ -5,7 +5,7 @@ public interface IInventoryItem
 {
     string Name { get; }
     Sprite Image { get; }
-    void OnPickup();
+    void OnPickup(GameObject player);
     void OnDrop();
 }
 

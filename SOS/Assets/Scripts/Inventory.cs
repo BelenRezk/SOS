@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
+    public GameObject owner;
     private const int SLOTS = 9;
     private int selectedPosition = 0;
     private int currentNumberOfItems = 0;
@@ -28,7 +29,7 @@ public class Inventory : MonoBehaviour
                     }
                 }
                 currentNumberOfItems++;
-                item.OnPickup();
+                item.OnPickup(owner);
 
                 if (ItemAdded != null)
                 {

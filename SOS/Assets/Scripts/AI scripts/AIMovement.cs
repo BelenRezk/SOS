@@ -57,9 +57,11 @@ public class AIMovement : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other) {
+        Debug.Log("AI MOVEMENT");
         IInventoryItem item = other.GetComponent<Collider>().GetComponent<IInventoryItem>();
         if (item != null)
         {
+            Debug.Log(inventory.gameObject.name);
             inventory.AddItem(item);
         }
     }

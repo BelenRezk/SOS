@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class InventoryItemBase : MonoBehaviour, IInventoryItem
 {
-    public GameObject player;
     public virtual string Name
     {
         get
@@ -20,7 +19,7 @@ public class InventoryItemBase : MonoBehaviour, IInventoryItem
         get { return _Image; }
     }
 
-    public virtual void OnPickup()
+    public virtual void OnPickup(GameObject player)
     {
         this.transform.parent = player.transform;
         gameObject.SetActive(false);
