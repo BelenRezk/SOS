@@ -1001,6 +1001,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owner: {fileID: 510921745}
+  selectedPosition: 0
 --- !u!114 &293079677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5492,6 +5493,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owner: {fileID: 1548557667}
+  selectedPosition: 0
 --- !u!114 &1606538813
 MonoBehaviour:
   m_ObjectHideFlags: 0

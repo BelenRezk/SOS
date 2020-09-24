@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,8 +10,26 @@ public class HUD : MonoBehaviour
 
     void Start()
     {
-        Inventory.ItemAdded += InventoryScript_ItemAdded;  
-        Inventory.ItemRemoved += Inventory_ItemRemoved;  
+        Inventory.ItemAdded += InventoryScript_ItemAdded;
+        Inventory.ItemRemoved += Inventory_ItemRemoved;
+        Inventory.PositionChanged += Inventory_PositionChanged;
+        InitInventory();
+    }
+
+    private void InitInventory()
+    {
+        Transform inventoryPanel = transform.Find("InventoryPanel");
+        int position = 0;
+        foreach (Transform slot in inventoryPanel)
+        {
+            Transform imageTransform = slot.GetChild(0).GetChild(0);
+            Image image = imageTransform.GetComponent<Image>();
+            if (position == 0)
+                image.color = new Color32(255, 255, 255, 255);
+            else
+                image.color = new Color32(120, 120, 120, 140);
+            position++;
+        }
     }
 
     private void InventoryScript_ItemAdded(object sender, InventoryEventArgs e)
@@ -47,6 +66,33 @@ public class HUD : MonoBehaviour
                 image.sprite = null;
                 itemDragHandler.Item = null;
                 break;
+            }
+        }
+    }
+
+    private void Inventory_PositionChanged(object sender, Tuple<int, int> positions)
+    {
+        int previousPosition = positions.Item1;
+        int newPosition = positions.Item2;
+        if (previousPosition != newPosition)
+        {
+            Transform inventoryPanel = transform.Find("InventoryPanel");
+            int position = 0;
+            foreach (Transform slot in inventoryPanel)
+            {
+                if (position == newPosition)
+                {
+                    Transform imageTransform = slot.GetChild(0).GetChild(0);
+                    Image image = imageTransform.GetComponent<Image>();
+                    image.color = new Color32(255, 255, 255, 255);
+                }
+                if (position == previousPosition)
+                {
+                    Transform imageTransform = slot.GetChild(0).GetChild(0);
+                    Image image = imageTransform.GetComponent<Image>();
+                    image.color = new Color32(120, 120, 120, 140);
+                }
+                position++;
             }
         }
     }

@@ -2,16 +2,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
     public GameObject owner;
     private const int SLOTS = 9;
-    private int selectedPosition = 0;
+    public int selectedPosition = 0;
     private int currentNumberOfItems = 0;
     private IInventoryItem[] mItems = new IInventoryItem[SLOTS];
     public event EventHandler<InventoryEventArgs> ItemAdded;
     public event EventHandler<InventoryEventArgs> ItemRemoved;
+    public event EventHandler<Tuple<int, int>> PositionChanged;
+
     public void AddItem(IInventoryItem item)
     {
         if (currentNumberOfItems < SLOTS)
@@ -20,9 +23,9 @@ public class Inventory : MonoBehaviour
             if (collider.enabled)
             {
                 collider.enabled = false;
-                for(int i = 0;i<mItems.Length;i++)
+                for (int i = 0; i < mItems.Length; i++)
                 {
-                    if(mItems[i] == null)
+                    if (mItems[i] == null)
                     {
                         mItems[i] = item;
                         break;
@@ -41,34 +44,39 @@ public class Inventory : MonoBehaviour
 
     public void ChangeSelectedPosition(int position)
     {
+        Tuple<int, int> positions = new Tuple<int, int>(selectedPosition, position);
+        if (PositionChanged != null)
+        {
+            PositionChanged(this, positions);
+        }
         selectedPosition = position;
     }
 
     public void RemoveSelectedItem()
     {
         IInventoryItem item = mItems[selectedPosition];
-        if(item != null)
+        if (item != null)
             RemoveItem(item);
     }
     public void RemoveItem(IInventoryItem item)
     {
         int itemPosition = -1;
-        for(int i = 0; i<mItems.Length && itemPosition == -1;i++)
+        for (int i = 0; i < mItems.Length && itemPosition == -1; i++)
         {
-            if(mItems[i] == item)
+            if (mItems[i] == item)
                 itemPosition = i;
         }
-        if(itemPosition != -1)
+        if (itemPosition != -1)
         {
             mItems[itemPosition] = null;
             currentNumberOfItems--;
             item.OnDrop();
             Collider collider = (item as MonoBehaviour).GetComponent<Collider>();
-            if(collider != null)
+            if (collider != null)
             {
                 collider.enabled = true;
             }
-            if(ItemRemoved != null)
+            if (ItemRemoved != null)
             {
                 ItemRemoved(this, new InventoryEventArgs(item));
             }
