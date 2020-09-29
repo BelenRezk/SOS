@@ -27,7 +27,7 @@ public class PositionRandomizer : MonoBehaviour
     void ValidInstantiationWaterPositionsGenerator()
     {
         waterRandomPositions.Add(new Vector3(10,1,3));
-        waterRandomPositions.Add(new Vector3(-10,1,3));
+        waterRandomPositions.Add(new Vector3(15,1,3));
     }
 
     void RandomSpawner(GameObject objectToInstantiate, List<Vector3> randomPositions, bool isBoat)
