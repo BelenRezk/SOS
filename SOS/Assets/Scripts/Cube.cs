@@ -16,8 +16,8 @@ public class Cube : InventoryItemBase
     {
         gameObject.SetActive(true);
         this.transform.parent = null;
-        GetComponent<Rigidbody>().useGravity = true;
-        GetComponent<Rigidbody>().isKinematic = false;
+        //GetComponent<Rigidbody>().useGravity = true;
+        //GetComponent<Rigidbody>().isKinematic = false;
         GetComponent<BoxCollider>().enabled = true;
     }
 }
