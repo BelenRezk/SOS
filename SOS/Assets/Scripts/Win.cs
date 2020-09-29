@@ -16,6 +16,7 @@ public class Win : MonoBehaviour
             IInventoryItem item = player.transform.GetChild(i).GetComponent<IInventoryItem>();
             if (item != null && item.Name != null && item.Name.Equals("Oar"))
             {
+                LoadWinner.winner = "The winner is " + player.name;
                 SceneManager.LoadScene("winScene");
             }
         }
