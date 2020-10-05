@@ -19,6 +19,9 @@ public class ThirdPersonMovement : MonoBehaviour
 
     float turnSmoothVelocity;
     public float turnSmoothTime = 0.1f;
+    private float remainingBananaTime = 0f;
+    private bool isUsingBanana = false;
+    public float bananaSpeedMultiplier = 2.0f;
 
     // Update is called once per frame
     void Update()
@@ -60,7 +63,23 @@ public class ThirdPersonMovement : MonoBehaviour
         }
         if (Input.GetButtonDown("UseItem"))
             inventory.RemoveSelectedItem();
+        CheckBananaUsage();
     }
+
+    private void CheckBananaUsage()
+    {
+        if (isUsingBanana)
+        {
+            if (remainingBananaTime > 0f)
+                remainingBananaTime -= Time.deltaTime;
+            else
+            {
+                isUsingBanana = false;
+                speed = speed / bananaSpeedMultiplier;
+            }
+        }
+    }
+
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         IInventoryItem item = hit.collider.GetComponent<IInventoryItem>();
@@ -68,5 +87,12 @@ public class ThirdPersonMovement : MonoBehaviour
         {
             inventory.AddItem(item);
         }
+    }
+
+    public void UseBanana(float duration)
+    {
+        isUsingBanana = true;
+        speed = speed * bananaSpeedMultiplier;
+        remainingBananaTime = duration;
     }
 }
