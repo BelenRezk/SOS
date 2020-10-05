@@ -8205,7 +8205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e052f776c2c553458326291148e01a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Image: {fileID: 21300000, guid: 9c3c0eb48414ef14a85486d9e9aad803, type: 3}
+  _Image: {fileID: 21300000, guid: 825a287a857b43644be6ee4b9278ef1f, type: 3}
   bananaManager: {fileID: 85624132}
 --- !u!1 &2132305580
 GameObject:
@@ -8247,15 +8247,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4889143176011413168, guid: abc72ba931305e74694f419ec2bf8402, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.105060555
+      value: 0.10506053
       objectReference: {fileID: 0}
     - target: {fileID: 4889143176011413168, guid: abc72ba931305e74694f419ec2bf8402, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000009036003
+      value: 0.000000022821853
       objectReference: {fileID: 0}
     - target: {fileID: 4889143176011413168, guid: abc72ba931305e74694f419ec2bf8402, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 9.546104e-10
+      value: -0.0000000024110192
       objectReference: {fileID: 0}
     - target: {fileID: 4889143176455693972, guid: abc72ba931305e74694f419ec2bf8402, type: 3}
       propertyPath: m_LocalRotation.x
