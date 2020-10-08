@@ -11,6 +11,8 @@ public class InventoryItemBase : MonoBehaviour, IInventoryItem
             return "_base item_";
         }
     }
+
+    public virtual bool HasOwner { get; set; }
     
     public Sprite _Image;
 
@@ -34,5 +36,16 @@ public class InventoryItemBase : MonoBehaviour, IInventoryItem
             gameObject.SetActive(true);
             gameObject.transform.position = hit.point;
         }*/
+
+        Vector3 newPos = new Vector3(1, 1, 1);
+        this.transform.position = this.transform.parent.position + newPos;
+        HasOwner = false;
+        GetComponent<Rigidbody>().useGravity = true;
+        GetComponent<Rigidbody>().isKinematic = false;
+        gameObject.SetActive(true);
+        this.transform.parent = null;
+        GetComponent<BoxCollider>().enabled = true;
     }
+
+    public virtual void OnUse() { }
 }

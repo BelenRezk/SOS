@@ -61,8 +61,10 @@ public class ThirdPersonMovement : MonoBehaviour
             if (Input.GetButtonDown(action))
                 inventory.ChangeSelectedPosition(i - 1);
         }
-        if (Input.GetButtonDown("UseItem"))
+        if (Input.GetButtonDown("DropItem"))
             inventory.RemoveSelectedItem();
+        if (Input.GetButtonDown("UseItem"))
+            inventory.UseSelectedItem();
         CheckBananaUsage();
     }
 
@@ -83,9 +85,14 @@ public class ThirdPersonMovement : MonoBehaviour
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         IInventoryItem item = hit.collider.GetComponent<IInventoryItem>();
-        if (item != null)
+        if (item != null && !item.HasOwner)
         {
             inventory.AddItem(item);
+            item.HasOwner = true;
+        }
+        else if (item != null && item.HasOwner)
+        {
+            inventory.DropAllItems();
         }
     }
 

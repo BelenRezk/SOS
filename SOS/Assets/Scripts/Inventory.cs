@@ -58,6 +58,14 @@ public class Inventory : MonoBehaviour
         if (item != null)
             RemoveItem(item);
     }
+
+    public void UseSelectedItem()
+    {
+        IInventoryItem item = mItems[selectedPosition];
+        if (item != null)
+            UseItem(item);
+
+    }
     public void RemoveItem(IInventoryItem item)
     {
         int itemPosition = -1;
@@ -80,6 +88,41 @@ public class Inventory : MonoBehaviour
             {
                 ItemRemoved(this, new InventoryEventArgs(item));
             }
+        }
+    }
+
+    private void UseItem(IInventoryItem item)
+    {
+        int itemPosition = -1;
+        for (int i = 0; i < mItems.Length && itemPosition == -1; i++)
+        {
+            if (mItems[i] == item)
+                itemPosition = i;
+        }
+        if (itemPosition != -1)
+        {
+            mItems[itemPosition] = null;
+            currentNumberOfItems--;
+            item.OnUse();
+            Collider collider = (item as MonoBehaviour).GetComponent<Collider>();
+            if (collider != null)
+            {
+                collider.enabled = true;
+            }
+            if (ItemRemoved != null)
+            {
+                ItemRemoved(this, new InventoryEventArgs(item));
+            }
+        }
+    }
+
+    public void DropAllItems()
+    {
+        for(int i = 0; i < currentNumberOfItems; i++)
+        {
+            IInventoryItem item = mItems[i];
+            if (item != null)
+                RemoveItem(item);
         }
     }
 }

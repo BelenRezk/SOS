@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cube : InventoryItemBase
+public class Oar : InventoryItemBase
 {
     public override string Name
     {
@@ -12,12 +12,13 @@ public class Cube : InventoryItemBase
         }
     }
 
-    public override void OnDrop()
+    /*public override void OnDrop()
     {
+        /*HasOwner = false;
         gameObject.SetActive(true);
         this.transform.parent = null;
         //GetComponent<Rigidbody>().useGravity = true;
         //GetComponent<Rigidbody>().isKinematic = false;
         GetComponent<BoxCollider>().enabled = true;
-    }
+    }*/
 }
