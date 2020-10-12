@@ -11,6 +11,7 @@ public class PositionRandomizer : MonoBehaviour
     public GameObject boat;
     public GameObject oars;
     public GameObject banana;
+    public GameObject flareGun;
 
     void Start()
     {
@@ -18,6 +19,7 @@ public class PositionRandomizer : MonoBehaviour
         ValidInstantiationWaterPositionsGenerator();
         RandomSpawner(boat, waterRandomPositions, true);
         RandomSpawner(oars, landRandomPositions, false);
+        RandomSpawner(flareGun,landRandomPositions,false);
 
         //bananaPositions.Add(new Vector3(4, 2, 8));
         bananaPositions.Add(new Vector3(-2, 2, 6));
@@ -27,7 +29,7 @@ public class PositionRandomizer : MonoBehaviour
     void ValidInstantiationLandPositionsGenerator()
     {
         landRandomPositions.Add(new Vector3(2, 2, 6));
-        //landRandomPositions.Add(new Vector3(-2, 2, 6));
+        landRandomPositions.Add(new Vector3(-4 ,2, 6));
     }
 
     void ValidInstantiationWaterPositionsGenerator()
