@@ -46,7 +46,7 @@ public class AIMovement : MonoBehaviour
     {
         var dist = Vector3.Distance(targets[i].position,_navMeshAgent.transform.position);
         //TODO: Contemplar caso que un jugador agarre el objeto al que se está dirigiendo
-        if(dist < 2)
+        if(dist < 1.5)
         {
             if( i < targets.Length  - 1)
             {

@@ -1757,7 +1757,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3d858a04b638ef4999dc0b0f72c8f7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Image: {fileID: 0}
+  _Image: {fileID: 21300000, guid: 390ceac8aec3d8843b510a9c6be04113, type: 3}
 --- !u!65 &622153666
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1766,7 +1766,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 622153663}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -2205,7 +2205,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a409652e52fe24c4991b0b6f91233471, type: 3}
       propertyPath: m_Name
-      value: Balsa
+      value: Boat
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a409652e52fe24c4991b0b6f91233471, type: 3}
       propertyPath: m_IsActive
@@ -3867,7 +3867,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4760115786967840918, guid: a13604f3010059446836f0d3cc0eab07, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.192717
+      value: -23.2
       objectReference: {fileID: 0}
     - target: {fileID: 4760115786967840918, guid: a13604f3010059446836f0d3cc0eab07, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5301,6 +5301,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1448841391}
   m_CullTransparentMesh: 0
+--- !u!1 &1473127882 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1842131831389176892, guid: fdcf88bedb183ed4ba0ae73a973746b4, type: 3}
+  m_PrefabInstance: {fileID: 6644414247813032448}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &1473127887
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473127882}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.7698375
+  m_Height: 3.409943
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.7049716, z: -0.059370905}
 --- !u!1 &1480277530
 GameObject:
   m_ObjectHideFlags: 0

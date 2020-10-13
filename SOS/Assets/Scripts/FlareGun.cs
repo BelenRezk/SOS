@@ -16,5 +16,6 @@ public class FlareGun : InventoryItemBase
     {
         gameObject.SetActive(true);
         this.transform.parent = null;
+        GetComponent<BoxCollider>().enabled = true;
     }
 }

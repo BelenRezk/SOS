@@ -22,13 +22,13 @@ public class PositionRandomizer : MonoBehaviour
         RandomSpawner(flareGun,landRandomPositions,false);
 
         //bananaPositions.Add(new Vector3(4, 2, 8));
-        bananaPositions.Add(new Vector3(-2, 2, 6));
+        bananaPositions.Add(new Vector3(4, 2, 6));
         RandomSpawner(banana, bananaPositions, false);
     }
 
     void ValidInstantiationLandPositionsGenerator()
     {
-        landRandomPositions.Add(new Vector3(2, 2, 6));
+        landRandomPositions.Add(new Vector3(1, 2, 6));
         landRandomPositions.Add(new Vector3(-4 ,2, 6));
     }
 

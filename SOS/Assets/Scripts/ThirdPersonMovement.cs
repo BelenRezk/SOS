@@ -83,8 +83,19 @@ public class ThirdPersonMovement : MonoBehaviour
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         IInventoryItem item = hit.collider.GetComponent<IInventoryItem>();
+        AddToInventory(item);
+    }
+
+    private void OnTriggerEnter(Collider other) {
+        IInventoryItem item = other.GetComponent<Collider>().GetComponent<IInventoryItem>();
+        AddToInventory(item);
+    }
+
+    private void AddToInventory(IInventoryItem item)
+    {
         if (item != null)
         {
+            Debug.Log(inventory.gameObject.name);
             inventory.AddItem(item);
         }
     }
