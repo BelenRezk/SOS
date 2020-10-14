@@ -86,11 +86,6 @@ public class ThirdPersonMovement : MonoBehaviour
         AddToInventory(item);
     }
 
-    private void OnTriggerEnter(Collider other) {
-        IInventoryItem item = other.GetComponent<Collider>().GetComponent<IInventoryItem>();
-        AddToInventory(item);
-    }
-
     private void AddToInventory(IInventoryItem item)
     {
         if (item != null)
