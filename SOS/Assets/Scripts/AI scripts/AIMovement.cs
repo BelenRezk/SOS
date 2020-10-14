@@ -45,8 +45,7 @@ public class AIMovement : MonoBehaviour
     void Update()
     {
         var dist = Vector3.Distance(targets[i].position,_navMeshAgent.transform.position);
-        //TODO: Contemplar caso que un jugador agarre el objeto al que se está dirigiendo
-        if(dist < 1.5)
+        if(dist < 1.5 || targets[i].parent != null)
         {
             if( i < targets.Length  - 1)
             {
@@ -57,7 +56,6 @@ public class AIMovement : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other) {
-        Debug.Log("AI MOVEMENT");
         IInventoryItem item = other.GetComponent<Collider>().GetComponent<IInventoryItem>();
         if (item != null)
         {
