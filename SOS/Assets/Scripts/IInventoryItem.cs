@@ -8,10 +8,10 @@ public interface IInventoryItem
     Sprite Image { get; }
     void OnPickup(GameObject player);
     void OnDrop();
-    void OnUse();
+    bool OnUse();
 }
 
-public class InventoryEventArgs:EventArgs
+public class InventoryEventArgs : EventArgs
 {
     public InventoryEventArgs(IInventoryItem item)
     {

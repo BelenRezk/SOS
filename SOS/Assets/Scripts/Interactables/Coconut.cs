@@ -15,7 +15,8 @@ public class Coconut : InventoryItemBase
     }
 
     public bool _hasOwner;
-    public override bool HasOwner {
+    public override bool HasOwner
+    {
         get
         {
             return _hasOwner;
@@ -26,7 +27,7 @@ public class Coconut : InventoryItemBase
         }
     }
 
-    public override void OnUse()
+    public override bool OnUse()
     {
         gameObject.SetActive(true);
         this.transform.parent = null;
@@ -37,5 +38,6 @@ public class Coconut : InventoryItemBase
         this.transform.position = objectDestination.position;
 
         GetComponent<Rigidbody>().AddForce(objectDestination.forward * throwSpeed);
+        return true;
     }
 }

@@ -22,6 +22,9 @@ public class ThirdPersonMovement : MonoBehaviour
     private float remainingBananaTime = 0f;
     private bool isUsingBanana = false;
     public float bananaSpeedMultiplier = 2.0f;
+    private bool hasShield = false;
+    public float afterHitInvincibility = 1f;
+    private float currentInvincibility = 0f;
 
     // Update is called once per frame
     void Update()
@@ -66,6 +69,8 @@ public class ThirdPersonMovement : MonoBehaviour
         if (Input.GetButtonDown("UseItem"))
             inventory.UseSelectedItem();
         CheckBananaUsage();
+        if (currentInvincibility > 0)
+            currentInvincibility -= Time.deltaTime;
     }
 
     private void CheckBananaUsage()
@@ -90,9 +95,13 @@ public class ThirdPersonMovement : MonoBehaviour
             inventory.AddItem(item);
             item.HasOwner = true;
         }
-        else if (item != null && item.HasOwner)
+        else if (item != null && item.HasOwner && currentInvincibility <= 0)
         {
-            inventory.DropAllItems();
+            if (!hasShield)
+                inventory.DropAllItems();
+            else
+                hasShield = false;
+            currentInvincibility = afterHitInvincibility;
         }
     }
 
@@ -101,5 +110,16 @@ public class ThirdPersonMovement : MonoBehaviour
         isUsingBanana = true;
         speed = speed * bananaSpeedMultiplier;
         remainingBananaTime = duration;
+    }
+
+    public bool UseShield()
+    {
+        if (!hasShield)
+        {
+            hasShield = true;
+            return true;
+        }
+        else
+            return false;
     }
 }

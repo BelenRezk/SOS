@@ -20,4 +20,9 @@ public class FlareGun : InventoryItemBase
         GetComponent<Rigidbody>().isKinematic = false;
         GetComponent<BoxCollider>().enabled = true;
     }
+
+    public override bool OnUse()
+    {
+        return false;
+    }
 }

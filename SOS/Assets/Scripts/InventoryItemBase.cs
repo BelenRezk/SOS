@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InventoryItemBase : MonoBehaviour, IInventoryItem
+public abstract class InventoryItemBase : MonoBehaviour, IInventoryItem
 {
     public virtual string Name
     {
@@ -13,7 +13,7 @@ public class InventoryItemBase : MonoBehaviour, IInventoryItem
     }
 
     public virtual bool HasOwner { get; set; }
-    
+
     public Sprite _Image;
 
     public Sprite Image
@@ -47,5 +47,5 @@ public class InventoryItemBase : MonoBehaviour, IInventoryItem
         GetComponent<BoxCollider>().enabled = true;
     }
 
-    public virtual void OnUse() { }
+    public abstract bool OnUse();
 }

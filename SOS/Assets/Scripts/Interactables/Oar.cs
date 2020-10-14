@@ -12,13 +12,8 @@ public class Oar : InventoryItemBase
         }
     }
 
-    /*public override void OnDrop()
+    public override bool OnUse()
     {
-        /*HasOwner = false;
-        gameObject.SetActive(true);
-        this.transform.parent = null;
-        //GetComponent<Rigidbody>().useGravity = true;
-        //GetComponent<Rigidbody>().isKinematic = false;
-        GetComponent<BoxCollider>().enabled = true;
-    }*/
+        return false;
+    }
 }

@@ -11,4 +11,9 @@ public class Cube : InventoryItemBase
             return "Cube";
         }
     }
+
+    public override bool OnUse()
+    {
+        return false;
+    }
 }

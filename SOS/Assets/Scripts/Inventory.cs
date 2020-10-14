@@ -101,28 +101,29 @@ public class Inventory : MonoBehaviour
         }
         if (itemPosition != -1)
         {
-            mItems[itemPosition] = null;
-            currentNumberOfItems--;
-            item.OnUse();
-            Collider collider = (item as MonoBehaviour).GetComponent<Collider>();
-            if (collider != null)
+            bool usedItem = item.OnUse();
+            if (usedItem)
             {
-                collider.enabled = true;
-            }
-            if (ItemRemoved != null)
-            {
-                ItemRemoved(this, new InventoryEventArgs(item));
+                mItems[itemPosition] = null;
+                currentNumberOfItems--;
+                Collider collider = (item as MonoBehaviour).GetComponent<Collider>();
+                if (collider != null)
+                    collider.enabled = true;
+                if (ItemRemoved != null)
+                    ItemRemoved(this, new InventoryEventArgs(item));
             }
         }
     }
 
     public void DropAllItems()
     {
-        for(int i = 0; i < currentNumberOfItems; i++)
+        int position = 0;
+        while (currentNumberOfItems != 0 && position < SLOTS)
         {
-            IInventoryItem item = mItems[i];
+            IInventoryItem item = mItems[position];
             if (item != null)
                 RemoveItem(item);
+            position++;
         }
     }
 }

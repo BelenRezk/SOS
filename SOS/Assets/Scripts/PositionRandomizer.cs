@@ -7,10 +7,12 @@ public class PositionRandomizer : MonoBehaviour
     public List<Vector3> waterRandomPositions;
     public List<Vector3> landRandomPositions;
     public List<Vector3> bananaPositions;
+    public List<Vector3> shieldPositions;
 
     public GameObject boat;
     public GameObject oars;
     public GameObject banana;
+    public GameObject shield;
 
     void Start()
     {
@@ -22,6 +24,9 @@ public class PositionRandomizer : MonoBehaviour
         //bananaPositions.Add(new Vector3(4, 2, 8));
         bananaPositions.Add(new Vector3(-2, 2, 6));
         RandomSpawner(banana, bananaPositions, false);
+
+        shieldPositions.Add(new Vector3(-3, 2, 7));
+        RandomSpawner(shield, shieldPositions, false);
     }
 
     void ValidInstantiationLandPositionsGenerator()

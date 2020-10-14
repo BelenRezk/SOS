@@ -16,7 +16,7 @@ public class Banana : InventoryItemBase
 
     public float duration = 5f;
 
-    public override void OnUse()
+    public override bool OnUse()
     {
         bananaManager.Use(this.transform.parent);
 
@@ -36,6 +36,7 @@ public class Banana : InventoryItemBase
             AIMovement aiMovement = playerGO.GetComponent<AIMovement>();
             aiMovement.UseBanana(duration);
         }
+        return true;
     }
 }
 
