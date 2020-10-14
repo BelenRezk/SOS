@@ -4,12 +4,14 @@ using UnityEngine;
 public interface IInventoryItem
 {
     string Name { get; }
+    bool HasOwner { get; set; }
     Sprite Image { get; }
     void OnPickup(GameObject player);
     void OnDrop();
+    bool OnUse();
 }
 
-public class InventoryEventArgs:EventArgs
+public class InventoryEventArgs : EventArgs
 {
     public InventoryEventArgs(IInventoryItem item)
     {
