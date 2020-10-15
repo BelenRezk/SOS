@@ -12,13 +12,6 @@ public class FlareGun : InventoryItemBase
         }
     }
 
-    public override void OnDrop()
-    {
-        gameObject.SetActive(true);
-        this.transform.parent = null;
-        GetComponent<BoxCollider>().enabled = true;
-    }
-
     public override bool OnUse()
     {
         return false;
