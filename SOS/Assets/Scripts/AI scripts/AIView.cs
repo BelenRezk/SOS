@@ -1,17 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class AIView : MonoBehaviour
 {
-    public Dictionary<string, Vector3> PlayersPossitions { get; set; }
-    public Dictionary<string, Vector3> ItemsPossitions { get; set; }
+    public List<(string, Vector3)> PlayersPositions { get; set; }
+    public List<(string, Vector3)> ItemsPositions { get; set; }
 
 
     private void Start()
     {
-        PlayersPossitions = new Dictionary<string, Vector3>();
-        ItemsPossitions = new Dictionary<string, Vector3>();
+        PlayersPositions = new List<(string, Vector3)>();
+        ItemsPositions = new List<(string, Vector3)>();
 
     }
 
@@ -19,43 +20,35 @@ public class AIView : MonoBehaviour
         bool isPlayer = other.CompareTag("Player");
         if (isPlayer)
         {
-            //ATTACK PLAYER
-            if (PlayersPossitions.ContainsKey(other.name))
-            {
-                PlayersPossitions[other.name] = other.transform.position;
-                Debug.Log("AGREGO PLAYER AL ");
-            }
-            else
-            {
-                PlayersPossitions.Add(other.name, other.transform.position);
-                Debug.Log("COLISION CON PLAYER");
+            //TODO: Change name to each AI player
+            if(other.name != "AI Player"){
+                //Found player to attack
+                if (PlayersPositions.FindAll(p => p.Item1 == other.name).Count > 0)
+                {
+                    var playerToUpdate = PlayersPositions.Find(p => p.Item1 == other.name);
+                    PlayersPositions.Remove(playerToUpdate);
+                }
+                PlayersPositions.Add((other.name, other.transform.position));
+                
             }
         }
         bool isItem = other.CompareTag("Item");
         if (isItem)
         {
-            //GO TO OBJECT
-            if (ItemsPossitions.ContainsKey(other.name))
-                ItemsPossitions[other.name] = other.transform.position;
-            else
-                ItemsPossitions.Add(other.name, other.transform.position);
-            Debug.Log("COLISION CON ITEM");
+            if (ItemsPositions.FindAll(a => a.Item1 == other.name).Count == 0)
+            {
+                ItemsPositions.Add((other.name, other.transform.position));
+            }
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
         bool isPlayer = other.CompareTag("Player");
-        if (isPlayer && PlayersPossitions.ContainsKey(other.name))
+        if (isPlayer && PlayersPositions.FindAll(p => p.Item1 == other.name).Count > 0)
         {
-            PlayersPossitions.Remove(other.name);
-            Debug.Log("SALIO DE COLISION CON PLAYER");
-        }
-        bool isItem = other.CompareTag("Item");
-        if (isItem && ItemsPossitions.ContainsKey(other.name))
-        {
-            ItemsPossitions.Remove(other.name);
-            Debug.Log("SALIO DE COLISION CON ITEM");
+            var playerToRemove = PlayersPositions.Find(p => p.Item1 == other.name);   
+            PlayersPositions.Remove(playerToRemove);
         }
     }
 

@@ -55,7 +55,7 @@ public class PositionRandomizer : MonoBehaviour
         }
         else
         {
-            clone.tag = "CollectiblesTag";
+            clone.tag = "Item";
         }
         //Prevents objects overlapping
         randomPositions.RemoveAt(randomIndex);
