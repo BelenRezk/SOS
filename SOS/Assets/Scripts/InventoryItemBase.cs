@@ -25,6 +25,7 @@ public abstract class InventoryItemBase : MonoBehaviour, IInventoryItem
     {
         this.transform.parent = player.transform;
         gameObject.SetActive(false);
+        FindObjectOfType<AudioManager>().Play("PickUpObject");
     }
 
     public virtual void OnDrop()

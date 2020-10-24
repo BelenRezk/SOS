@@ -22,7 +22,10 @@ public class Win : MonoBehaviour
         }
         if(winningItemsCount == 2)
         {
+            FindObjectOfType<AudioManager>().Stop("MainMusic");
+            FindObjectOfType<AudioManager>().Stop("BananaMusic");
             FindObjectOfType<AudioManager>().Play("Win");
+            FindObjectOfType<AudioManager>().Play("Jungle");
             LoadWinner.winner = "The winner is " + player.name;
             SceneManager.LoadScene("winScene");
         }

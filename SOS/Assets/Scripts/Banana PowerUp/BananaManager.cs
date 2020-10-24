@@ -9,10 +9,10 @@ public class BananaManager : MonoBehaviour
 
     public void Use(Transform user)
     {
-        if (user == mainCharacter.transform)
+        /*if (user == mainCharacter.transform)
         {
             ThirdPersonMovement thirdPersonMovement = mainCharacter.GetComponent<ThirdPersonMovement>();
             thirdPersonMovement.UseBanana(duration);
-        }
+        }*/
     }
 }

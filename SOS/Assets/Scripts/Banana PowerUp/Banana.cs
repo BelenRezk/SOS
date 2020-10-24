@@ -30,6 +30,8 @@ public class Banana : InventoryItemBase
         {
             ThirdPersonMovement thirdPersonMovement = playerGO.GetComponent<ThirdPersonMovement>();
             thirdPersonMovement.UseBanana(duration);
+            FindObjectOfType<AudioManager>().Stop("MainMusic");
+            FindObjectOfType<AudioManager>().Play("BananaMusic");
         }
         catch (Exception e)
         {

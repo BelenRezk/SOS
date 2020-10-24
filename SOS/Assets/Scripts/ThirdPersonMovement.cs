@@ -26,6 +26,13 @@ public class ThirdPersonMovement : MonoBehaviour
     public float afterHitInvincibility = 1f;
     private float currentInvincibility = 0f;
 
+    void Start()
+    {
+        FindObjectOfType<AudioManager>().Stop("Jungle");
+        FindObjectOfType<AudioManager>().Play("MainMusic");
+        FindObjectOfType<AudioManager>().Play("Waves");
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -83,6 +90,8 @@ public class ThirdPersonMovement : MonoBehaviour
             {
                 isUsingBanana = false;
                 speed = speed / bananaSpeedMultiplier;
+                FindObjectOfType<AudioManager>().Stop("BananaMusic");
+                FindObjectOfType<AudioManager>().Play("MainMusic");
             }
         }
     }
