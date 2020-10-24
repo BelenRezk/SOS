@@ -22,6 +22,7 @@ public class Win : MonoBehaviour
         }
         if(winningItemsCount == 2)
         {
+            FindObjectOfType<AudioManager>().Play("Win");
             LoadWinner.winner = "The winner is " + player.name;
             SceneManager.LoadScene("winScene");
         }
