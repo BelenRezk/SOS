@@ -30,9 +30,14 @@ public class AIPath : MonoBehaviour
                 var itemToGrab = obj.ItemsPositions.First();
                 
                 itemTarget = GameObject.Find(itemToGrab.Item1);
-                if(itemTarget.activeSelf){
+                if(itemTarget != null && itemTarget.activeSelf){
                     _navMeshAgent.destination = itemToGrab.Item2;
                     followsPath = false;
+                }
+                else{
+
+                    followsPath = true;
+                    obj.ItemsPositions.Remove(obj.ItemsPositions.First());
                 }
             }
             else{
@@ -49,7 +54,7 @@ public class AIPath : MonoBehaviour
         }
         
         var dist = Vector3.Distance(_navMeshAgent.destination, _navMeshAgent.transform.position);
-        if(dist < 1.54)
+        if(dist < 1.1)
         {
             if(followsPath){
                 randomDestination = (int)Random.Range(0f, path.Length);
@@ -64,4 +69,5 @@ public class AIPath : MonoBehaviour
             _navMeshAgent.destination = path[randomDestination].position;
         }
     }
+
 }
