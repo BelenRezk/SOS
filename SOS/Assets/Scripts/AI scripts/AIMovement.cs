@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -18,6 +19,8 @@ public class AIMovement : MonoBehaviour
     private bool isUsingBanana = false;
     public float bananaSpeedMultiplier = 2.0f;
     private bool hasShield = false;
+    public AudioClip getHitSound;
+    public AudioClip shieldSound;
 
     void Start()
     {
@@ -49,8 +52,8 @@ public class AIMovement : MonoBehaviour
 
     void Update()
     {
-        var dist = Vector3.Distance(targets[i].position,_navMeshAgent.transform.position);
-        if(dist < 1.5 || targets[i].parent != null)
+        var dist = Vector3.Distance(targets[i].position, _navMeshAgent.transform.position);
+        if (dist < 1.5 || targets[i].parent != null)
         {
             if (i < targets.Length - 1)
             {
@@ -71,14 +74,41 @@ public class AIMovement : MonoBehaviour
         else if (item != null && item.HasOwner)
         {
             if (!hasShield)
+            {
+                PlayGetHitSound();
                 inventory.DropAllItems();
+            }
             else
             {
+                PlayShieldSound();
                 hasShield = false;
             }
         }
     }
 
+    private void PlayGetHitSound()
+    {
+        try
+        {
+            AudioSource.PlayClipAtPoint(getHitSound, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z));
+        }
+        catch (Exception e)
+        {
+            Debug.Log("No get hit audio clip");
+        }
+    }
+
+    private void PlayShieldSound()
+    {
+        try
+        {
+            AudioSource.PlayClipAtPoint(shieldSound, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z));
+        }
+        catch (Exception e)
+        {
+            Debug.Log("No shield audio clip");
+        }
+    }
 
 
     public void UseBanana(float duration)

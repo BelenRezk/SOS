@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -20,12 +21,20 @@ public abstract class InventoryItemBase : MonoBehaviour, IInventoryItem
     {
         get { return _Image; }
     }
+    public AudioClip soundClip;
 
     public virtual void OnPickup(GameObject player)
     {
+        try
+        {
+            AudioSource.PlayClipAtPoint(soundClip, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z));
+        }
+        catch (Exception e)
+        {
+            Debug.Log("No audio clip");
+        }
         this.transform.parent = player.transform;
         gameObject.SetActive(false);
-        FindObjectOfType<AudioManager>().Play("PickUpObject");
     }
 
     public virtual void OnDrop()
