@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -25,6 +26,8 @@ public class ThirdPersonMovement : MonoBehaviour
     private bool hasShield = false;
     public float afterHitInvincibility = 1f;
     private float currentInvincibility = 0f;
+    public AudioClip getHitSound;
+    public AudioClip shieldSound;
 
     void Start()
     {
@@ -113,10 +116,40 @@ public class ThirdPersonMovement : MonoBehaviour
         else if (item != null && item.HasOwner && currentInvincibility <= 0)
         {
             if (!hasShield)
+            {
+                PlayGetHitSound();
                 inventory.DropAllItems();
+            }
             else
+            {
+                PlayShieldSound();
                 hasShield = false;
+            }
             currentInvincibility = afterHitInvincibility;
+        }
+    }
+
+    private void PlayGetHitSound()
+    {
+        try
+        {
+            AudioSource.PlayClipAtPoint(getHitSound, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z));
+        }
+        catch (Exception e)
+        {
+            Debug.Log("No audio clip");
+        }
+    }
+
+    private void PlayShieldSound()
+    {
+        try
+        {
+            AudioSource.PlayClipAtPoint(shieldSound, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z));
+        }
+        catch (Exception e)
+        {
+            Debug.Log("No shield audio clip");
         }
     }
 
