@@ -475,7 +475,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 600114852}
         m_TargetAssemblyTypeName: MenuOptions, Assembly-CSharp
-        m_MethodName: PlayGame
+        m_MethodName: SelectCharacter
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
