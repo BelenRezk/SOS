@@ -9,4 +9,9 @@ public class MenuOptions : MonoBehaviour
     {
         SceneManager.LoadScene("mainScene");
     }
+
+    public void SelectCharacter()
+    {
+        SceneManager.LoadScene("characterSelectionScene");
+    }
 }
