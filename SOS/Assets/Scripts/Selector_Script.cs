@@ -11,7 +11,8 @@ public class Selector_Script : MonoBehaviour
     public Image Yellow;
     private Vector3 CharacterPosition;
     private Vector3 OffScreen;
-    private int CharacterInt = 1;
+    [HideInInspector]
+    public static int CharacterInt = 1;
 
     private void Awake()
     {

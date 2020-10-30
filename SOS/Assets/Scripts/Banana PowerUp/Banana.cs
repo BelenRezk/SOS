@@ -33,7 +33,7 @@ public class Banana : InventoryItemBase
             FindObjectOfType<AudioManager>().Stop("MainMusic");
             FindObjectOfType<AudioManager>().Play("BananaMusic");
         }
-        catch (Exception e)
+        catch (Exception)
         {
             AIMovement aiMovement = playerGO.GetComponent<AIMovement>();
             aiMovement.UseBanana(duration);

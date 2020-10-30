@@ -29,7 +29,7 @@ public abstract class InventoryItemBase : MonoBehaviour, IInventoryItem
         {
             AudioSource.PlayClipAtPoint(soundClip, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z));
         }
-        catch (Exception e)
+        catch (Exception)
         {
             Debug.Log("No audio clip");
         }

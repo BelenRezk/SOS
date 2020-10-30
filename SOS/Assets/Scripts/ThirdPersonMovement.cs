@@ -3,11 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ThirdPersonMovement : MonoBehaviour
+public class ThirdPersonMovement : MovementBase
 {
     public CharacterController controller;
     public Transform cam;
-    public float speed = 6f;
+    //public float speed = 6f;
     public float gravity = -9.81f;
     public float jumpHeight = 3f;
     public Inventory inventory;
@@ -28,12 +28,31 @@ public class ThirdPersonMovement : MonoBehaviour
     private float currentInvincibility = 0f;
     public AudioClip getHitSound;
     public AudioClip shieldSound;
+    private CharacterDifferentiationBase characterBehaviour;
 
     void Start()
     {
         FindObjectOfType<AudioManager>().Stop("Jungle");
         FindObjectOfType<AudioManager>().Play("MainMusic");
         FindObjectOfType<AudioManager>().Play("Waves");
+        switch (Selector_Script.CharacterInt)
+        {
+            case 1:
+                characterBehaviour = new BusinessWomanBehaviour(this);
+                break;
+            case 2:
+                characterBehaviour = new PilotBehaviour(this);
+                break;
+            case 3:
+                characterBehaviour = new OldLadyBehaviour(this);
+                break;
+            case 4:
+                characterBehaviour = new HippieBehaviour(this);
+                break;
+            default:
+                characterBehaviour = new PilotBehaviour(this);
+                break;
+        }
     }
 
     // Update is called once per frame
@@ -81,6 +100,8 @@ public class ThirdPersonMovement : MonoBehaviour
         CheckBananaUsage();
         if (currentInvincibility > 0)
             currentInvincibility -= Time.deltaTime;
+        if (Input.GetButtonDown("UseSpecialAbility"))
+            characterBehaviour.UseSpecialAbility();
     }
 
     private void CheckBananaUsage()
@@ -135,7 +156,7 @@ public class ThirdPersonMovement : MonoBehaviour
         {
             AudioSource.PlayClipAtPoint(getHitSound, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z));
         }
-        catch (Exception e)
+        catch (Exception)
         {
             Debug.Log("No audio clip");
         }
@@ -147,7 +168,7 @@ public class ThirdPersonMovement : MonoBehaviour
         {
             AudioSource.PlayClipAtPoint(shieldSound, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z));
         }
-        catch (Exception e)
+        catch (Exception)
         {
             Debug.Log("No shield audio clip");
         }

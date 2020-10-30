@@ -36,7 +36,7 @@ public class Shield : InventoryItemBase
             ThirdPersonMovement thirdPersonMovement = playerGO.GetComponent<ThirdPersonMovement>();
             shieldUsed = thirdPersonMovement.UseShield();
         }
-        catch (Exception e)
+        catch (Exception)
         {
             AIMovement aiMovement = playerGO.GetComponent<AIMovement>();
             shieldUsed = aiMovement.UseShield();
