@@ -11,6 +11,7 @@ public class ThirdPersonMovement : MonoBehaviour
     public float gravity = -9.81f;
     public float jumpHeight = 3f;
     public Inventory inventory;
+    public Inventory winItems;
     Vector3 velocity;
     bool isGrounded;
 
@@ -109,8 +110,14 @@ public class ThirdPersonMovement : MonoBehaviour
     {
         if (item != null && !item.HasOwner)
         {
-            Debug.Log(inventory.gameObject.name);
-            inventory.AddItem(item);
+            if (item.WinItem)
+            {
+                winItems.AddItem(item);
+            }
+            else
+            {
+                inventory.AddItem(item);
+            }
             item.HasOwner = true;
         }
         else if (item != null && item.HasOwner && currentInvincibility <= 0)
@@ -118,7 +125,8 @@ public class ThirdPersonMovement : MonoBehaviour
             if (!hasShield)
             {
                 PlayGetHitSound();
-                inventory.DropAllItems();
+                inventory.DropAllItems();  
+                winItems.DropAllItems();
             }
             else
             {

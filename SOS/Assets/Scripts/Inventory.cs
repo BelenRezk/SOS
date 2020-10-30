@@ -7,13 +7,18 @@ using UnityEngine.UI;
 public class Inventory : MonoBehaviour
 {
     public GameObject owner;
-    private const int SLOTS = 9;
+    public int SLOTS = 9;
     public int selectedPosition = 0;
     private int currentNumberOfItems = 0;
-    private IInventoryItem[] mItems = new IInventoryItem[SLOTS];
+    private IInventoryItem[] mItems;
     public event EventHandler<InventoryEventArgs> ItemAdded;
     public event EventHandler<InventoryEventArgs> ItemRemoved;
     public event EventHandler<Tuple<int, int>> PositionChanged;
+
+    private void Start()
+    {
+        mItems = new IInventoryItem[SLOTS];
+    }
 
     public void AddItem(IInventoryItem item)
     {

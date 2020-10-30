@@ -27,6 +27,14 @@ public class Coconut : InventoryItemBase
         }
     }
 
+    public override bool WinItem
+    {
+        get
+        {
+            return false;
+        }
+    }
+
     public override bool OnUse()
     {
         gameObject.SetActive(true);

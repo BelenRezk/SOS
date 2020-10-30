@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 4522029735868766647}
   - component: {fileID: 2757778705565064559}
   - component: {fileID: 5124836812430038268}
-  - component: {fileID: 5124836812430038264}
   m_Layer: 0
   m_Name: Coconut
   m_TagString: Untagged
@@ -31,7 +30,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5124836812430038266}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8.192717, y: -0.67, z: 20.935713}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -141,7 +140,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7392f1fd0573434dbb3b6b887b4ccfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Image: {fileID: 21300000, guid: 9c3c0eb48414ef14a85486d9e9aad803, type: 3}
+  _Image: {fileID: 21300000, guid: 65a936ff44804b84f9b4bdc153410be9, type: 3}
+  soundClip: {fileID: 8300000, guid: 0e75e97a4744a1e45adaf0054f6d33e8, type: 3}
   objectDestination: {fileID: 0}
   throwSpeed: 2000
   _hasOwner: 0
@@ -158,19 +158,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5124836812430038264
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5124836812430038266}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7392f1fd0573434dbb3b6b887b4ccfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _Image: {fileID: 21300000, guid: 9c3c0eb48414ef14a85486d9e9aad803, type: 3}
-  objectDestination: {fileID: 0}
-  throwSpeed: 2000
-  _hasOwner: 0

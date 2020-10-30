@@ -21,6 +21,8 @@ public abstract class InventoryItemBase : MonoBehaviour, IInventoryItem
     {
         get { return _Image; }
     }
+
+    public virtual bool WinItem { get; }
     public AudioClip soundClip;
 
     public virtual void OnPickup(GameObject player)

@@ -6,6 +6,7 @@ public interface IInventoryItem
     string Name { get; }
     bool HasOwner { get; set; }
     Sprite Image { get; }
+    bool WinItem { get; }
     void OnPickup(GameObject player);
     void OnDrop();
     bool OnUse();

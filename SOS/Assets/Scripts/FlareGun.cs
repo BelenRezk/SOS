@@ -12,6 +12,14 @@ public class FlareGun : InventoryItemBase
         }
     }
 
+    public override bool WinItem
+    {
+        get
+        {
+            return true;
+        }
+    }
+
     public override bool OnUse()
     {
         return false;

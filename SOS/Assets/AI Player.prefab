@@ -860,6 +860,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owner: {fileID: 2499755259808908975}
+  SLOTS: 9
   selectedPosition: 0
 --- !u!1 &2499755259808908975
 GameObject:
