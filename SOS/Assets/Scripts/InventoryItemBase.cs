@@ -60,4 +60,8 @@ public abstract class InventoryItemBase : MonoBehaviour, IInventoryItem
     }
 
     public abstract bool OnUse();
+    public void DestroyObject()
+    {
+        Destroy(gameObject);
+    }
 }

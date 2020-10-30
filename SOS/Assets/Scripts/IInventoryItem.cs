@@ -10,6 +10,7 @@ public interface IInventoryItem
     void OnPickup(GameObject player);
     void OnDrop();
     bool OnUse();
+    void DestroyObject();
 }
 
 public class InventoryEventArgs : EventArgs

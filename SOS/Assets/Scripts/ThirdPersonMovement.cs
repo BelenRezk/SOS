@@ -148,6 +148,7 @@ public class ThirdPersonMovement : MovementBase
                 PlayGetHitSound();
                 inventory.DropAllItems();  
                 winItems.DropAllItems();
+                item.DestroyObject();
             }
             else
             {
