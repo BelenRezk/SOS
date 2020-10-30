@@ -26,6 +26,14 @@ public class Shield : InventoryItemBase
         }
     }
 
+    public override bool WinItem
+    {
+        get
+        {
+            return false;
+        }
+    }
+
     public override bool OnUse()
     {
         Transform player = this.transform.parent;

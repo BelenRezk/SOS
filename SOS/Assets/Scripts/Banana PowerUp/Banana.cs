@@ -13,6 +13,13 @@ public class Banana : InventoryItemBase
             return "Banana";
         }
     }
+    public override bool WinItem
+    {
+        get
+        {
+            return false;
+        }
+    }
 
     public float duration = 5f;
 

@@ -318,6 +318,7 @@ MonoBehaviour:
   gravity: -9.81
   jumpHeight: 3
   inventory: {fileID: 0}
+  winItems: {fileID: 0}
   groundCheck: {fileID: 6644414247976643127}
   groundDistance: 0.4
   groundMask:
