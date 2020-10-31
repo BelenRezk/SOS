@@ -942,6 +942,14 @@ MonoBehaviour:
     pitchVariance: 0
     loop: 1
     source: {fileID: 0}
+  - name: OldLadyAbilityMusic
+    clip: {fileID: 8300000, guid: dea4762b617e9324c81bead18c60d88c, type: 3}
+    volume: 0.3
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 1
+    source: {fileID: 0}
 --- !u!4 &677956251
 Transform:
   m_ObjectHideFlags: 0

@@ -7,7 +7,6 @@ public class ThirdPersonMovement : MovementBase
 {
     public CharacterController controller;
     public Transform cam;
-    //public float speed = 6f;
     public float gravity = -9.81f;
     public float jumpHeight = 3f;
     public Inventory inventory;
@@ -22,36 +21,35 @@ public class ThirdPersonMovement : MovementBase
     float turnSmoothVelocity;
     public float turnSmoothTime = 0.1f;
     private float remainingBananaTime = 0f;
-    private bool isUsingBanana = false;
+
     public float bananaSpeedMultiplier = 2.0f;
     private bool hasShield = false;
-    public float afterHitInvincibility = 1f;
-    private float currentInvincibility = 0f;
     public AudioClip getHitSound;
     public AudioClip shieldSound;
     private CharacterDifferentiationBase characterBehaviour;
 
     void Start()
     {
+        AudioManager manager = FindObjectOfType<AudioManager>();
         FindObjectOfType<AudioManager>().Stop("Jungle");
         FindObjectOfType<AudioManager>().Play("MainMusic");
         FindObjectOfType<AudioManager>().Play("Waves");
         switch (Selector_Script.CharacterInt)
         {
             case 1:
-                characterBehaviour = new BusinessWomanBehaviour(this);
+                characterBehaviour = new BusinessWomanBehaviour(this, true, manager);
                 break;
             case 2:
-                characterBehaviour = new PilotBehaviour(this);
+                characterBehaviour = new PilotBehaviour(this, true, manager);
                 break;
             case 3:
-                characterBehaviour = new OldLadyBehaviour(this);
+                characterBehaviour = new OldLadyBehaviour(this, true, manager);
                 break;
             case 4:
-                characterBehaviour = new HippieBehaviour(this);
+                characterBehaviour = new HippieBehaviour(this, true, manager);
                 break;
             default:
-                characterBehaviour = new PilotBehaviour(this);
+                characterBehaviour = new PilotBehaviour(this, true, manager);
                 break;
         }
     }
@@ -101,8 +99,22 @@ public class ThirdPersonMovement : MovementBase
         CheckBananaUsage();
         if (currentInvincibility > 0)
             currentInvincibility -= Time.deltaTime;
-        if (Input.GetButtonDown("UseSpecialAbility"))
+        if (Input.GetButtonDown("UseSpecialAbility") && abilityCooldownRemaining <= 0 && !abilityActive)
+        {
             characterBehaviour.UseSpecialAbility();
+            abilityDurationRemaining = abilityDuration;
+            abilityActive = true;
+        }
+        if (abilityCooldownRemaining > 0)
+            abilityCooldownRemaining -= Time.deltaTime;
+        if (abilityActive && abilityDurationRemaining <= 0)
+        {
+            characterBehaviour.FinishSpecialAbility();
+            abilityActive = false;
+            abilityCooldownRemaining = abilityCooldown;
+        }
+        if (abilityDurationRemaining > 0)
+            abilityDurationRemaining -= Time.deltaTime;
     }
 
     private void CheckBananaUsage()
@@ -146,7 +158,7 @@ public class ThirdPersonMovement : MovementBase
             if (!hasShield)
             {
                 PlayGetHitSound();
-                inventory.DropAllItems();  
+                inventory.DropAllItems();
                 winItems.DropAllItems();
                 item.DestroyObject();
             }

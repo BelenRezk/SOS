@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class AIMovement : MonoBehaviour
+public class AIMovement : MovementBase
 {
     [SerializeField]
     Transform _destination;
@@ -16,7 +16,6 @@ public class AIMovement : MonoBehaviour
     public Inventory inventory;
 
     private float remainingBananaTime = 0f;
-    private bool isUsingBanana = false;
     public float bananaSpeedMultiplier = 2.0f;
     private bool hasShield = false;
     public AudioClip getHitSound;
