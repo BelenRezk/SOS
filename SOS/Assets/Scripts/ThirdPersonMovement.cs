@@ -9,8 +9,6 @@ public class ThirdPersonMovement : MovementBase
     public Transform cam;
     public float gravity = -9.81f;
     public float jumpHeight = 3f;
-    public Inventory inventory;
-    public Inventory winItems;
     Vector3 velocity;
     bool isGrounded;
 

@@ -26,6 +26,7 @@ public class CountdownTimer : MonoBehaviour
                 FindObjectOfType<AudioManager>().Stop("MainMusic");
                 FindObjectOfType<AudioManager>().Stop("BananaMusic");
                 FindObjectOfType<AudioManager>().Stop("OldLadyAbilityMusic");
+                FindObjectOfType<AudioManager>().Stop("HippieAbilityMusic");
                 FindObjectOfType<AudioManager>().Play("GameOver");
                 FindObjectOfType<AudioManager>().Play("Jungle");
                 SceneManager.LoadScene("gameOverScene");

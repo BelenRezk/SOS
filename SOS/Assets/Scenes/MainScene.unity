@@ -950,6 +950,14 @@ MonoBehaviour:
     pitchVariance: 0
     loop: 1
     source: {fileID: 0}
+  - name: HippieAbilityMusic
+    clip: {fileID: 8300000, guid: 6570c68778f458142b322a97dfab9a8c, type: 3}
+    volume: 0.3
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 1
+    source: {fileID: 0}
 --- !u!4 &677956251
 Transform:
   m_ObjectHideFlags: 0
@@ -1959,6 +1967,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2499755259808908968, guid: 7e5248518cd529d469b424ecbbe50145, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2499755259808908968, guid: 7e5248518cd529d469b424ecbbe50145, type: 3}
+      propertyPath: playerId
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2499755259808908975, guid: 7e5248518cd529d469b424ecbbe50145, type: 3}
       propertyPath: m_Name
       value: AI Player
@@ -2127,15 +2143,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4889143176011413168, guid: abc72ba931305e74694f419ec2bf8402, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.105060555
+      value: 0.10506053
       objectReference: {fileID: 0}
     - target: {fileID: 4889143176011413168, guid: abc72ba931305e74694f419ec2bf8402, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000009036003
+      value: 0.000000022821853
       objectReference: {fileID: 0}
     - target: {fileID: 4889143176011413168, guid: abc72ba931305e74694f419ec2bf8402, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 9.546104e-10
+      value: -0.0000000024110192
       objectReference: {fileID: 0}
     - target: {fileID: 4889143176840889030, guid: abc72ba931305e74694f419ec2bf8402, type: 3}
       propertyPath: m_Name
@@ -2705,6 +2721,10 @@ PrefabInstance:
       propertyPath: winItems
       value: 
       objectReference: {fileID: 1320267077}
+    - target: {fileID: 6644414249488293474, guid: fdcf88bedb183ed4ba0ae73a973746b4, type: 3}
+      propertyPath: playerId
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdcf88bedb183ed4ba0ae73a973746b4, type: 3}
 --- !u!1001 &8224144399574575970

@@ -23,6 +23,7 @@ public class Win : MonoBehaviour
             FindObjectOfType<AudioManager>().Stop("MainMusic");
             FindObjectOfType<AudioManager>().Stop("BananaMusic");
             FindObjectOfType<AudioManager>().Stop("OldLadyAbilityMusic");
+            FindObjectOfType<AudioManager>().Stop("HippieAbilityMusic");
             FindObjectOfType<AudioManager>().Play("Win");
             FindObjectOfType<AudioManager>().Play("Jungle");
             LoadWinner.winner = "The winner is " + player.name;

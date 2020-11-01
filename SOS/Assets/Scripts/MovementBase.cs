@@ -13,4 +13,18 @@ public abstract class MovementBase : MonoBehaviour
     public float afterHitInvincibility = 1f;
     public float currentInvincibility = 0f;
     public bool isUsingBanana = false;
+    public Inventory inventory;
+    public Inventory winItems;
+    public int playerId;
+
+    public override bool Equals(object obj)
+    {
+        return playerId == ((MovementBase)obj).playerId;
+    }
+
+    // override object.GetHashCode
+    public override int GetHashCode()
+    {
+        return playerId;
+    }
 }

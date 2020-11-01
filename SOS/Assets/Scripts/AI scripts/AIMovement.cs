@@ -13,7 +13,6 @@ public class AIMovement : MovementBase
 
     Transform[] targets;
     int i = 0;
-    public Inventory inventory;
 
     private float remainingBananaTime = 0f;
     public float bananaSpeedMultiplier = 2.0f;
