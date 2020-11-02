@@ -37,6 +37,7 @@ public abstract class InventoryItemBase : MonoBehaviour, IInventoryItem
             Debug.Log("No audio clip");
         }
         this.transform.parent = player.transform;
+        HasOwner = true;
         gameObject.SetActive(false);
     }
 

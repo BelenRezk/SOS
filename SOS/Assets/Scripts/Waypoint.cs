@@ -15,32 +15,43 @@ public class Waypoint : MonoBehaviour
     public float closeEnoughDistance;
     private bool tooClose = false;
     private bool targetSet = false;
-    // Start is called before the first frame update
+    public bool isAbilityActive;
+    private bool isItemBeingHeld;
+
     void Start()
     {
         iconImg = GetComponent<Image>();
         distanceText = GetComponentInChildren<Text>();
+        isAbilityActive = false;
+        isItemBeingHeld = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (!targetSet && target != null)
+        if (isAbilityActive)
         {
-            GameObject[] items = GameObject.FindGameObjectsWithTag("Item");
-            InventoryItemBase targetScript = target.GetComponent<InventoryItemBase>();
-            foreach (GameObject item in items)
+            if (!targetSet && target != null)
             {
-                InventoryItemBase itemScript = item.GetComponent<InventoryItemBase>();
-                if (targetScript != null && itemScript != null && targetScript.Equals(itemScript))
-                    targetInstance = item.transform;
+                GameObject[] items = GameObject.FindGameObjectsWithTag("Item");
+                InventoryItemBase targetScript = target.GetComponent<InventoryItemBase>();
+                foreach (GameObject item in items)
+                {
+                    InventoryItemBase itemScript = item.GetComponent<InventoryItemBase>();
+                    isItemBeingHeld = itemScript.HasOwner;
+                    if (targetScript != null && itemScript != null && targetScript.Equals(itemScript))
+                        targetInstance = item.transform;
+                }
+                targetSet = true;
             }
-            targetSet = true;
+            if (targetInstance != null)
+            {
+                GetDistance();
+                CheckOnScreen();
+            }
         }
-        if (targetInstance != null)
+        else
         {
-            GetDistance();
-            CheckOnScreen();
+            ToggleUI(false);
         }
     }
 
@@ -64,7 +75,7 @@ public class Waypoint : MonoBehaviour
     {
         float aux = Vector3.Dot((targetInstance.position - cam.transform.position).normalized, cam.transform.forward);
 
-        if (aux <= 0 || tooClose)
+        if (aux <= 0 || tooClose || isItemBeingHeld)
             ToggleUI(false);
         else
         {
