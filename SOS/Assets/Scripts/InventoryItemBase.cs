@@ -5,6 +5,7 @@ using UnityEngine;
 
 public abstract class InventoryItemBase : MonoBehaviour, IInventoryItem
 {
+    public int itemId; 
     public virtual string Name
     {
         get
@@ -41,14 +42,6 @@ public abstract class InventoryItemBase : MonoBehaviour, IInventoryItem
 
     public virtual void OnDrop()
     {
-        /*RaycastHit hit = new RaycastHit();
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if(Physics.Raycast(ray, out hit, 1000))
-        {
-            gameObject.SetActive(true);
-            gameObject.transform.position = hit.point;
-        }*/
-
         Vector3 newPos = new Vector3(1, 1, 1);
         this.transform.position = this.transform.parent.position + newPos;
         HasOwner = false;
@@ -63,5 +56,15 @@ public abstract class InventoryItemBase : MonoBehaviour, IInventoryItem
     public void DestroyObject()
     {
         Destroy(gameObject);
+    }
+
+    public override bool Equals(object obj)
+    {
+        return itemId == ((InventoryItemBase)obj).itemId;
+    }
+
+    public override int GetHashCode()
+    {
+        return itemId;
     }
 }
