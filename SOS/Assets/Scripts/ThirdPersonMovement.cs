@@ -11,6 +11,7 @@ public class ThirdPersonMovement : MovementBase
     public float jumpHeight = 3f;
     Vector3 velocity;
     bool isGrounded;
+    public Transform GameCamera;
 
     public Transform groundCheck;
     public float groundDistance = 0.4f;
@@ -55,6 +56,11 @@ public class ThirdPersonMovement : MovementBase
     // Update is called once per frame
     void Update()
     {
+        var CharacterRotation = GameCamera.transform.rotation;
+        CharacterRotation.x = 0;
+        CharacterRotation.z = 0;
+
+        transform.rotation = CharacterRotation;
         //jump
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
@@ -78,7 +84,7 @@ public class ThirdPersonMovement : MovementBase
         {
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
-            transform.rotation = Quaternion.Euler(0f, angle, 0f);
+            //transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
@@ -134,7 +140,12 @@ public class ThirdPersonMovement : MovementBase
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         IInventoryItem item = hit.collider.GetComponent<IInventoryItem>();
-        AddToInventory(item);
+        if (currentInvincibility <= 0)
+        {
+            AddToInventory(item);
+        }
+        if(item != null)
+            currentInvincibility = afterHitInvincibility;
     }
 
     private void AddToInventory(IInventoryItem item)
@@ -151,7 +162,7 @@ public class ThirdPersonMovement : MovementBase
             }
             item.HasOwner = true;
         }
-        else if (item != null && item.HasOwner && currentInvincibility <= 0)
+        else if (item != null && item.HasOwner)
         {
             if (!hasShield)
             {
@@ -165,7 +176,6 @@ public class ThirdPersonMovement : MovementBase
                 PlayShieldSound();
                 hasShield = false;
             }
-            currentInvincibility = afterHitInvincibility;
         }
     }
 
