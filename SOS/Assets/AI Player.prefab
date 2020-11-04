@@ -954,9 +954,9 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5000001
-  m_Height: 2
+  m_Height: 3.521172
   m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_Center: {x: 0.000000059604645, y: 0.760586, z: -0.00000011920929}
 --- !u!114 &2499755259808908968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -964,13 +964,24 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2499755259808908975}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 22bc5f731aa14d14fa98f5146894f987, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _destination: {fileID: 0}
+  speed: 6
+  abilityCooldown: 40
+  abilityCooldownRemaining: 0
+  abilityDuration: 10
+  abilityDurationRemaining: 0
+  abilityActive: 0
+  afterHitInvincibility: 1
+  currentInvincibility: 0
+  isUsingBanana: 0
   inventory: {fileID: 2499755259801357808}
+  winItems: {fileID: 0}
+  playerId: 2
+  _destination: {fileID: 0}
   bananaSpeedMultiplier: 2
   getHitSound: {fileID: 8300000, guid: dd2c2f53c9b72034db1e135ba2610657, type: 3}
   shieldSound: {fileID: 8300000, guid: d0895f110e527bc4fa19006e8484585b, type: 3}
