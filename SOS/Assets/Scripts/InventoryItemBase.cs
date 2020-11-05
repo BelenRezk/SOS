@@ -33,7 +33,6 @@ public abstract class InventoryItemBase : MonoBehaviour, IInventoryItem
         gameManager = GameManager.instance;
         itemId = gameManager.ItemsId;
         gameManager.ItemsId++;
-        Debug.Log(Name+itemId);
     }
 
     public virtual void OnPickup(GameObject player)
