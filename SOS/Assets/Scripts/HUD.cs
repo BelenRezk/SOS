@@ -59,7 +59,6 @@ public class HUD : MonoBehaviour
         {
             inventoryPanel = transform.Find("InventoryPanel");
         }
-        Debug.Log("NOMBRE DE INV"+inventoryPanel.name);
         foreach (Transform slot in inventoryPanel)
         {
             Transform imageTransform = slot.GetChild(0).GetChild(0);

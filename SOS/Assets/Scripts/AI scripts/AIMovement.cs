@@ -75,6 +75,7 @@ public class AIMovement : MovementBase
             {
                 PlayGetHitSound();
                 inventory.DropAllItems();
+                item.DestroyObject();
             }
             else
             {
