@@ -5,7 +5,7 @@ using UnityEngine;
 
 public abstract class InventoryItemBase : MonoBehaviour, IInventoryItem
 {
-    public int itemId; 
+    private GameManager gameManager;
     public virtual string Name
     {
         get
@@ -25,6 +25,16 @@ public abstract class InventoryItemBase : MonoBehaviour, IInventoryItem
 
     public virtual bool WinItem { get; }
     public AudioClip soundClip;
+
+    private int itemId;
+
+    private void Start()
+    {
+        gameManager = GameManager.instance;
+        itemId = gameManager.ItemsId;
+        gameManager.ItemsId++;
+        Debug.Log(Name+itemId);
+    }
 
     public virtual void OnPickup(GameObject player)
     {

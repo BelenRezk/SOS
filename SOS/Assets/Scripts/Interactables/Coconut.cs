@@ -34,12 +34,6 @@ public class Coconut : InventoryItemBase
             return false;
         }
     }
-
-    private void Start()
-    {
-        HasOwner = false;
-    }
-
     public override bool OnUse()
     {
         gameObject.SetActive(true);
