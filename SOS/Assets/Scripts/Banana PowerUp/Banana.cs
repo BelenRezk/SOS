@@ -35,8 +35,8 @@ public class Banana : InventoryItemBase
         }
         catch (Exception e)
         {
-            AIMovement aiMovement = playerGO.GetComponent<AIMovement>();
-            aiMovement.UseBanana(duration);
+            //AIMovement aiMovement = playerGO.GetComponent<AIMovement>();
+            //aiMovement.UseBanana(duration);
         }
         return true;
     }

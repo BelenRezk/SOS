@@ -30,7 +30,7 @@ public class Shield : InventoryItemBase
     {
         Transform player = this.transform.parent;
         GameObject playerGO = player.gameObject;
-        bool shieldUsed;
+        bool shieldUsed = false;
         try
         {
             ThirdPersonMovement thirdPersonMovement = playerGO.GetComponent<ThirdPersonMovement>();
@@ -38,8 +38,8 @@ public class Shield : InventoryItemBase
         }
         catch (Exception e)
         {
-            AIMovement aiMovement = playerGO.GetComponent<AIMovement>();
-            shieldUsed = aiMovement.UseShield();
+            //AIMovement aiMovement = playerGO.GetComponent<AIMovement>();
+            //shieldUsed = aiMovement.UseShield();
         }
         if (shieldUsed)
             this.transform.parent = null;

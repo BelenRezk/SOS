@@ -63,7 +63,7 @@ public class AIMovement : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    /*private void OnTriggerEnter(Collider other)
     {
         IInventoryItem item = other.GetComponent<Collider>().GetComponent<IInventoryItem>();
         if (item != null && !item.HasOwner)
@@ -84,7 +84,7 @@ public class AIMovement : MonoBehaviour
                 hasShield = false;
             }
         }
-    }
+    }*/
 
     private void PlayGetHitSound()
     {

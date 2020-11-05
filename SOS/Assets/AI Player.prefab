@@ -876,6 +876,8 @@ GameObject:
   - component: {fileID: 2499755259808908965}
   - component: {fileID: 2499755259808908966}
   - component: {fileID: 494281335}
+  - component: {fileID: 619062689}
+  - component: {fileID: 619062690}
   m_Layer: 0
   m_Name: AI Player
   m_TagString: Player
@@ -953,7 +955,7 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5000001
-  m_Height: 2
+  m_Height: 4
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!114 &2499755259808908968
@@ -1031,6 +1033,35 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+--- !u!114 &619062689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2499755259808908975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c8735ef9b246be4ca97e02ae9c28828, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bananaSpeedMultiplier: 2
+  hasShield: 0
+--- !u!114 &619062690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2499755259808908975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bdea71a66025f742af3276b4721f402, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 2499755259801357808}
+  getHitSound: {fileID: 8300000, guid: dd2c2f53c9b72034db1e135ba2610657, type: 3}
+  shieldSound: {fileID: 8300000, guid: d0895f110e527bc4fa19006e8484585b, type: 3}
 --- !u!1 &2499755259950904792
 GameObject:
   m_ObjectHideFlags: 0
