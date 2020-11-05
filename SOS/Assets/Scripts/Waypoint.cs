@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEditor;
 
 public class Waypoint : MonoBehaviour
 {
@@ -11,10 +12,11 @@ public class Waypoint : MonoBehaviour
     public Transform target;
     private Transform targetInstance;
     public Camera cam;
+    public string itemName;
 
     public float closeEnoughDistance;
     private bool tooClose = false;
-    private bool targetSet = false;
+    private bool targetSet;
     public bool isAbilityActive;
     private bool isItemBeingHeld;
 
@@ -22,8 +24,10 @@ public class Waypoint : MonoBehaviour
     {
         iconImg = GetComponent<Image>();
         distanceText = GetComponentInChildren<Text>();
+        targetSet = false;
         isAbilityActive = false;
         isItemBeingHeld = false;
+        itemName = itemName + "(Clone)";
     }
 
     void Update()
@@ -36,9 +40,7 @@ public class Waypoint : MonoBehaviour
                 InventoryItemBase targetScript = target.GetComponent<InventoryItemBase>();
                 foreach (GameObject item in items)
                 {
-                    InventoryItemBase itemScript = item.GetComponent<InventoryItemBase>();
-                    isItemBeingHeld = itemScript.HasOwner;
-                    if (targetScript != null && itemScript != null && targetScript.Equals(itemScript))
+                    if(itemName.Equals(item.name))
                         targetInstance = item.transform;
                 }
                 targetSet = true;

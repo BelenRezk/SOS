@@ -59,28 +59,34 @@ public class AIMovement : MovementBase
                 _navMeshAgent.destination = targets[i].position;
             }
         }
+        if (interactionCooldownRemaining > 0)
+            interactionCooldownRemaining -= Time.deltaTime;
     }
 
     private void OnTriggerEnter(Collider other)
     {
         IInventoryItem item = other.GetComponent<Collider>().GetComponent<IInventoryItem>();
-        if (item != null && !item.HasOwner)
+        if(interactionCooldownRemaining <= 0)
         {
-            inventory.AddItem(item);
-            item.HasOwner = true;
-        }
-        else if (item != null && item.HasOwner)
-        {
-            if (!hasShield)
+            interactionCooldownRemaining = interactionCooldown;
+            if (item != null && !item.HasOwner)
             {
-                PlayGetHitSound();
-                inventory.DropAllItems();
-                item.DestroyObject();
+                inventory.AddItem(item);
+                item.HasOwner = true;
             }
-            else
+            else if (item != null && item.HasOwner)
             {
-                PlayShieldSound();
-                hasShield = false;
+                if (!hasShield)
+                {
+                    PlayGetHitSound();
+                    inventory.DropAllItems();
+                    item.DestroyObject();
+                }
+                else
+                {
+                    PlayShieldSound();
+                    hasShield = false;
+                }
             }
         }
     }

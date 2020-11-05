@@ -16,13 +16,14 @@ public abstract class MovementBase : MonoBehaviour
     public Inventory inventory;
     public Inventory winItems;
     public int playerId;
+    public float interactionCooldown = 0.5f;
+    public float interactionCooldownRemaining = 0;
 
     public override bool Equals(object obj)
     {
         return playerId == ((MovementBase)obj).playerId;
     }
 
-    // override object.GetHashCode
     public override int GetHashCode()
     {
         return playerId;

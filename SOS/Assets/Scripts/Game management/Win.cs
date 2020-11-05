@@ -13,12 +13,12 @@ public class Win : MonoBehaviour
         for (int i = 0; i < itemCount; i++)
         {
             IInventoryItem item = player.transform.GetChild(i).GetComponent<IInventoryItem>();
-            if (item != null && item.Name != null && (item.Name.Equals("Oar") || item.Name.Equals("FlareGun")))
+            if (item != null && item.Name != null && (item.Name.Equals("Oar") || item.Name.Equals("Oar (1)") || item.Name.Equals("FlareGun")))
             {
                 winningItemsCount ++;
             }
         }
-        if(winningItemsCount == 2)
+        if(winningItemsCount == 3)
         {
             FindObjectOfType<AudioManager>().Stop("MainMusic");
             FindObjectOfType<AudioManager>().Stop("BananaMusic");

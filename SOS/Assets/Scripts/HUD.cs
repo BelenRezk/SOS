@@ -36,16 +36,6 @@ public class HUD : MonoBehaviour
                 image.color = new Color32(120, 120, 120, 140);
             position++;
         }
-        foreach (Transform slot in winItems)
-        {
-            Transform imageTransform = slot.GetChild(0).GetChild(0);
-            Image image = imageTransform.GetComponent<Image>();
-            if (position == 0)
-                image.color = new Color32(255, 255, 255, 255);
-            else
-                image.color = new Color32(120, 120, 120, 140);
-            position++;
-        }
     }
 
     private void InventoryScript_ItemAdded(object sender, InventoryEventArgs e)
@@ -59,12 +49,19 @@ public class HUD : MonoBehaviour
         {
             inventoryPanel = transform.Find("InventoryPanel");
         }
+        int position = 0;
         foreach (Transform slot in inventoryPanel)
         {
             Transform imageTransform = slot.GetChild(0).GetChild(0);
             Image image = imageTransform.GetComponent<Image>();
             ItemDragHandler itemDragHandler = imageTransform.GetComponent<ItemDragHandler>();
-
+            if(!e.Item.WinItem)
+            {
+                if(position != e.SelectedPosition)
+                    image.color = new Color32(120, 120, 120, 140);
+                else
+                    image.color = new Color32(255, 255, 255, 255);
+            }
             if (!image.enabled)
             {
                 image.enabled = true;
@@ -72,6 +69,7 @@ public class HUD : MonoBehaviour
                 itemDragHandler.Item = e.Item;
                 break;
             }
+            position++;
         }
     }
 

@@ -16,6 +16,7 @@ public class PilotBehaviour : CharacterDifferentiationBase
         Debug.Log("Pilot Ability");
         ToggleWaypoint("WaypointOar", true);
         ToggleWaypoint("WaypointFlareGun", true);
+        ToggleWaypoint("WaypointOar (1)", true);
         if (shouldPlayMusic)
         {
             audioManager.Stop("MainMusic");
@@ -29,6 +30,7 @@ public class PilotBehaviour : CharacterDifferentiationBase
     {
         ToggleWaypoint("WaypointOar", false);
         ToggleWaypoint("WaypointFlareGun", false);
+        ToggleWaypoint("WaypointOar (1)", false);
         if (shouldPlayMusic)
         {
             audioManager.Stop("RadarBlip");

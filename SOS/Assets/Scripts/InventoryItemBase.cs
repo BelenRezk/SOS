@@ -26,7 +26,7 @@ public abstract class InventoryItemBase : MonoBehaviour, IInventoryItem
     public virtual bool WinItem { get; }
     public AudioClip soundClip;
 
-    private int itemId;
+    public int itemId;
 
     private void Start()
     {

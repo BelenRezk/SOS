@@ -119,6 +119,8 @@ public class ThirdPersonMovement : MovementBase
         }
         if (abilityDurationRemaining > 0)
             abilityDurationRemaining -= Time.deltaTime;
+        if (interactionCooldownRemaining > 0)
+            interactionCooldownRemaining -= Time.deltaTime;
     }
 
     private void CheckBananaUsage()
@@ -140,41 +142,44 @@ public class ThirdPersonMovement : MovementBase
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         IInventoryItem item = hit.collider.GetComponent<IInventoryItem>();
-        if (currentInvincibility <= 0)
+        if (currentInvincibility <= 0 || abilityActive)
         {
             AddToInventory(item);
-        }
-        if(item != null)
-            currentInvincibility = afterHitInvincibility;
+        }   
     }
 
     private void AddToInventory(IInventoryItem item)
     {
-        if (item != null && !item.HasOwner)
+        if(item != null && interactionCooldownRemaining <= 0)
         {
-            if (item.WinItem)
+            Debug.Log(((InventoryItemBase)item).name);
+            interactionCooldownRemaining = interactionCooldown;
+            if(!item.HasOwner)
             {
-                winItems.AddItem(item);
+                if (item.WinItem)
+                    winItems.AddItem(item);
+                else
+                    inventory.AddItem(item);
+                item.HasOwner = true;
             }
             else
             {
-                inventory.AddItem(item);
-            }
-            item.HasOwner = true;
-        }
-        else if (item != null && item.HasOwner)
-        {
-            if (!hasShield)
-            {
-                PlayGetHitSound();
-                inventory.DropAllItems();
-                winItems.DropAllItems();
-                item.DestroyObject();
-            }
-            else
-            {
-                PlayShieldSound();
-                hasShield = false;
+                if(currentInvincibility <= 0)
+                {
+                    if (!hasShield)
+                    {
+                        PlayGetHitSound();
+                        inventory.DropAllItems();
+                        winItems.DropAllItems();
+                        item.DestroyObject();
+                    }
+                    else
+                    {
+                        PlayShieldSound();
+                        hasShield = false;
+                    }
+                    currentInvincibility = afterHitInvincibility;
+                }
             }
         }
     }

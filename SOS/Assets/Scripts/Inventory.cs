@@ -41,7 +41,11 @@ public class Inventory : MonoBehaviour
 
                 if (ItemAdded != null)
                 {
-                    ItemAdded(this, new InventoryEventArgs(item));
+                    ItemAdded(this, new InventoryEventArgs(item, selectedPosition));
+                    /*Transform inventoryPanel = transform.Find("InventoryPanel");
+                    Transform imageTransform = inventoryPanel[selectedPosition].GetChild(0).GetChild(0);
+                    Image image = imageTransform.GetComponent<Image>();
+                    image.color = new Color32(255, 255, 255, 255);*/
                 }
             }
         }
@@ -85,14 +89,17 @@ public class Inventory : MonoBehaviour
             currentNumberOfItems--;
             item.OnDrop();
             Collider collider = (item as MonoBehaviour).GetComponent<Collider>();
+            Rigidbody rigidbody = (item as MonoBehaviour).GetComponent<Rigidbody>();
             if (collider != null)
-            {
                 collider.enabled = true;
+            if(rigidbody != null)
+            {
+                float xForce = UnityEngine.Random.Range(-80f, 80f);
+                float zForce = UnityEngine.Random.Range(-80f, 80f);
+                rigidbody.AddForce(xForce, 500f, zForce);
             }
             if (ItemRemoved != null)
-            {
-                ItemRemoved(this, new InventoryEventArgs(item));
-            }
+                ItemRemoved(this, new InventoryEventArgs(item, selectedPosition));
         }
     }
 
@@ -115,7 +122,7 @@ public class Inventory : MonoBehaviour
                 if (collider != null)
                     collider.enabled = true;
                 if (ItemRemoved != null)
-                    ItemRemoved(this, new InventoryEventArgs(item));
+                    ItemRemoved(this, new InventoryEventArgs(item, selectedPosition));
             }
         }
     }
