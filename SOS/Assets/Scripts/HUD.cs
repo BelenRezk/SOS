@@ -78,14 +78,9 @@ public class HUD : MonoBehaviour
     {
         Transform inventoryPanel;
         if (e.Item.WinItem)
-        {
             inventoryPanel = transform.Find("WinItems");
-            Debug.Log(((InventoryItemBase)e.Item).name + "ENTERED ITEMREMOVED FOR WINITEM");
-        }
         else
-        {
             inventoryPanel = transform.Find("InventoryPanel");
-        }
         foreach (Transform slot in inventoryPanel)
         {
             Transform imageTransform = slot.GetChild(0).GetChild(0);

@@ -45,7 +45,7 @@ public class Waypoint : MonoBehaviour
                 }
                 targetSet = true;
             }
-            if (targetInstance != null)
+            if (targetInstance != null && targetInstance.gameObject.activeInHierarchy)
             {
                 GetDistance();
                 CheckOnScreen();

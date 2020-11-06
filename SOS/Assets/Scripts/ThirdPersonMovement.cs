@@ -51,6 +51,7 @@ public class ThirdPersonMovement : MovementBase
                 characterBehaviour = new PilotBehaviour(this, true, manager);
                 break;
         }
+        abilityCooldownRemaining = 3f;
     }
 
     // Update is called once per frame
@@ -158,7 +159,6 @@ public class ThirdPersonMovement : MovementBase
     {
         if(item != null && interactionCooldownRemaining <= 0)
         {
-            Debug.Log(((InventoryItemBase)item).name + "ENTERED INTERACTION" + item.HasOwner);
             interactionCooldownRemaining = interactionCooldown;
             if(!item.HasOwner)
             {
