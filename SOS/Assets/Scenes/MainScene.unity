@@ -3154,6 +3154,30 @@ PrefabInstance:
       propertyPath: itemName
       value: FlareGun
       objectReference: {fileID: 0}
+    - target: {fileID: 736592901, guid: 04edc0c1d6a035a4a93aa00b6bfb3044, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 736592901, guid: 04edc0c1d6a035a4a93aa00b6bfb3044, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 767238663, guid: 04edc0c1d6a035a4a93aa00b6bfb3044, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 767238663, guid: 04edc0c1d6a035a4a93aa00b6bfb3044, type: 3}
+      propertyPath: m_Maskable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 886872667, guid: 04edc0c1d6a035a4a93aa00b6bfb3044, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 886872667, guid: 04edc0c1d6a035a4a93aa00b6bfb3044, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1186290926, guid: 04edc0c1d6a035a4a93aa00b6bfb3044, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
@@ -3170,6 +3194,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1207139378, guid: 04edc0c1d6a035a4a93aa00b6bfb3044, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1207139378, guid: 04edc0c1d6a035a4a93aa00b6bfb3044, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1448430596, guid: 04edc0c1d6a035a4a93aa00b6bfb3044, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1448430596, guid: 04edc0c1d6a035a4a93aa00b6bfb3044, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1605468560, guid: 04edc0c1d6a035a4a93aa00b6bfb3044, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
@@ -3200,6 +3240,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1705126315, guid: 04edc0c1d6a035a4a93aa00b6bfb3044, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1903102022, guid: 04edc0c1d6a035a4a93aa00b6bfb3044, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1903102022, guid: 04edc0c1d6a035a4a93aa00b6bfb3044, type: 3}
+      propertyPath: m_Interactable
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1924190074, guid: 04edc0c1d6a035a4a93aa00b6bfb3044, type: 3}
@@ -3470,7 +3518,12 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 736592900, guid: 04edc0c1d6a035a4a93aa00b6bfb3044, type: 3}
+    - {fileID: 1903102021, guid: 04edc0c1d6a035a4a93aa00b6bfb3044, type: 3}
+    - {fileID: 1448430595, guid: 04edc0c1d6a035a4a93aa00b6bfb3044, type: 3}
+    - {fileID: 1207139377, guid: 04edc0c1d6a035a4a93aa00b6bfb3044, type: 3}
+    - {fileID: 886872666, guid: 04edc0c1d6a035a4a93aa00b6bfb3044, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 04edc0c1d6a035a4a93aa00b6bfb3044, type: 3}
 --- !u!1001 &5732357009718917335
 PrefabInstance:

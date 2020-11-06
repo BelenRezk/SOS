@@ -66,7 +66,8 @@ public class HUD : MonoBehaviour
             {
                 image.enabled = true;
                 image.sprite = e.Item.Image;
-                itemDragHandler.Item = e.Item;
+                if(itemDragHandler != null)
+                    itemDragHandler.Item = e.Item;
                 break;
             }
             position++;
@@ -79,6 +80,7 @@ public class HUD : MonoBehaviour
         if (e.Item.WinItem)
         {
             inventoryPanel = transform.Find("WinItems");
+            Debug.Log(((InventoryItemBase)e.Item).name + "ENTERED ITEMREMOVED FOR WINITEM");
         }
         else
         {

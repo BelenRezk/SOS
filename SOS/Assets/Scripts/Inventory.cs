@@ -138,4 +138,11 @@ public class Inventory : MonoBehaviour
             position++;
         }
     }
+
+    public void RemoveItem(int position)
+    {
+        IInventoryItem item = mItems[position];
+        if (item != null)
+            RemoveItem(item);
+    }
 }

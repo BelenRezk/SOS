@@ -96,6 +96,12 @@ public class ThirdPersonMovement : MovementBase
             if (Input.GetButtonDown(action))
                 inventory.ChangeSelectedPosition(i - 1);
         }
+        for (int i = 1; i <= 5; i++)
+        {
+            string action = "DropWinItem" + i;
+            if (Input.GetButtonDown(action))
+                winItems.RemoveItem(i - 1);
+        }
         if (Input.GetButtonDown("DropItem"))
             inventory.RemoveSelectedItem();
         if (Input.GetButtonDown("UseItem"))
@@ -152,7 +158,7 @@ public class ThirdPersonMovement : MovementBase
     {
         if(item != null && interactionCooldownRemaining <= 0)
         {
-            Debug.Log(((InventoryItemBase)item).name);
+            Debug.Log(((InventoryItemBase)item).name + "ENTERED INTERACTION" + item.HasOwner);
             interactionCooldownRemaining = interactionCooldown;
             if(!item.HasOwner)
             {

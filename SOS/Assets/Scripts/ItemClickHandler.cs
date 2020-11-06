@@ -11,13 +11,16 @@ public class ItemClickHandler : MonoBehaviour
     {
         try
         {
-            ItemDragHandler dragHandler =
-            gameObject.transform.Find("ItemImage").GetComponent<ItemDragHandler>();
+            //ItemDragHandler dragHandler =
+            //gameObject.transform.Find("ItemImage").GetComponent<ItemDragHandler>();
 
-            IInventoryItem item = dragHandler.Item;
+            //IInventoryItem item = dragHandler.Item;
 
-            if (item != null)
+            /*if (item != null)
+            {
                 inventory.RemoveItem(item);
+                Debug.Log("AAAAAAA " + ((InventoryItemBase)item).name);
+            }*/
         }
         catch (NullReferenceException)
         {
