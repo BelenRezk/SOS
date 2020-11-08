@@ -71,7 +71,10 @@ public class AIMovement : MovementBase
             interactionCooldownRemaining = interactionCooldown;
             if (item != null && !item.HasOwner)
             {
-                inventory.AddItem(item);
+                if(item.WinItem)
+                    winItems.AddItem(item);
+                else
+                    inventory.AddItem(item);
                 item.HasOwner = true;
             }
             else if (item != null && item.HasOwner)
@@ -80,6 +83,7 @@ public class AIMovement : MovementBase
                 {
                     PlayGetHitSound();
                     inventory.DropAllItems();
+                    winItems.DropAllItems();
                     item.DestroyObject();
                 }
                 else
