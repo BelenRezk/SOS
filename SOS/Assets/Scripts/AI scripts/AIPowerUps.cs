@@ -53,6 +53,10 @@ public class AIPowerUps : MonoBehaviour
                 shield.transform.parent = null;
                 UseShield();
             }
+            else if (item != null && item.Name.Equals("Coconut"))
+            {
+                item.OnUse();
+            }
         }
     }
 

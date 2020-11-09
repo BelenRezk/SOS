@@ -22,11 +22,14 @@ public abstract class InventoryItemBase : MonoBehaviour, IInventoryItem
         get { return _Image; }
     }
     public AudioClip soundClip;
+    [HideInInspector]
+    public Transform objectDestination;
 
     public virtual void OnPickup(GameObject player)
     {
         try
         {
+            objectDestination = player.GetComponentInChildren<HeldObject>().transform;
             AudioSource.PlayClipAtPoint(soundClip, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z));
         }
         catch (Exception e)

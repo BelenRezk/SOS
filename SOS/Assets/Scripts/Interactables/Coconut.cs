@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Coconut : InventoryItemBase
 {
-    public Transform objectDestination;
     public float throwSpeed = 2000f;
     public override string Name
     {
