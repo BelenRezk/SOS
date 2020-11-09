@@ -3,7 +3,17 @@ guid: ffe6ca35eb211f5478713c8bcca3e9c1
 ModelImporter:
   serializedVersion: 20101
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Palmeras1
+    second: {fileID: 2100000, guid: f1622b1b767f67a4e9f902912c147e13, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Palmeras2
+    second: {fileID: 2100000, guid: 2341573cd084fcc4a86de95dea55ee14, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -36,13 +46,13 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 1
+    addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
-    importCameras: 0
-    importLights: 0
+    importCameras: 1
+    importLights: 1
     fileIdsGeneration: 2
     swapUVChannels: 0
     generateSecondaryUV: 0

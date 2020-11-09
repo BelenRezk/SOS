@@ -71,7 +71,7 @@
             {
                 "type": "UnityEngine.Polybrush.MirrorCoordinateSpace, Unity.Polybrush, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
                 "key": "Brush.MirrorSpace",
-                "value": "{\"m_Value\":1}"
+                "value": "{\"m_Value\":0}"
             },
             {
                 "type": "UnityEngine.Polybrush.PolyDirection, Unity.Polybrush, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
@@ -106,12 +106,12 @@
             {
                 "type": "System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
                 "key": "ScatteringEditor.PreviewThumSize",
-                "value": "{\"m_Value\":88}"
+                "value": "{\"m_Value\":82}"
             },
             {
                 "type": "UnityEditor.Polybrush.PrefabLoadout, Unity.Polybrush.Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
                 "key": "ScatteringEditor.userLoadout",
-                "value": "{\"m_Value\":{\"infos\":[{\"palette\":{\"fileID\":11400000,\"guid\":\"cb85ce546345bc94f82fb276962988b1\",\"type\":2},\"prefab\":{\"fileID\":919132149155446097,\"guid\":\"72a43c703d2455242b4a6a707a3342de\",\"type\":3}},{\"palette\":{\"fileID\":11400000,\"guid\":\"cb85ce546345bc94f82fb276962988b1\",\"type\":2},\"prefab\":{\"fileID\":919132149155446097,\"guid\":\"4044ec677adcb584e95b97ce89491ebe\",\"type\":3}},{\"palette\":{\"fileID\":11400000,\"guid\":\"cb85ce546345bc94f82fb276962988b1\",\"type\":2},\"prefab\":{\"fileID\":919132149155446097,\"guid\":\"3ba0e5c46d39a6b46a64f18dc81732a8\",\"type\":3}},{\"palette\":{\"fileID\":11400000,\"guid\":\"cb85ce546345bc94f82fb276962988b1\",\"type\":2},\"prefab\":{\"fileID\":919132149155446097,\"guid\":\"afb2680bcfff57241aa670789da3dd69\",\"type\":3}}]}}"
+                "value": "{\"m_Value\":{\"infos\":[{\"palette\":{\"fileID\":11400000,\"guid\":\"cb85ce546345bc94f82fb276962988b1\",\"type\":2},\"prefab\":{\"fileID\":919132149155446097,\"guid\":\"b5ac93adb0389794bad63b22b2750859\",\"type\":3}},{\"palette\":{\"fileID\":11400000,\"guid\":\"cb85ce546345bc94f82fb276962988b1\",\"type\":2},\"prefab\":{\"fileID\":919132149155446097,\"guid\":\"6cdd7994db9684e4ebe719d5929e9396\",\"type\":3}}]}}"
             }
         ]
     }
