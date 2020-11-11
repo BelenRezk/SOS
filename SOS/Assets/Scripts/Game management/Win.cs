@@ -27,8 +27,37 @@ public class Win : MonoBehaviour
             FindObjectOfType<AudioManager>().Stop("RadarBlip");
             FindObjectOfType<AudioManager>().Play("Win");
             FindObjectOfType<AudioManager>().Play("Jungle");
-            LoadWinner.winner = "The winner is " + player.name;
+            LoadWinner.winner = "The winner is " + getWinnerName(player);
             SceneManager.LoadScene("winScene");
         }
+    }
+
+    private string getWinnerName(Collider player)
+    {
+        string winner;
+        if(player.name == "Main Character"){
+            switch (Selector_Script.CharacterInt)
+            {
+                case 1:
+                    winner = "Businesswoman";
+                    break;
+                case 2:
+                    winner = "Pilot";
+                    break;
+                case 3:
+                    winner = "Old lady";
+                    break;
+                case 4:
+                    winner = "Hippie";
+                    break;
+                default:
+                    winner = "Pilot";
+                    break;
+            }
+        }
+        else{
+            winner = player.name;
+        }
+        return winner;
     }
 }
