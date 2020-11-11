@@ -21,6 +21,8 @@ public class AIMovement : MonoBehaviour
     private bool hasShield = false;
     public AudioClip getHitSound;
     public AudioClip shieldSound;
+    [HideInInspector]
+    public int coconutCount = 0;
 
     void Start()
     {

@@ -22,7 +22,14 @@ public class AIView : MonoBehaviour
         {
             //TODO: Change name to each AI player
             if(other.name != "AI Player"){
+
+                AIPowerUps aiPowerUps = this.GetComponentInParent<AIPowerUps>();
+                aiPowerUps.hasClosePlayer = true;
                 //Found player to attack
+                AIMovement aiPlayer = this.GetComponentInParent<AIMovement>();
+                if (aiPlayer.coconutCount>0){
+                    aiPlayer.transform.LookAt(other.transform);
+                }
                 if (PlayersPositions.FindAll(p => p.Item1 == other.name).Count > 0)
                 {
                     var playerToUpdate = PlayersPositions.Find(p => p.Item1 == other.name);
@@ -45,8 +52,11 @@ public class AIView : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         bool isPlayer = other.CompareTag("Player");
+
         if (isPlayer && PlayersPositions.FindAll(p => p.Item1 == other.name).Count > 0)
         {
+            AIPowerUps aiPlayer = this.GetComponentInParent<AIPowerUps>();
+            aiPlayer.hasClosePlayer = false;
             var playerToRemove = PlayersPositions.Find(p => p.Item1 == other.name);   
             PlayersPositions.Remove(playerToRemove);
         }

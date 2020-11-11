@@ -27,6 +27,17 @@ public abstract class InventoryItemBase : MonoBehaviour, IInventoryItem
 
     public virtual void OnPickup(GameObject player)
     {
+        if (Name.Equals("Coconut")) {
+            try
+            {
+                AIMovement ai = player.GetComponent<AIMovement>();
+                ai.coconutCount++;
+            }
+            catch (Exception e)
+            {
+                //is not AI
+            }
+        }
         try
         {
             objectDestination = player.GetComponentInChildren<HeldObject>().transform;

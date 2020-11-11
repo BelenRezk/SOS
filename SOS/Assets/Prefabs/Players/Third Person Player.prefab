@@ -341,7 +341,6 @@ MonoBehaviour:
   afterHitInvincibility: 1
   getHitSound: {fileID: 8300000, guid: dd2c2f53c9b72034db1e135ba2610657, type: 3}
   shieldSound: {fileID: 8300000, guid: d0895f110e527bc4fa19006e8484585b, type: 3}
-  HeldObject: {fileID: 1835184670}
 --- !u!1001 &1536282666635721069
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -11,6 +11,9 @@ public class AIPowerUps : MonoBehaviour
     private bool isUsingBanana = false;
     public float bananaSpeedMultiplier = 2.0f;
     public bool hasShield = false;
+    [HideInInspector]
+    public bool hasClosePlayer = false;
+
     void Start()
     {
         _navMeshAgent = this.GetComponent<NavMeshAgent>();
@@ -53,7 +56,7 @@ public class AIPowerUps : MonoBehaviour
                 shield.transform.parent = null;
                 UseShield();
             }
-            else if (item != null && item.Name.Equals("Coconut"))
+            else if (item != null && item.Name.Equals("Coconut") && hasClosePlayer)
             {
                 item.OnUse();
             }
