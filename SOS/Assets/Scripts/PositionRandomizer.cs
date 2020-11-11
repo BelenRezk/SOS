@@ -25,19 +25,18 @@ public class PositionRandomizer : MonoBehaviour
         RandomSpawner(oar2, landRandomPositions, false);
         RandomSpawner(flareGun,landRandomPositions,false);
 
-        //bananaPositions.Add(new Vector3(4, 2, 8));
-        bananaPositions.Add(new Vector3(-11, 4, 10));
+        bananaPositions.Add(new Vector3(20, 5, 34));
         RandomSpawner(banana, bananaPositions, false);
 
-        shieldPositions.Add(new Vector3(0, 3, 25));
+        shieldPositions.Add(new Vector3(4, 3, 25));
         RandomSpawner(shield, shieldPositions, false);
     }
 
     void ValidInstantiationLandPositionsGenerator()
     {
-        landRandomPositions.Add(new Vector3(-18, 3, 17));
-        landRandomPositions.Add(new Vector3(-4, 3, 10));
-        landRandomPositions.Add(new Vector3(6, 3, 28));
+        landRandomPositions.Add(new Vector3(8, 3, 29));
+        landRandomPositions.Add(new Vector3(18, 4, -80));
+        landRandomPositions.Add(new Vector3(190, 15, -50));
     }
 
     void ValidInstantiationWaterPositionsGenerator()
