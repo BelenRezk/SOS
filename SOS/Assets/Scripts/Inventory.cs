@@ -103,7 +103,7 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    private void UseItem(IInventoryItem item)
+    public void UseItem(IInventoryItem item)
     {
         int itemPosition = -1;
         for (int i = 0; i < mItems.Length && itemPosition == -1; i++)

@@ -25,7 +25,8 @@ public class AIPowerUps : MonoBehaviour
         
     void Update()
     {
-        if(isUsingBanana)
+        AIMovement aiMovement = this.GetComponentInParent<AIMovement>();
+        if(aiMovement.isUsingBanana)
         {
             CheckBananaUsage();   
         }
@@ -39,40 +40,47 @@ public class AIPowerUps : MonoBehaviour
     private void UsePowerUp()
     {
         int itemCount = gameObject.transform.childCount;
-        for (int i = 0; i < itemCount; i++)
-        {
-            IInventoryItem item = gameObject.transform.GetChild(i).GetComponent<IInventoryItem>();
+        int randomNumber = UnityEngine.Random.Range(0, itemCount);
+        //for (int i = 0; i < itemCount; i++)
+        //{
+            IInventoryItem item = gameObject.transform.GetChild(randomNumber).GetComponent<IInventoryItem>();
             
             
             if (item != null && item.Name != null && item.Name.Equals("Banana") && !isUsingBanana)
             {
-                var banana = gameObject.transform.GetChild(i);
+                var banana = gameObject.transform.GetChild(randomNumber);
                 banana.transform.parent = null;
                 UseBanana();
             }
             else if(item != null && item.Name.Equals("Shield") )
             {
-                var shield = gameObject.transform.GetChild(i);
+                var shield = gameObject.transform.GetChild(randomNumber);
                 shield.transform.parent = null;
                 UseShield();
             }
             else if (item != null && item.Name.Equals("Coconut") && hasClosePlayer)
             {
-                item.OnUse();
+                AIMovement aiMovement = this.GetComponentInParent<AIMovement>();
+                aiMovement.inventory.UseItem(item);
+                //item.OnUse();
             }
-        }
+        //}
     }
 
     private void UseBanana()
     {
-        isUsingBanana = true;
+        AIMovement aiMovement = this.GetComponentInParent<AIMovement>();
+        aiMovement.UseBanana(5f);
+        /*isUsingBanana = true;
         _navMeshAgent.speed = _navMeshAgent.speed * bananaSpeedMultiplier;
-        remainingBananaTime = 5f;
+        remainingBananaTime = 5f;*/
     }
 
     private void CheckBananaUsage()
     {
-        if (isUsingBanana)
+        AIMovement aiMovement = this.GetComponentInParent<AIMovement>();
+        aiMovement.CheckBananaUsage();
+        /*if (isUsingBanana)
         {
             if (remainingBananaTime > 0f)
             {
@@ -83,11 +91,13 @@ public class AIPowerUps : MonoBehaviour
                 isUsingBanana = false;
                 _navMeshAgent.speed = _navMeshAgent.speed / bananaSpeedMultiplier;
             }
-        }
+        }*/
     }
 
     private void UseShield()
     {
+        AIMovement aiMovement = this.GetComponentInParent<AIMovement>();
+        aiMovement.UseShield();
         if (!hasShield)
         {
             hasShield = true;

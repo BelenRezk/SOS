@@ -65,7 +65,7 @@ public class AIMovement : MovementBase
             interactionCooldownRemaining -= Time.deltaTime;
     }
 
-    /*private void OnTriggerEnter(Collider other)
+    public void ObjectInteraction(Collider other)
     {
         IInventoryItem item = other.GetComponent<Collider>().GetComponent<IInventoryItem>();
         if(interactionCooldownRemaining <= 0)
@@ -95,7 +95,7 @@ public class AIMovement : MovementBase
                 }
             }
         }
-    }*/
+    }
 
     private void PlayGetHitSound()
     {
@@ -121,6 +121,21 @@ public class AIMovement : MovementBase
         }
     }
 
+    public void CheckBananaUsage()
+    {
+        if (isUsingBanana)
+        {
+            if (remainingBananaTime > 0f)
+            {
+                remainingBananaTime -= Time.deltaTime;
+            }
+            else
+            {
+                isUsingBanana = false;
+                _navMeshAgent.speed = _navMeshAgent.speed / bananaSpeedMultiplier;
+            }
+        }
+    }
 
     public void UseBanana(float duration)
     {

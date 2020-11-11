@@ -12,7 +12,10 @@ public class AIItemsInteraction : MonoBehaviour
     void Start(){}
     private void OnTriggerEnter(Collider other)
     {
-        IInventoryItem item = other.GetComponent<Collider>().GetComponent<IInventoryItem>();
+        AIMovement aiMovement = this.GetComponentInParent<AIMovement>();
+        if(aiMovement.interactionCooldownRemaining <= 0)
+            aiMovement.ObjectInteraction(other);
+        /*IInventoryItem item = other.GetComponent<Collider>().GetComponent<IInventoryItem>();
         if (item != null && !item.HasOwner)
         {
             inventory.AddItem(item);
@@ -31,7 +34,7 @@ public class AIItemsInteraction : MonoBehaviour
                 PlayShieldSound();
                 obj.hasShield = false;
             }
-        }
+        }*/
     }
 
     private void PlayGetHitSound()
