@@ -1,10 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Coconut : InventoryItemBase
 {
-    public Transform objectDestination;
     public float throwSpeed = 2000f;
     public override string Name
     {
@@ -36,6 +36,15 @@ public class Coconut : InventoryItemBase
     }
     public override bool OnUse()
     {
+        try
+        {
+            AIMovement ai = this.transform.parent.GetComponent<AIMovement>();
+            ai.coconutCount--;
+        }
+        catch (Exception e)
+        {
+            //is not ai
+        }
         gameObject.SetActive(true);
         this.transform.parent = null;
 

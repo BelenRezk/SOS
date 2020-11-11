@@ -25,6 +25,8 @@ public abstract class InventoryItemBase : MonoBehaviour, IInventoryItem
 
     public virtual bool WinItem { get; }
     public AudioClip soundClip;
+    [HideInInspector]
+    public Transform objectDestination;
 
     public int itemId;
 
@@ -37,8 +39,20 @@ public abstract class InventoryItemBase : MonoBehaviour, IInventoryItem
 
     public virtual void OnPickup(GameObject player)
     {
+        if (Name.Equals("Coconut")) {
+            try
+            {
+                AIMovement ai = player.GetComponent<AIMovement>();
+                ai.coconutCount++;
+            }
+            catch (Exception e)
+            {
+                //is not AI
+            }
+        }
         try
         {
+            objectDestination = player.GetComponentInChildren<HeldObject>().transform;
             AudioSource.PlayClipAtPoint(soundClip, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z));
         }
         catch (Exception)

@@ -19,6 +19,8 @@ public class AIMovement : MovementBase
     private bool hasShield = false;
     public AudioClip getHitSound;
     public AudioClip shieldSound;
+    [HideInInspector]
+    public int coconutCount = 0;
 
     void Start()
     {
@@ -63,7 +65,7 @@ public class AIMovement : MovementBase
             interactionCooldownRemaining -= Time.deltaTime;
     }
 
-    private void OnTriggerEnter(Collider other)
+    /*private void OnTriggerEnter(Collider other)
     {
         IInventoryItem item = other.GetComponent<Collider>().GetComponent<IInventoryItem>();
         if(interactionCooldownRemaining <= 0)
@@ -93,7 +95,7 @@ public class AIMovement : MovementBase
                 }
             }
         }
-    }
+    }*/
 
     private void PlayGetHitSound()
     {
