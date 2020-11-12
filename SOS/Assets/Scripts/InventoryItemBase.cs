@@ -67,7 +67,14 @@ public abstract class InventoryItemBase : MonoBehaviour, IInventoryItem
     public virtual void OnDrop()
     {
         Vector3 newPos = new Vector3(1, 1, 1);
-        this.transform.position = this.transform.parent.position + newPos;
+        try
+        {
+            this.transform.position = this.transform.parent.position + newPos;
+        }
+        catch (Exception)
+        {
+            //TODO: DOES NOT HAVE PARENT
+        }
         HasOwner = false;
         GetComponent<Rigidbody>().useGravity = true;
         GetComponent<Rigidbody>().isKinematic = false;

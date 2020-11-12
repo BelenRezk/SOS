@@ -84,8 +84,10 @@ public class AIMovement : MovementBase
                 if (!hasShield)
                 {
                     PlayGetHitSound();
+                    
                     inventory.DropAllItems();
                     winItems.DropAllItems();
+                    
                     item.DestroyObject();
                 }
                 else
