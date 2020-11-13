@@ -18,7 +18,8 @@ public class AIView : MonoBehaviour
 
     private void OnTriggerStay(Collider other) {
         bool isPlayer = other.CompareTag("Player");
-        if (isPlayer)
+        AIItemsInteraction aiPlayer = this.GetComponentInParent<AIItemsInteraction>();
+        if (isPlayer && aiPlayer.coconutCount > 0)
         {
             //TODO: Change name to each AI player
             if(other.name != "AI Player"){
@@ -26,7 +27,7 @@ public class AIView : MonoBehaviour
                 AIPowerUps aiPowerUps = this.GetComponentInParent<AIPowerUps>();
                 aiPowerUps.hasClosePlayer = true;
                 //Found player to attack
-                AIItemsInteraction aiPlayer = this.GetComponentInParent<AIItemsInteraction>();
+                
                 if (aiPlayer.coconutCount>0){
                     aiPlayer.transform.LookAt(other.transform);
                 }
