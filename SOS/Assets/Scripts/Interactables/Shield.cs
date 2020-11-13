@@ -34,6 +34,8 @@ public class Shield : InventoryItemBase
         }
     }
 
+    public AudioClip shieldActivationSound;
+
     public override bool OnUse()
     {
         Transform player = this.transform.parent;
@@ -43,13 +45,26 @@ public class Shield : InventoryItemBase
         {
             ThirdPersonMovement thirdPersonMovement = playerGO.GetComponent<ThirdPersonMovement>();
             shieldUsed = thirdPersonMovement.UseShield();
+            PlayShieldActivationSound();
         }
         catch (Exception)
         {
-            //Main player is not using banana
+
         }
         if (shieldUsed)
             this.transform.parent = null;
         return true;
+    }
+
+    private void PlayShieldActivationSound()
+    {
+        try
+        {
+            AudioSource.PlayClipAtPoint(shieldActivationSound, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z));
+        }
+        catch (Exception)
+        {
+            Debug.Log("No audio clip");
+        }
     }
 }

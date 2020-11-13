@@ -22,7 +22,7 @@ public class ThirdPersonMovement : MovementBase
     public float remainingBananaTime = 0f;
 
     public float bananaSpeedMultiplier = 2.0f;
-    private bool hasShield = false;
+    public bool hasShield = false;
     public AudioClip getHitSound;
     public AudioClip shieldSound;
     private CharacterDifferentiationBase characterBehaviour;
