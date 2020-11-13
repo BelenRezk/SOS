@@ -19,7 +19,7 @@ public class ThirdPersonMovement : MovementBase
 
     float turnSmoothVelocity;
     public float turnSmoothTime = 0.1f;
-    private float remainingBananaTime = 0f;
+    public float remainingBananaTime = 0f;
 
     public float bananaSpeedMultiplier = 2.0f;
     private bool hasShield = false;
