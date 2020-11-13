@@ -196,6 +196,7 @@ public class ThirdPersonMovement : MovementBase
                 }
             item.HasOwner = false;
             item.DestroyObject();
+            FindObjectOfType<PositionRandomizer>().SpawnCoconut();
             }
         }
     }

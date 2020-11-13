@@ -8,6 +8,7 @@ TagManager:
   - CollectiblesTag
   - BoatTag
   - PathTag
+  - CoconutSpawn
   layers:
   - Default
   - TransparentFX

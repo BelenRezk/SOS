@@ -16,6 +16,7 @@ public class PositionRandomizer : MonoBehaviour
     public GameObject banana;
     public GameObject flareGun;
     public GameObject shield;
+    public GameObject coconut;
 
     void Start()
     {
@@ -62,5 +63,13 @@ public class PositionRandomizer : MonoBehaviour
         }
         //Prevents objects overlapping
         randomPositions.RemoveAt(randomIndex);
+    }
+
+    public void SpawnCoconut()
+    {
+        GameObject[] possibleSpawnPoints = GameObject.FindGameObjectsWithTag("CoconutSpawn");
+        GameObject chosenSpawn = possibleSpawnPoints[Random.Range(0, possibleSpawnPoints.Length)];
+        Transform chosenSpawnTransform = chosenSpawn.transform;
+        Instantiate(coconut, new Vector3(chosenSpawnTransform.position.x, chosenSpawnTransform.position.y, chosenSpawnTransform.position.z), Quaternion.identity);
     }
 }

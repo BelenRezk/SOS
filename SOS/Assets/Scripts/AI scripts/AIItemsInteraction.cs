@@ -43,6 +43,7 @@ public class AIItemsInteraction : MovementBase
                     inventory.DropAllItems();
                     winItems.DropAllItems();
                     item.DestroyObject();
+                    FindObjectOfType<PositionRandomizer>().SpawnCoconut();
                 }
                 else
                 {
