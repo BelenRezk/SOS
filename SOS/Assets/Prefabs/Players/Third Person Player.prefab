@@ -270,6 +270,7 @@ GameObject:
   - component: {fileID: 6644414249488293473}
   - component: {fileID: 6644414249488293475}
   - component: {fileID: 6644414249488293474}
+  - component: {fileID: 510921748}
   m_Layer: 0
   m_Name: Third Person Player
   m_TagString: Player
@@ -325,13 +326,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f21654e6ae164ae42af3c5d115a92687, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 6644414249488293475}
-  cam: {fileID: 0}
   speed: 15
-  gravity: -9.81
-  jumpHeight: 3
+  abilityCooldown: 40
+  abilityCooldownRemaining: 0
+  abilityDuration: 10
+  abilityDurationRemaining: 0
+  abilityActive: 0
+  afterHitInvincibility: 1
+  currentInvincibility: 0
+  isUsingBanana: 0
   inventory: {fileID: 0}
   winItems: {fileID: 0}
+  playerId: 1
+  interactionCooldown: 0.5
+  interactionCooldownRemaining: 0
+  controller: {fileID: 6644414249488293475}
+  cam: {fileID: 0}
+  gravity: -9.81
+  jumpHeight: 3
+  GameCamera: {fileID: 0}
   groundCheck: {fileID: 6644414247976643127}
   groundDistance: 0.4
   groundMask:
@@ -339,9 +352,22 @@ MonoBehaviour:
     m_Bits: 256
   turnSmoothTime: 0.1
   bananaSpeedMultiplier: 2
-  afterHitInvincibility: 1
   getHitSound: {fileID: 8300000, guid: dd2c2f53c9b72034db1e135ba2610657, type: 3}
   shieldSound: {fileID: 8300000, guid: d0895f110e527bc4fa19006e8484585b, type: 3}
+--- !u!136 &510921748
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6644414249488293472}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5000001
+  m_Height: 3.521172
+  m_Direction: 1
+  m_Center: {x: 0.000000059604645, y: 0.760586, z: -0.00000011920929}
 --- !u!1001 &1536282666635721069
 PrefabInstance:
   m_ObjectHideFlags: 0

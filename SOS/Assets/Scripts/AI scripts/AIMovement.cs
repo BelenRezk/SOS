@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class AIMovement : MovementBase
+//public class AIMovement : MovementBase
+public class AIMovement : MonoBehaviour
 {
-    [SerializeField]
+    /*[SerializeField]
     Transform _destination;
 
     NavMeshAgent _navMeshAgent;
@@ -18,13 +19,13 @@ public class AIMovement : MovementBase
     public float bananaSpeedMultiplier = 2.0f;
     private bool hasShield = false;
     public AudioClip getHitSound;
-    public AudioClip shieldSound;
+    public AudioClip shieldSound;*/
     [HideInInspector]
     public int coconutCount = 0;
 
     void Start()
     {
-        _navMeshAgent = this.GetComponent<NavMeshAgent>();
+        /*_navMeshAgent = this.GetComponent<NavMeshAgent>();
         if (_navMeshAgent == null)
         {
             Debug.LogError("Nav mesh not attached to" + gameObject.name);
@@ -47,12 +48,12 @@ public class AIMovement : MovementBase
             {
                 _navMeshAgent.destination = targets[i].position;
             }
-        }
+        }*/
     }
 
     void Update()
     {
-        var dist = Vector3.Distance(targets[i].position, _navMeshAgent.transform.position);
+        /*var dist = Vector3.Distance(targets[i].position, _navMeshAgent.transform.position);
         if (dist < 1.5 || targets[i].parent != null)
         {
             if (i < targets.Length - 1)
@@ -62,12 +63,12 @@ public class AIMovement : MovementBase
             }
         }
         if (interactionCooldownRemaining > 0)
-            interactionCooldownRemaining -= Time.deltaTime;
+            interactionCooldownRemaining -= Time.deltaTime;*/
     }
 
     public void ObjectInteraction(Collider other)
     {
-        IInventoryItem item = other.GetComponent<Collider>().GetComponent<IInventoryItem>();
+        /*IInventoryItem item = other.GetComponent<Collider>().GetComponent<IInventoryItem>();
         if(interactionCooldownRemaining <= 0)
         {
             interactionCooldownRemaining = interactionCooldown;
@@ -96,10 +97,10 @@ public class AIMovement : MovementBase
                     hasShield = false;
                 }
             }
-        }
+        }*/
     }
 
-    private void PlayGetHitSound()
+    /*private void PlayGetHitSound()
     {
         try
         {
@@ -121,9 +122,9 @@ public class AIMovement : MovementBase
         {
             Debug.Log("No shield audio clip");
         }
-    }
+    }*/
 
-    public void CheckBananaUsage()
+    /*public void CheckBananaUsage()
     {
         if (isUsingBanana)
         {
@@ -155,5 +156,5 @@ public class AIMovement : MovementBase
         }
         else
             return false;
-    }
+    }*/
 }

@@ -3,38 +3,54 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AIItemsInteraction : MonoBehaviour
+public class AIItemsInteraction : MovementBase
 {
-    public Inventory inventory;
     public AudioClip getHitSound;
     public AudioClip shieldSound;
+    [HideInInspector]
+    public int coconutCount = 0;
 
     void Start(){}
+
+    void Update(){
+        if (interactionCooldownRemaining > 0)
+            interactionCooldownRemaining -= Time.deltaTime;
+    }
     private void OnTriggerEnter(Collider other)
     {
-        AIMovement aiMovement = this.GetComponentInParent<AIMovement>();
+        /*AIMovement aiMovement = this.GetComponentInParent<AIMovement>();
         if(aiMovement.interactionCooldownRemaining <= 0)
-            aiMovement.ObjectInteraction(other);
-        /*IInventoryItem item = other.GetComponent<Collider>().GetComponent<IInventoryItem>();
-        if (item != null && !item.HasOwner)
+            aiMovement.ObjectInteraction(other);*/
+        IInventoryItem item = other.GetComponent<Collider>().GetComponent<IInventoryItem>();           
+        if(item != null && interactionCooldownRemaining <= 0)
         {
-            inventory.AddItem(item);
-            item.HasOwner = true;
+            interactionCooldownRemaining = interactionCooldown;
+            
+            if (item != null && !item.HasOwner)
+            {
+                if(item.WinItem)
+                    winItems.AddItem(item);
+                else
+                    inventory.AddItem(item);
+                item.HasOwner = true;
+            }
+            else if (item != null && item.HasOwner)
+            {
+                AIPowerUps obj = gameObject.transform.GetComponent<AIPowerUps>();
+                if (!obj.hasShield)
+                {
+                    PlayGetHitSound();
+                    inventory.DropAllItems();
+                    winItems.DropAllItems();
+                    item.DestroyObject();
+                }
+                else
+                {
+                    PlayShieldSound();
+                    obj.hasShield = false;
+                }
+            }
         }
-        else if (item != null && item.HasOwner)
-        {
-            AIPowerUps obj = gameObject.transform.GetComponent<AIPowerUps>();
-            if (!obj.hasShield)
-            {
-                PlayGetHitSound();
-                inventory.DropAllItems();
-            }
-            else
-            {
-                PlayShieldSound();
-                obj.hasShield = false;
-            }
-        }*/
     }
 
     private void PlayGetHitSound()

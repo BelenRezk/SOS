@@ -48,7 +48,7 @@ public class BusinessWomanBehaviour : CharacterDifferentiationBase
         MovementBase player;
         player = playerGO.GetComponent<ThirdPersonMovement>();
         if (player == null)
-            player = playerGO.GetComponent<AIMovement>();
+            player = playerGO.GetComponent<AIItemsInteraction>();
         return player;
     }
 

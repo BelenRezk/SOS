@@ -26,7 +26,7 @@ public class AIView : MonoBehaviour
                 AIPowerUps aiPowerUps = this.GetComponentInParent<AIPowerUps>();
                 aiPowerUps.hasClosePlayer = true;
                 //Found player to attack
-                AIMovement aiPlayer = this.GetComponentInParent<AIMovement>();
+                AIItemsInteraction aiPlayer = this.GetComponentInParent<AIItemsInteraction>();
                 if (aiPlayer.coconutCount>0){
                     aiPlayer.transform.LookAt(other.transform);
                 }

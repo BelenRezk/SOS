@@ -42,7 +42,7 @@ public abstract class InventoryItemBase : MonoBehaviour, IInventoryItem
         if (Name.Equals("Coconut")) {
             try
             {
-                AIMovement ai = player.GetComponent<AIMovement>();
+                AIItemsInteraction ai = player.GetComponent<AIItemsInteraction>();
                 ai.coconutCount++;
             }
             catch (Exception e)
@@ -70,17 +70,18 @@ public abstract class InventoryItemBase : MonoBehaviour, IInventoryItem
         try
         {
             this.transform.position = this.transform.parent.position + newPos;
+            HasOwner = false;
+            GetComponent<Rigidbody>().useGravity = true;
+            GetComponent<Rigidbody>().isKinematic = false;
+            gameObject.SetActive(true);
+            this.transform.parent = null;
+            GetComponent<BoxCollider>().enabled = true;
         }
         catch (Exception)
         {
             //TODO: DOES NOT HAVE PARENT
         }
-        HasOwner = false;
-        GetComponent<Rigidbody>().useGravity = true;
-        GetComponent<Rigidbody>().isKinematic = false;
-        gameObject.SetActive(true);
-        this.transform.parent = null;
-        GetComponent<BoxCollider>().enabled = true;
+        
     }
 
     public abstract bool OnUse();

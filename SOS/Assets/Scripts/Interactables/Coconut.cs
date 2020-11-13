@@ -38,7 +38,8 @@ public class Coconut : InventoryItemBase
     {
         try
         {
-            AIMovement ai = this.transform.parent.GetComponent<AIMovement>();
+            AIItemsInteraction ai = this.transform.parent.GetComponent<AIItemsInteraction>();
+            Debug.Log(ai);
             ai.coconutCount--;
         }
         catch (Exception e)
@@ -56,4 +57,5 @@ public class Coconut : InventoryItemBase
         GetComponent<Rigidbody>().AddForce(objectDestination.forward * throwSpeed);
         return true;
     }
+
 }

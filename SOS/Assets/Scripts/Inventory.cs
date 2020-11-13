@@ -96,7 +96,7 @@ public class Inventory : MonoBehaviour
             {
                 float xForce = UnityEngine.Random.Range(-80f, 80f);
                 float zForce = UnityEngine.Random.Range(-80f, 80f);
-                rigidbody.AddForce(xForce, 500f, zForce);
+                rigidbody.AddForce(xForce, 800f, zForce);
             }
             if (ItemRemoved != null)
                 ItemRemoved(this, new InventoryEventArgs(item, selectedPosition));

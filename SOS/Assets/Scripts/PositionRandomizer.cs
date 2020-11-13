@@ -8,6 +8,7 @@ public class PositionRandomizer : MonoBehaviour
     public List<Vector3> landRandomPositions;
     public List<Vector3> bananaPositions;
     public List<Vector3> shieldPositions;
+    public List<Vector3> coconutPositions;
 
     public GameObject boat;
     public GameObject oars;
@@ -15,6 +16,7 @@ public class PositionRandomizer : MonoBehaviour
     public GameObject banana;
     public GameObject flareGun;
     public GameObject shield;
+    public GameObject coconut;
 
     void Start()
     {
@@ -30,6 +32,10 @@ public class PositionRandomizer : MonoBehaviour
 
         shieldPositions.Add(new Vector3(4, 3, 25));
         RandomSpawner(shield, shieldPositions, false);
+
+        //coconutPositions.Add();
+        //coconutPositions.Add();
+        //coconutPositions.Add();
     }
 
     void ValidInstantiationLandPositionsGenerator()
