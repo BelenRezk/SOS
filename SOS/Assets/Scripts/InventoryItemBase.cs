@@ -79,7 +79,7 @@ public abstract class InventoryItemBase : MonoBehaviour, IInventoryItem
         }
         catch (Exception)
         {
-            //TODO: DOES NOT HAVE PARENT
+            //Does not have parent
         }
         
     }

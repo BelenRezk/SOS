@@ -25,7 +25,6 @@ public class AIPowerUps : MonoBehaviour
         
     void Update()
     {
-        //AIMovement aiMovement = this.GetComponentInParent<AIMovement>();
         if(isUsingBanana)
         {
             if (remainingBananaTime > 0f)
@@ -74,35 +73,13 @@ public class AIPowerUps : MonoBehaviour
 
     void UseBanana()
     {
-        //AIMovement aiMovement = this.GetComponentInParent<AIMovement>();
-        //aiMovement.UseBanana(5f);
         isUsingBanana = true;
         _navMeshAgent.speed = _navMeshAgent.speed * bananaSpeedMultiplier;
         remainingBananaTime = 5f;
     }
 
-    /*private void CheckBananaUsage()
-    {
-        //AIMovement aiMovement = this.GetComponentInParent<AIMovement>();
-        //aiMovement.CheckBananaUsage();
-        if (isUsingBanana)
-        {
-            if (remainingBananaTime > 0f)
-            {
-                remainingBananaTime -= Time.deltaTime;
-            }
-            else
-            {
-                isUsingBanana = false;
-                _navMeshAgent.speed = _navMeshAgent.speed / bananaSpeedMultiplier;
-            }
-        }
-    }*/
-
     void UseShield()
     {
-        /*AIMovement aiMovement = this.GetComponentInParent<AIMovement>();
-        aiMovement.UseShield();*/
         if (!hasShield)
         {
             hasShield = true;

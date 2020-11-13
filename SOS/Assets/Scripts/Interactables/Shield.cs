@@ -46,8 +46,7 @@ public class Shield : InventoryItemBase
         }
         catch (Exception)
         {
-            //AIMovement aiMovement = playerGO.GetComponent<AIMovement>();
-            //shieldUsed = aiMovement.UseShield();
+            //Main player is not using banana
         }
         if (shieldUsed)
             this.transform.parent = null;

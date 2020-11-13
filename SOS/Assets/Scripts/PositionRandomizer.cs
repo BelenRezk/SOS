@@ -16,7 +16,6 @@ public class PositionRandomizer : MonoBehaviour
     public GameObject banana;
     public GameObject flareGun;
     public GameObject shield;
-    public GameObject coconut;
 
     void Start()
     {
@@ -32,10 +31,6 @@ public class PositionRandomizer : MonoBehaviour
 
         shieldPositions.Add(new Vector3(4, 3, 25));
         RandomSpawner(shield, shieldPositions, false);
-
-        //coconutPositions.Add();
-        //coconutPositions.Add();
-        //coconutPositions.Add();
     }
 
     void ValidInstantiationLandPositionsGenerator()

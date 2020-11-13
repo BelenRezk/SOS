@@ -152,7 +152,6 @@ public class ThirdPersonMovement : MovementBase
         if (currentInvincibility <= 0 || abilityActive)
         {
             AddToInventory(item);
-            //AddToInventory(hit);
         }   
     }
 
@@ -162,17 +161,11 @@ public class ThirdPersonMovement : MovementBase
         if (currentInvincibility <= 0 || abilityActive)
         {
             AddToInventory(item);
-            //AddToInventory(hit);
         }   
     }
 
     private void AddToInventory(IInventoryItem item)
     {
-        /*IInventoryItem item = hit.collider.GetComponent<IInventoryItem>();
-        if(!hit.collider.gameObject.name.Equals("Isla"))
-        {
-        Debug.Log(hit.collider.gameObject.name);
-        }*/
         if(item != null && interactionCooldownRemaining <= 0)
         {
             interactionCooldownRemaining = interactionCooldown;
@@ -202,7 +195,6 @@ public class ThirdPersonMovement : MovementBase
                     currentInvincibility = afterHitInvincibility;
                 }
             item.HasOwner = false;
-            //GameObject.Destroy(hit.gameObject);
             item.DestroyObject();
             }
         }
