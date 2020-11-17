@@ -157,10 +157,18 @@ public class ThirdPersonMovement : MovementBase
 
     private void OnTriggerEnter(Collider other)
     {
-        IInventoryItem item = other.GetComponent<Collider>().GetComponent<IInventoryItem>();  
-        if (currentInvincibility <= 0 || abilityActive)
+        if (other.gameObject.name.Contains("LavaPlane"))
         {
-            AddToInventory(item);
+            inventory.DropAllItems();
+            winItems.DropAllItems();
+        }
+        else
+        {
+            IInventoryItem item = other.GetComponent<Collider>().GetComponent<IInventoryItem>();  
+            if (currentInvincibility <= 0 || abilityActive)
+            {
+                AddToInventory(item);
+            }
         }   
     }
 
