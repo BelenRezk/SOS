@@ -32,6 +32,8 @@ public class PositionRandomizer : MonoBehaviour
 
         shieldPositions.Add(new Vector3(4, 3, 25));
         RandomSpawner(shield, shieldPositions, false);
+
+        SpawnAllCoconuts();
     }
 
     void ValidInstantiationLandPositionsGenerator()
@@ -63,6 +65,16 @@ public class PositionRandomizer : MonoBehaviour
         }
         //Prevents objects overlapping
         randomPositions.RemoveAt(randomIndex);
+    }
+
+    private void SpawnAllCoconuts()
+    {
+        GameObject[] spawnPoints = GameObject.FindGameObjectsWithTag("CoconutSpawn");
+        foreach(GameObject spawnPoint in spawnPoints)
+        {
+            Transform spawnTransform = spawnPoint.transform;
+            Instantiate(coconut, new Vector3(spawnTransform.position.x, spawnTransform.position.y, spawnTransform.position.z), Quaternion.identity);            
+        }
     }
 
     public void SpawnCoconut()
