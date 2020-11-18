@@ -14,4 +14,19 @@ public class MenuOptions : MonoBehaviour
     {
         SceneManager.LoadScene("characterSelectionScene");
     }
+
+    public void GameInstructions()
+    {
+        SceneManager.LoadScene("instructionsScene");
+    }
+
+    public void GameKeyMapping()
+    {
+        SceneManager.LoadScene("keyMappingScene");
+    }
+
+    public void BackToMainMenu()
+    {
+        SceneManager.LoadScene("menuScene");
+    }
 }
