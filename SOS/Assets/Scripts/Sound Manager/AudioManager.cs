@@ -6,6 +6,7 @@ public class AudioManager : MonoBehaviour
 {
 
 	public static AudioManager instance;
+	public bool shouldPlayMainMusic = true;
 
 	//public AudioMixerGroup mixerGroup;
 
@@ -61,4 +62,20 @@ public class AudioManager : MonoBehaviour
 		s.source.Stop();
 	}
 
+	public void StopMainMusic()
+	{
+		Stop("MainMusic");
+		shouldPlayMainMusic = false;
+	}
+
+	public void ResumeMainMusic()
+	{
+		shouldPlayMainMusic = true;
+	}
+
+	public void PlayMainMusic()
+	{
+		if(shouldPlayMainMusic)
+			Play("MainMusic");
+	}
 }

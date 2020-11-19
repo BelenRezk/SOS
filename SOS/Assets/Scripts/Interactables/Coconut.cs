@@ -42,7 +42,7 @@ public class Coconut : InventoryItemBase
             Debug.Log(ai);
             ai.coconutCount--;
         }
-        catch (Exception e)
+        catch (Exception)
         {
             //is not ai
         }

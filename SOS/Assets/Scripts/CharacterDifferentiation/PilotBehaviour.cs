@@ -37,7 +37,7 @@ public class PilotBehaviour : CharacterDifferentiationBase
             if (movement.isUsingBanana)
                 audioManager.Play("BananaMusic");
             else
-                audioManager.Play("MainMusic");
+                audioManager.PlayMainMusic();
         }
         Debug.Log("Finish Pilot Ability");
     }

@@ -30,9 +30,9 @@ public class ThirdPersonMovement : MovementBase
     void Start()
     {
         AudioManager manager = FindObjectOfType<AudioManager>();
-        FindObjectOfType<AudioManager>().Stop("Jungle");
-        FindObjectOfType<AudioManager>().Play("MainMusic");
-        FindObjectOfType<AudioManager>().Play("Waves");
+        manager.Stop("Jungle");
+        manager.PlayMainMusic();
+        manager.Play("Waves");
         switch (Selector_Script.CharacterInt)
         {
             case 1:
@@ -128,6 +128,8 @@ public class ThirdPersonMovement : MovementBase
             abilityDurationRemaining -= Time.deltaTime;
         if (interactionCooldownRemaining > 0)
             interactionCooldownRemaining -= Time.deltaTime;
+        if (Input.GetButtonDown("ToggleMainMusic"))
+            ToggleMainMusic();
     }
 
     private void CheckBananaUsage()
@@ -141,7 +143,7 @@ public class ThirdPersonMovement : MovementBase
                 isUsingBanana = false;
                 speed = speed / bananaSpeedMultiplier;
                 FindObjectOfType<AudioManager>().Stop("BananaMusic");
-                FindObjectOfType<AudioManager>().Play("MainMusic");
+                FindObjectOfType<AudioManager>().PlayMainMusic();
             }
         }
     }
@@ -240,7 +242,6 @@ public class ThirdPersonMovement : MovementBase
         speed = speed * bananaSpeedMultiplier;
         remainingBananaTime = duration;
         FindObjectOfType<PositionRandomizer>().SpawnBanana();
-        Debug.Log("SPAWNED BANANA PLAYER");
     }
 
     public bool UseShield()
@@ -253,5 +254,19 @@ public class ThirdPersonMovement : MovementBase
         }
         else
             return false;
+    }
+
+    private void ToggleMainMusic()
+    {
+        AudioManager manager = FindObjectOfType<AudioManager>();
+        bool currentValue = manager.shouldPlayMainMusic;
+        if(currentValue)
+            manager.StopMainMusic();
+        else
+        {
+            manager.ResumeMainMusic();
+            if(!isUsingBanana && !abilityActive)
+                manager.PlayMainMusic();
+        }
     }
 }

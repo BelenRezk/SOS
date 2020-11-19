@@ -36,7 +36,7 @@ public class OldLadyBehaviour : CharacterDifferentiationBase
             if (movement.isUsingBanana)
                 audioManager.Play("BananaMusic");
             else
-                audioManager.Play("MainMusic");
+                audioManager.PlayMainMusic();
         }
     }
 }

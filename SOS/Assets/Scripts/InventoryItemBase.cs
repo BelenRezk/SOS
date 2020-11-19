@@ -45,7 +45,7 @@ public abstract class InventoryItemBase : MonoBehaviour, IInventoryItem
                 AIItemsInteraction ai = player.GetComponent<AIItemsInteraction>();
                 ai.coconutCount++;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 //is not AI
             }

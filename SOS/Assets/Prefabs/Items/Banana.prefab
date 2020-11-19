@@ -20,7 +20,7 @@ GameObject:
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 0
 --- !u!4 &8478236026973235140
 Transform:
@@ -143,5 +143,6 @@ MonoBehaviour:
   _Image: {fileID: 21300000, guid: 825a287a857b43644be6ee4b9278ef1f, type: 3}
   soundClip: {fileID: 8300000, guid: 0e75e97a4744a1e45adaf0054f6d33e8, type: 3}
   objectDestination: {fileID: 0}
+  itemId: 4
   bananaManager: {fileID: 0}
   duration: 5

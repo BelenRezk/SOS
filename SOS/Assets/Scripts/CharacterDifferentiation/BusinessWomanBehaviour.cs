@@ -37,6 +37,8 @@ public class BusinessWomanBehaviour : CharacterDifferentiationBase
 
         if (shouldPlayMusic && playerToStealFrom != null)
         {
+            audioManager.Stop("MainMusic");
+            audioManager.Stop("BananaMusic");
             audioManager.Play("MoneySound");
             audioManager.Play("BusinessWomanLaugh");
             StealWinItem(playerToStealFrom);
@@ -83,7 +85,13 @@ public class BusinessWomanBehaviour : CharacterDifferentiationBase
 
     public override void FinishSpecialAbility()
     {
-        
+        if (shouldPlayMusic)
+        {
+            if (movement.isUsingBanana)
+                audioManager.Play("BananaMusic");
+            else
+                audioManager.PlayMainMusic();
+        }
         Debug.Log("Finish Business Woman Ability");
     }
 }

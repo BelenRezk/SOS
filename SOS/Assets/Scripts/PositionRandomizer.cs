@@ -112,9 +112,9 @@ public class PositionRandomizer : MonoBehaviour
 
     private void SpawnObject(string spawnTag, GameObject objectToSpawn)
     {
-        Debug.Log("SPAWNOBJECT METHOD");
         GameObject[] possibleSpawnPoints = GameObject.FindGameObjectsWithTag(spawnTag);
-        GameObject chosenSpawn = possibleSpawnPoints[Random.Range(0, possibleSpawnPoints.Length)];
+        int spawnIndex = Random.Range(0, possibleSpawnPoints.Length);
+        GameObject chosenSpawn = possibleSpawnPoints[spawnIndex];
         Transform chosenSpawnTransform = chosenSpawn.transform;
         GameObject clone = Instantiate(objectToSpawn, new Vector3(chosenSpawnTransform.position.x, chosenSpawnTransform.position.y, chosenSpawnTransform.position.z), Quaternion.identity) as GameObject;
         clone.SetActive(true);

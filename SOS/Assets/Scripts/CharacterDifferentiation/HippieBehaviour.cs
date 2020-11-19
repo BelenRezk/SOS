@@ -63,7 +63,7 @@ public class HippieBehaviour : CharacterDifferentiationBase
             if (movement.isUsingBanana)
                 audioManager.Play("BananaMusic");
             else
-                audioManager.Play("MainMusic");
+                audioManager.PlayMainMusic();
         }
         Debug.Log("Finish Hippie Ability");
     }
