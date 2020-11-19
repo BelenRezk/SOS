@@ -45,15 +45,17 @@ public class Shield : InventoryItemBase
         {
             ThirdPersonMovement thirdPersonMovement = playerGO.GetComponent<ThirdPersonMovement>();
             shieldUsed = thirdPersonMovement.UseShield();
-            PlayShieldActivationSound();
         }
         catch (Exception)
         {
 
         }
         if (shieldUsed)
+        {
             this.transform.parent = null;
-        return true;
+            PlayShieldActivationSound();
+        }
+        return shieldUsed;
     }
 
     private void PlayShieldActivationSound()

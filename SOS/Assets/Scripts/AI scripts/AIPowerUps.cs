@@ -77,6 +77,7 @@ public class AIPowerUps : MonoBehaviour
         _navMeshAgent.speed = _navMeshAgent.speed * bananaSpeedMultiplier;
         remainingBananaTime = 5f;
         FindObjectOfType<PositionRandomizer>().SpawnBanana();
+        Debug.Log("SPAWNED BANANA AI");
     }
 
     void UseShield()

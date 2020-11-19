@@ -240,6 +240,7 @@ public class ThirdPersonMovement : MovementBase
         speed = speed * bananaSpeedMultiplier;
         remainingBananaTime = duration;
         FindObjectOfType<PositionRandomizer>().SpawnBanana();
+        Debug.Log("SPAWNED BANANA PLAYER");
     }
 
     public bool UseShield()

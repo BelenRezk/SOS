@@ -90,7 +90,8 @@ public class PositionRandomizer : MonoBehaviour
         foreach(GameObject spawnPoint in spawnPoints)
         {
             Transform spawnTransform = spawnPoint.transform;
-            Instantiate(objectToSpawn, new Vector3(spawnTransform.position.x, spawnTransform.position.y, spawnTransform.position.z), Quaternion.identity);            
+            GameObject clone = Instantiate(objectToSpawn, new Vector3(spawnTransform.position.x, spawnTransform.position.y, spawnTransform.position.z), Quaternion.identity) as GameObject;            
+            clone.SetActive(true);
         }
     }
 
@@ -111,9 +112,11 @@ public class PositionRandomizer : MonoBehaviour
 
     private void SpawnObject(string spawnTag, GameObject objectToSpawn)
     {
+        Debug.Log("SPAWNOBJECT METHOD");
         GameObject[] possibleSpawnPoints = GameObject.FindGameObjectsWithTag(spawnTag);
         GameObject chosenSpawn = possibleSpawnPoints[Random.Range(0, possibleSpawnPoints.Length)];
         Transform chosenSpawnTransform = chosenSpawn.transform;
-        Instantiate(objectToSpawn, new Vector3(chosenSpawnTransform.position.x, chosenSpawnTransform.position.y, chosenSpawnTransform.position.z), Quaternion.identity);
+        GameObject clone = Instantiate(objectToSpawn, new Vector3(chosenSpawnTransform.position.x, chosenSpawnTransform.position.y, chosenSpawnTransform.position.z), Quaternion.identity) as GameObject;
+        clone.SetActive(true);
     }
 }

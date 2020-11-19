@@ -9,6 +9,8 @@ TagManager:
   - BoatTag
   - PathTag
   - CoconutSpawn
+  - BananaSpawn
+  - ShieldSpawn
   layers:
   - Default
   - TransparentFX
