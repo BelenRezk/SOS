@@ -202,6 +202,7 @@ public class ThirdPersonMovement : MovementBase
                     {
                         PlayShieldSound();
                         hasShield = false;
+                        FindObjectOfType<PositionRandomizer>().SpawnShield();
                     }
                     currentInvincibility = afterHitInvincibility;
                 }
@@ -249,7 +250,6 @@ public class ThirdPersonMovement : MovementBase
         if (!hasShield)
         {
             hasShield = true;
-            FindObjectOfType<PositionRandomizer>().SpawnShield();
             return true;
         }
         else

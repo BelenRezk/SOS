@@ -42,14 +42,15 @@ public class AIItemsInteraction : MovementBase
                     PlayGetHitSound();
                     inventory.DropAllItems();
                     winItems.DropAllItems();
-                    item.DestroyObject();
-                    FindObjectOfType<PositionRandomizer>().SpawnCoconut();
                 }
                 else
                 {
                     PlayShieldSound();
                     obj.hasShield = false;
+                    FindObjectOfType<PositionRandomizer>().SpawnShield();
                 }
+                item.DestroyObject();
+                FindObjectOfType<PositionRandomizer>().SpawnCoconut();
             }
         }
     }

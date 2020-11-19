@@ -84,7 +84,6 @@ public class AIPowerUps : MonoBehaviour
         if (!hasShield)
         {
             hasShield = true;
-            FindObjectOfType<PositionRandomizer>().SpawnShield();
         }
     }
 }
