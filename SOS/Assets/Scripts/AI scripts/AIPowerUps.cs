@@ -76,6 +76,7 @@ public class AIPowerUps : MonoBehaviour
         isUsingBanana = true;
         _navMeshAgent.speed = _navMeshAgent.speed * bananaSpeedMultiplier;
         remainingBananaTime = 5f;
+        FindObjectOfType<PositionRandomizer>().SpawnBanana();
     }
 
     void UseShield()
@@ -83,6 +84,7 @@ public class AIPowerUps : MonoBehaviour
         if (!hasShield)
         {
             hasShield = true;
+            FindObjectOfType<PositionRandomizer>().SpawnShield();
         }
     }
 }

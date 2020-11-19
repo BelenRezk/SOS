@@ -27,13 +27,15 @@ public class PositionRandomizer : MonoBehaviour
         RandomSpawner(oar2, landRandomPositions, false);
         RandomSpawner(flareGun,landRandomPositions,false);
 
-        bananaPositions.Add(new Vector3(20, 5, 34));
+        /*bananaPositions.Add(new Vector3(20, 5, 34));
         RandomSpawner(banana, bananaPositions, false);
 
         shieldPositions.Add(new Vector3(4, 3, 25));
-        RandomSpawner(shield, shieldPositions, false);
+        RandomSpawner(shield, shieldPositions, false);*/
 
         SpawnAllCoconuts();
+        SpawnAllBananas();
+        SpawnAllShields();
     }
 
     void ValidInstantiationLandPositionsGenerator()
@@ -69,19 +71,49 @@ public class PositionRandomizer : MonoBehaviour
 
     private void SpawnAllCoconuts()
     {
-        GameObject[] spawnPoints = GameObject.FindGameObjectsWithTag("CoconutSpawn");
+        SpawnAllItems("CoconutSpawn", coconut);
+    }
+
+    private void SpawnAllBananas()
+    {
+        SpawnAllItems("BananaSpawn", banana);
+    }
+
+    public void SpawnAllShields()
+    {
+        SpawnAllItems("ShieldSpawn", shield);
+    }
+
+    private void SpawnAllItems(string spawnTag, GameObject objectToSpawn)
+    {
+        GameObject[] spawnPoints = GameObject.FindGameObjectsWithTag(spawnTag);
         foreach(GameObject spawnPoint in spawnPoints)
         {
             Transform spawnTransform = spawnPoint.transform;
-            Instantiate(coconut, new Vector3(spawnTransform.position.x, spawnTransform.position.y, spawnTransform.position.z), Quaternion.identity);            
+            Instantiate(objectToSpawn, new Vector3(spawnTransform.position.x, spawnTransform.position.y, spawnTransform.position.z), Quaternion.identity);            
         }
     }
 
     public void SpawnCoconut()
     {
-        GameObject[] possibleSpawnPoints = GameObject.FindGameObjectsWithTag("CoconutSpawn");
+        SpawnObject("CoconutSpawn", coconut);
+    }
+
+    public void SpawnBanana()
+    {
+        SpawnObject("BananaSpawn", banana);
+    }
+
+    public void SpawnShield()
+    {
+        SpawnObject("ShieldSpawn", shield);
+    }
+
+    private void SpawnObject(string spawnTag, GameObject objectToSpawn)
+    {
+        GameObject[] possibleSpawnPoints = GameObject.FindGameObjectsWithTag(spawnTag);
         GameObject chosenSpawn = possibleSpawnPoints[Random.Range(0, possibleSpawnPoints.Length)];
         Transform chosenSpawnTransform = chosenSpawn.transform;
-        Instantiate(coconut, new Vector3(chosenSpawnTransform.position.x, chosenSpawnTransform.position.y, chosenSpawnTransform.position.z), Quaternion.identity);
+        Instantiate(objectToSpawn, new Vector3(chosenSpawnTransform.position.x, chosenSpawnTransform.position.y, chosenSpawnTransform.position.z), Quaternion.identity);
     }
 }

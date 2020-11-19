@@ -239,6 +239,7 @@ public class ThirdPersonMovement : MovementBase
         isUsingBanana = true;
         speed = speed * bananaSpeedMultiplier;
         remainingBananaTime = duration;
+        FindObjectOfType<PositionRandomizer>().SpawnBanana();
     }
 
     public bool UseShield()
@@ -246,6 +247,7 @@ public class ThirdPersonMovement : MovementBase
         if (!hasShield)
         {
             hasShield = true;
+            FindObjectOfType<PositionRandomizer>().SpawnShield();
             return true;
         }
         else
