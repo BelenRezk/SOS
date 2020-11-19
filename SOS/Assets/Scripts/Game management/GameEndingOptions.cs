@@ -7,7 +7,7 @@ public class GameEndingOptions : MonoBehaviour
 {
     public void PlayAgain()
     {
-        SceneManager.LoadScene("mainScene");
+        SceneManager.LoadScene("characterSelectionScene");
     }
 
     public void GoToMenu()

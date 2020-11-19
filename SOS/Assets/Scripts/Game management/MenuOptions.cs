@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class MenuOptions : MonoBehaviour
 {
+    private void Start()
+    {
+        FindObjectOfType<AudioManager>().Play("Jungle");
+    }
+    
     public void PlayGame()
     {
         SceneManager.LoadScene("mainScene");
