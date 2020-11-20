@@ -159,7 +159,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 720, y: -456}
+  m_AnchoredPosition: {x: 720, y: -475}
   m_SizeDelta: {x: 350, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &48131801
@@ -457,7 +457,7 @@ RectTransform:
   m_GameObject: {fileID: 450420615}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.9, y: 0.79999995, z: 1}
+  m_LocalScale: {x: 0.9, y: 0.83, z: 1}
   m_Children: []
   m_Father: {fileID: 105709210}
   m_RootOrder: 0
@@ -539,7 +539,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 29, y: -112}
+  m_AnchoredPosition: {x: 29, y: -52}
   m_SizeDelta: {x: 1700, y: 800}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &486175746
@@ -581,7 +581,8 @@ MonoBehaviour:
     1 - 9 keyboard numbers (correlated to inventory position) \nDrop main inventory
     item:                E\nUse main inventory item:                  Left mouse
     button\nDrop winning inventory item:            Z, X , C , V  ,B (correlated
-    to inventory position)\n\nUse character special skill:            Q\n\n\n\n"
+    to inventory position)\n\nUse character special skill:            Q\n\nEnable/disable
+    main music:              P\n\n\n\n"
 --- !u!222 &486175747
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -960,7 +961,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 410}
+  m_AnchoredPosition: {x: 0, y: 434}
   m_SizeDelta: {x: 1000, y: 1000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1610684667
