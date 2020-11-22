@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -54,7 +55,7 @@ public class PositionRandomizer : MonoBehaviour
 
     void RandomSpawner(GameObject objectToInstantiate, List<Vector3> randomPositions, bool isBoat)
     {
-        int randomIndex = Random.Range(0, randomPositions.Count);
+        int randomIndex = UnityEngine.Random.Range(0, randomPositions.Count);
         GameObject clone = Instantiate(objectToInstantiate, randomPositions[randomIndex], Quaternion.identity) as GameObject;
         clone.SetActive(true);
         if (isBoat)
@@ -64,6 +65,12 @@ public class PositionRandomizer : MonoBehaviour
         else
         {
             clone.tag = "Item";
+            try {
+            clone.transform.GetChild(0).gameObject.SetActive(true);
+            }
+            catch (Exception) {
+                Debug.Log("AAAAAA");
+            }
         }
         //Prevents objects overlapping
         randomPositions.RemoveAt(randomIndex);
@@ -113,7 +120,7 @@ public class PositionRandomizer : MonoBehaviour
     private void SpawnObject(string spawnTag, GameObject objectToSpawn)
     {
         GameObject[] possibleSpawnPoints = GameObject.FindGameObjectsWithTag(spawnTag);
-        int spawnIndex = Random.Range(0, possibleSpawnPoints.Length);
+        int spawnIndex = UnityEngine.Random.Range(0, possibleSpawnPoints.Length);
         GameObject chosenSpawn = possibleSpawnPoints[spawnIndex];
         Transform chosenSpawnTransform = chosenSpawn.transform;
         /*GameObject clone = */Instantiate(objectToSpawn, new Vector3(chosenSpawnTransform.position.x, chosenSpawnTransform.position.y, chosenSpawnTransform.position.z), Quaternion.identity) /*as GameObject*/;

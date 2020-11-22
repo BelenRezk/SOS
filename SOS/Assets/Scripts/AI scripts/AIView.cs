@@ -13,7 +13,6 @@ public class AIView : MonoBehaviour
     {
         PlayersPositions = new List<(string, Vector3)>();
         ItemsPositions = new List<(string, Vector3)>();
-
     }
 
     private void OnTriggerStay(Collider other) {
@@ -22,8 +21,7 @@ public class AIView : MonoBehaviour
         if (isPlayer && aiPlayer.coconutCount > 0)
         {
             //TODO: Change name to each AI player
-            if(other.name != "AI Player"){
-
+            if(other.name != gameObject.transform.parent.gameObject.name){
                 AIPowerUps aiPowerUps = this.GetComponentInParent<AIPowerUps>();
                 aiPowerUps.hasClosePlayer = true;
                 //Found player to attack
