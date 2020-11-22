@@ -27,6 +27,8 @@ public class ThirdPersonMovement : MovementBase
     public AudioClip shieldSound;
     private CharacterDifferentiationBase characterBehaviour;
 
+    public Animator animator;
+
     void Start()
     {
         AudioManager manager = FindObjectOfType<AudioManager>();
@@ -57,6 +59,14 @@ public class ThirdPersonMovement : MovementBase
     // Update is called once per frame
     void Update()
     {
+        if (animator.GetBool("Jumping"))
+            animator.SetBool("Jumping", false);
+        if (animator.GetBool("WasHit"))
+            animator.SetBool("WasHit", false);
+        if (animator.GetBool("ThrowingCoconut"))
+            animator.SetBool("ThrowingCoconut", false);
+        if (animator.GetBool("IsWalking"))
+            animator.SetBool("IsWalking", false);
         var CharacterRotation = GameCamera.transform.rotation;
         CharacterRotation.x = 0;
         CharacterRotation.z = 0;
@@ -72,6 +82,7 @@ public class ThirdPersonMovement : MovementBase
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
+            animator.SetBool("jumping", true);
             velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
         }
         //gravity
@@ -86,9 +97,10 @@ public class ThirdPersonMovement : MovementBase
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             //transform.rotation = Quaternion.Euler(0f, angle, 0f);
-
+            
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
+            animator.SetBool("IsWalking", true);
         }
 
         for (int i = 1; i <= 9; i++)
@@ -106,7 +118,14 @@ public class ThirdPersonMovement : MovementBase
         if (Input.GetButtonDown("DropItem"))
             inventory.RemoveSelectedItem();
         if (Input.GetButtonDown("UseItem"))
+        {
+            if (inventory.GetSelectedItemName().Equals("Coconut"))
+            {
+                animator.SetBool("ThrowingCoconut", true);
+                
+            }
             inventory.UseSelectedItem();
+        }
         CheckBananaUsage();
         if (currentInvincibility > 0)
             currentInvincibility -= Time.deltaTime;
@@ -192,6 +211,7 @@ public class ThirdPersonMovement : MovementBase
             {
                 if(currentInvincibility <= 0)
                 {
+                    animator.SetBool("WasHit", true);
                     if (!hasShield)
                     {
                         PlayGetHitSound();

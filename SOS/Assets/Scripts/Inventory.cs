@@ -145,4 +145,12 @@ public class Inventory : MonoBehaviour
         if (item != null)
             RemoveItem(item);
     }
+
+    public string GetSelectedItemName()
+    {
+        IInventoryItem item = mItems[selectedPosition];
+        if (item != null)
+            return item.Name;
+        return "";
+    }
 }
