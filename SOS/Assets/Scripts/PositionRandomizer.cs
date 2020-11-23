@@ -17,6 +17,8 @@ public class PositionRandomizer : MonoBehaviour
     public GameObject flareGun;
     public GameObject shield;
     public GameObject coconut;
+    public GameObject emergencyKit;
+    public GameObject parachute;
 
     void Start()
     {
@@ -26,12 +28,8 @@ public class PositionRandomizer : MonoBehaviour
         RandomSpawner(oars, landRandomPositions, false);
         RandomSpawner(oar2, landRandomPositions, false);
         RandomSpawner(flareGun,landRandomPositions,false);
-
-        /*bananaPositions.Add(new Vector3(20, 5, 34));
-        RandomSpawner(banana, bananaPositions, false);
-
-        shieldPositions.Add(new Vector3(4, 3, 25));
-        RandomSpawner(shield, shieldPositions, false);*/
+        RandomSpawner(emergencyKit,landRandomPositions,false);
+        RandomSpawner(parachute,landRandomPositions,false);
 
         SpawnAllCoconuts();
         SpawnAllBananas();
@@ -43,6 +41,8 @@ public class PositionRandomizer : MonoBehaviour
         landRandomPositions.Add(new Vector3(8, 3, 29));
         landRandomPositions.Add(new Vector3(18, 4, -80));
         landRandomPositions.Add(new Vector3(190, 15, -50));
+        landRandomPositions.Add(new Vector3(136,38,-103));
+        landRandomPositions.Add(new Vector3(162,39,-111));
     }
 
     void ValidInstantiationWaterPositionsGenerator()

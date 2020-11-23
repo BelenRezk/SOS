@@ -47,25 +47,29 @@ public class AIPowerUps : MonoBehaviour
     private void UsePowerUp()
     {
         int itemCount = gameObject.transform.childCount;
-        for (int i = 0; i < itemCount; i++)
+        bool continueSearch = true;
+        for (int i = 0; i < itemCount && continueSearch; i++)
         {
             IInventoryItem item = gameObject.transform.GetChild(i).GetComponent<IInventoryItem>();
             
             
             if (item != null && item.Name != null && item.Name.Equals("Banana") && !isUsingBanana)
             {
+                continueSearch = false;
                 var banana = gameObject.transform.GetChild(i);
                 banana.transform.parent = null;
                 UseBanana();
             }
             else if(item != null && item.Name.Equals("Shield") )
             {
+                continueSearch = false;
                 var shield = gameObject.transform.GetChild(i);
                 shield.transform.parent = null;
                 UseShield();
             }
             else if (item != null && item.Name.Equals("Coconut") && hasClosePlayer)
             {
+                continueSearch = false;
                 AIItemsInteraction aiMovement = this.GetComponentInParent<AIItemsInteraction>();
                 aiMovement.inventory.UseItem(item);
             }

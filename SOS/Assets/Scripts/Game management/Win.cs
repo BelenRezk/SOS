@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Win : MonoBehaviour
@@ -13,20 +14,27 @@ public class Win : MonoBehaviour
         for (int i = 0; i < itemCount; i++)
         {
             IInventoryItem item = player.transform.GetChild(i).GetComponent<IInventoryItem>();
-            if (item != null && item.Name != null && (item.Name.Equals("Oar") || item.Name.Equals("Oar (1)") || item.Name.Equals("FlareGun")))
+            if (item != null && item.Name != null && (item.Name.Equals("Oar") || item.Name.Equals("Oar (1)") || item.Name.Equals("FlareGun")
+                || item.Name.Equals("EmergencyKit") || item.Name.Equals("Parachute")))
             {
                 winningItemsCount ++;
             }
         }
-        if(winningItemsCount == 3)
+        if(winningItemsCount == 5)
         {
-            FindObjectOfType<AudioManager>().Stop("MainMusic");
-            FindObjectOfType<AudioManager>().Stop("BananaMusic");
-            FindObjectOfType<AudioManager>().Stop("OldLadyAbilityMusic");
-            FindObjectOfType<AudioManager>().Stop("HippieAbilityMusic");
-            FindObjectOfType<AudioManager>().Stop("RadarBlip");
-            FindObjectOfType<AudioManager>().Play("Win");
-            FindObjectOfType<AudioManager>().Play("Jungle");
+            try
+            {
+                FindObjectOfType<AudioManager>().Stop("MainMusic");
+                FindObjectOfType<AudioManager>().Stop("BananaMusic");
+                FindObjectOfType<AudioManager>().Stop("OldLadyAbilityMusic");
+                FindObjectOfType<AudioManager>().Stop("HippieAbilityMusic");
+                FindObjectOfType<AudioManager>().Stop("RadarBlip");
+                FindObjectOfType<AudioManager>().Play("Win");
+                FindObjectOfType<AudioManager>().Play("Jungle");
+            }
+            catch(Exception){
+                //there's no music to play or stop
+            }
             LoadWinner.winner = "The winner is " + getWinnerName(player);
             SceneManager.LoadScene("winScene");
         }

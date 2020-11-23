@@ -32,9 +32,14 @@ public class ThirdPersonMovement : MovementBase
     void Start()
     {
         AudioManager manager = FindObjectOfType<AudioManager>();
-        manager.Stop("Jungle");
-        manager.PlayMainMusic();
-        manager.Play("Waves");
+        try{    
+            manager.Stop("Jungle");
+            manager.PlayMainMusic();
+            manager.Play("Waves");
+        }
+        catch(Exception){
+            //there's no music to play or stop
+        }
         switch (Selector_Script.CharacterInt)
         {
             case 1:

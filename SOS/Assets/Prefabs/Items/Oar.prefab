@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3489e53b340dc743a9b4e083160cbca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Image: {fileID: 21300000, guid: 46434f49476c413489e0a9569f86cafb, type: 3}
+  _Image: {fileID: 21300000, guid: c94886758f48b374f98ab46b36f52a90, type: 3}
   soundClip: {fileID: 8300000, guid: 0e75e97a4744a1e45adaf0054f6d33e8, type: 3}
   objectDestination: {fileID: 0}
   itemId: 0
