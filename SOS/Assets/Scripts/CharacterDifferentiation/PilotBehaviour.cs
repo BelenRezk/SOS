@@ -17,6 +17,8 @@ public class PilotBehaviour : CharacterDifferentiationBase
         ToggleWaypoint("WaypointOar", true);
         ToggleWaypoint("WaypointFlareGun", true);
         ToggleWaypoint("WaypointOar (1)", true);
+        ToggleWaypoint("WaypointEmergencyKit", true);
+        ToggleWaypoint("WaypointParachute", true);
         if (shouldPlayMusic)
         {
             audioManager.Stop("MainMusic");
@@ -31,6 +33,8 @@ public class PilotBehaviour : CharacterDifferentiationBase
         ToggleWaypoint("WaypointOar", false);
         ToggleWaypoint("WaypointFlareGun", false);
         ToggleWaypoint("WaypointOar (1)", false);
+        ToggleWaypoint("WaypointEmergencyKit", false);
+        ToggleWaypoint("WaypointParachute", false);
         if (shouldPlayMusic)
         {
             audioManager.Stop("RadarBlip");
