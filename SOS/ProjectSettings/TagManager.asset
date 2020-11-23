@@ -11,6 +11,9 @@ TagManager:
   - CoconutSpawn
   - BananaSpawn
   - ShieldSpawn
+  - AI Player
+  - AI Player 2
+  - AI Player 3
   layers:
   - Default
   - TransparentFX
