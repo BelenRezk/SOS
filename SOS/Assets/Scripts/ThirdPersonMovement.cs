@@ -47,18 +47,23 @@ public class ThirdPersonMovement : MovementBase
         {
             case 1:
                 characterBehaviour = new BusinessWomanBehaviour(this, true, manager);
+                this.gameObject.name = "Businesswoman";
                 break;
             case 2:
                 characterBehaviour = new PilotBehaviour(this, true, manager);
+                this.gameObject.name = "Pilot";
                 break;
             case 3:
                 characterBehaviour = new OldLadyBehaviour(this, true, manager);
+                this.gameObject.name = "Old Lady";
                 break;
             case 4:
                 characterBehaviour = new HippieBehaviour(this, true, manager);
+                this.gameObject.name = "Hippie";
                 break;
             default:
                 characterBehaviour = new PilotBehaviour(this, true, manager);
+                this.gameObject.name = "Pilot";
                 break;
         }
         abilityCooldownRemaining = 3f;
