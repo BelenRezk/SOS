@@ -13,6 +13,7 @@ public class AIPowerUps : MonoBehaviour
     public bool hasShield = false;
     [HideInInspector]
     public bool hasClosePlayer = false;
+    public Animator animator;
 
     void Start()
     {
@@ -66,6 +67,8 @@ public class AIPowerUps : MonoBehaviour
             }
             else if (item != null && item.Name.Equals("Coconut") && hasClosePlayer)
             {
+                Debug.Log("THROWING COCONUT");
+                animator.SetBool("ThrowingCoconut", true);
                 AIItemsInteraction aiMovement = this.GetComponentInParent<AIItemsInteraction>();
                 aiMovement.inventory.UseItem(item);
             }

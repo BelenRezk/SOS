@@ -9,6 +9,7 @@ public class AIItemsInteraction : MovementBase
     public AudioClip shieldSound;
     [HideInInspector]
     public int coconutCount = 0;
+    public Animator animator;
 
     void Start(){}
 
@@ -39,6 +40,8 @@ public class AIItemsInteraction : MovementBase
                 AIPowerUps obj = gameObject.transform.GetComponent<AIPowerUps>();
                 if (!obj.hasShield)
                 {
+                    Debug.Log("WAS HIT");
+                    animator.SetBool("WasHit", true);
                     PlayGetHitSound();
                     inventory.DropAllItems();
                     winItems.DropAllItems();
