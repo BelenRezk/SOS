@@ -4,24 +4,49 @@ ModelImporter:
   serializedVersion: 20101
   internalIDToNameTable:
   - first:
+      74: -4010178998062912872
+    second: rig|Anciana-hit
+  - first:
       74: 1842336397151724724
     second: rig|AncianaIdle
+  - first:
+      74: -6990300123113043429
+    second: AncianaCorrida
+  - first:
+      74: -1466883471533803067
+    second: AncianaSalto
   - first:
       74: 7543237510514989193
     second: rig|rig|rig|Character_Anciana_Character.001Action|rig|Character_Anc
   - first:
       74: -5562545002035637979
     second: rig|rig|rig|PoseLib|rig|PoseLib
+  externalObjects:
   - first:
-      74: -3299647678811740640
-    second: rig|rig|rig|rigAction|rig|rigAction
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: 6b6834d391950b5419a393d55650930a, type: 2}
   - first:
-      74: 6989713043325217654
-    second: rig|rig|rig|rigAction|rig|rigAction.001
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.002
+    second: {fileID: 4481005128293969958, guid: fac0311ba79e19647b15c9fb4699729e, type: 3}
   - first:
-      74: -5200411672616442227
-    second: rig|rig|rig|rigAction|rig|rigAction.002
-  externalObjects: {}
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: None
+    second: {fileID: -5180675781647300208, guid: 4782e16b2dbb6914db0a7a088a77a689, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ojos.002
+    second: {fileID: -2633396507068182301, guid: 12b2a32fa2744ee41b4a1c15cf9521e4, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rojo.002
+    second: {fileID: -6478536213147159724, guid: 6cdd7994db9684e4ebe719d5929e9396, type: 3}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -49,6 +74,35 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations:
+    - serializedVersion: 16
+      name: rig|Anciana-hit
+      takeName: rig|Anciana-hit
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: rig|AncianaIdle
       takeName: rig|AncianaIdle
@@ -79,11 +133,40 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: rig|rig|rig|rigAction|rig|rigAction
-      takeName: rig|rig|rig|rigAction|rig|rigAction
+      name: AncianaCorrida
+      takeName: rig|rig|rig|Anciana_Corrida|rig|Anciana_Corrida
       internalID: 0
       firstFrame: 0
-      lastFrame: 24
+      lastFrame: 17
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: AncianaSalto
+      takeName: rig|rig|rig|Anciana_Salto|rig|Anciana_Salto
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 25
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

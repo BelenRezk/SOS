@@ -12,6 +12,7 @@ public class AIPath : MonoBehaviour
     private bool followsPath;
     private GameObject itemTarget;
     private Transform boatTarget;
+    public Animator animator;
 
     void Start()
     {
@@ -25,6 +26,13 @@ public class AIPath : MonoBehaviour
 
     void Update()
     {
+        if (animator.GetBool("Jumping"))
+            animator.SetBool("Jumping", false);
+        if (animator.GetBool("WasHit"))
+            animator.SetBool("WasHit", false);
+        if (animator.GetBool("ThrowingCoconut"))
+            animator.SetBool("ThrowingCoconut", false);
+        animator.SetBool("IsWalking", true);
         bool canWin = hasAllWinnableItems();
         if(canWin)
         {

@@ -29,8 +29,11 @@ public class ThirdPersonMovement : MovementBase
 
     public Animator animator;
 
+    private int timer;
+
     void Start()
     {
+        timer = 0;
         AudioManager manager = FindObjectOfType<AudioManager>();
         try{    
             manager.Stop("Jungle");
@@ -64,13 +67,15 @@ public class ThirdPersonMovement : MovementBase
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(animator.GetBool("WasHit"));
+        timer++;
         if (animator.GetBool("Jumping"))
             animator.SetBool("Jumping", false);
         if (animator.GetBool("WasHit"))
             animator.SetBool("WasHit", false);
         if (animator.GetBool("ThrowingCoconut"))
             animator.SetBool("ThrowingCoconut", false);
-        if (animator.GetBool("IsWalking"))
+        if (animator.GetBool("IsWalking") && timer == 5)
             animator.SetBool("IsWalking", false);
         var CharacterRotation = GameCamera.transform.rotation;
         CharacterRotation.x = 0;
@@ -87,7 +92,8 @@ public class ThirdPersonMovement : MovementBase
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
-            animator.SetBool("jumping", true);
+            timer = 0;
+            animator.SetBool("Jumping", true);
             velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
         }
         //gravity
@@ -106,6 +112,7 @@ public class ThirdPersonMovement : MovementBase
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
             animator.SetBool("IsWalking", true);
+            timer = 0;
         }
 
         for (int i = 1; i <= 9; i++)
@@ -127,7 +134,8 @@ public class ThirdPersonMovement : MovementBase
             if (inventory.GetSelectedItemName().Equals("Coconut"))
             {
                 animator.SetBool("ThrowingCoconut", true);
-                
+                timer = 0;
+
             }
             inventory.UseSelectedItem();
         }
@@ -216,7 +224,7 @@ public class ThirdPersonMovement : MovementBase
             {
                 if(currentInvincibility <= 0)
                 {
-                    animator.SetBool("WasHit", true);
+                    timer = 0;
                     if (!hasShield)
                     {
                         PlayGetHitSound();
@@ -242,6 +250,7 @@ public class ThirdPersonMovement : MovementBase
     {
         try
         {
+            animator.SetBool("WasHit", true);
             AudioSource.PlayClipAtPoint(getHitSound, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z));
         }
         catch (Exception)
