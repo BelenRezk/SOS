@@ -84,6 +84,15 @@ public abstract class InventoryItemBase : MonoBehaviour, IInventoryItem
         
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.name.Contains("LavaPlane"))
+        {
+            Vector3 newPos = new Vector3(20, 20, 20);
+            this.transform.position = this.transform.position + newPos;
+        }
+    }
+
     public abstract bool OnUse();
     public void DestroyObject()
     {

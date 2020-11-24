@@ -19,41 +19,50 @@ public class AIItemsInteraction : MovementBase
     }
     private void OnTriggerEnter(Collider other)
     {
-        /*AIMovement aiMovement = this.GetComponentInParent<AIMovement>();
-        if(aiMovement.interactionCooldownRemaining <= 0)
-            aiMovement.ObjectInteraction(other);*/
-        IInventoryItem item = other.GetComponent<Collider>().GetComponent<IInventoryItem>();           
-        if(item != null && interactionCooldownRemaining <= 0)
+        if (other.gameObject.name.Contains("LavaPlane"))
         {
-            interactionCooldownRemaining = interactionCooldown;
-            
-            if (item != null && !item.HasOwner)
+            this.GetComponent<UnityEngine.AI.NavMeshAgent>().Move(Vector3.back*50.0f);
+            inventory.DropAllItems();
+            winItems.DropAllItems();
+        }
+        else
+        {
+            /*AIMovement aiMovement = this.GetComponentInParent<AIMovement>();
+            if(aiMovement.interactionCooldownRemaining <= 0)
+            aiMovement.ObjectInteraction(other);*/
+            IInventoryItem item = other.GetComponent<Collider>().GetComponent<IInventoryItem>();           
+            if(item != null && interactionCooldownRemaining <= 0)
             {
-                if(item.WinItem)
-                    winItems.AddItem(item);
-                else
-                    inventory.AddItem(item);
-                item.HasOwner = true;
-            }
-            else if (item != null && item.HasOwner)
-            {
-                AIPowerUps obj = gameObject.transform.GetComponent<AIPowerUps>();
-                if (!obj.hasShield)
+                interactionCooldownRemaining = interactionCooldown;
+                
+                if (item != null && !item.HasOwner)
                 {
-                    Debug.Log("WAS HIT");
-                    animator.SetBool("WasHit", true);
-                    PlayGetHitSound();
-                    inventory.DropAllItems();
-                    winItems.DropAllItems();
+                    if(item.WinItem)
+                        winItems.AddItem(item);
+                    else
+                        inventory.AddItem(item);
+                    item.HasOwner = true;
                 }
-                else
+                else if (item != null && item.HasOwner)
                 {
-                    PlayShieldSound();
-                    obj.hasShield = false;
-                    FindObjectOfType<PositionRandomizer>().SpawnShield();
+                    AIPowerUps obj = gameObject.transform.GetComponent<AIPowerUps>();
+                    if (!obj.hasShield)
+                    {
+                        Debug.Log("WAS HIT");
+                        animator.SetBool("WasHit", true);
+                        PlayGetHitSound();
+                        inventory.DropAllItems();
+                        winItems.DropAllItems();
+                    }
+                    else
+                    {
+                        PlayShieldSound();
+                        obj.hasShield = false;
+                        FindObjectOfType<PositionRandomizer>().SpawnShield();
+                    }
+                    item.DestroyObject();
+                    FindObjectOfType<PositionRandomizer>().SpawnCoconut();
                 }
-                item.DestroyObject();
-                FindObjectOfType<PositionRandomizer>().SpawnCoconut();
             }
         }
     }
