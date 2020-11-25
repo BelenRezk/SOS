@@ -26,6 +26,11 @@ public class AIPath : MonoBehaviour
             else{
                 this.gameObject.name = getCharacterFromNumber(charInt);
                 assigned = true;
+                GameObject character = this.transform.Find(this.gameObject.name).gameObject;
+                this.animator = character.GetComponent<Animator>();
+                character.SetActive(true);
+                this.GetComponent<AIItemsInteraction>().animator = character.GetComponent<Animator>();
+                this.GetComponent<AIPowerUps>().animator = character.GetComponent<Animator>();
             }
         }
         randomDestination = (int)Random.Range(0f, path.Length);

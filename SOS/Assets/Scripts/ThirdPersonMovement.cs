@@ -40,22 +40,37 @@ public class ThirdPersonMovement : MovementBase
         {
             case 1:
                 characterBehaviour = new BusinessWomanBehaviour(this, true, manager);
+                GameObject businessWoman = this.transform.Find("Empresaria").gameObject;
+                businessWoman.SetActive(true);
+                this.animator = businessWoman.GetComponent<Animator>();
                 this.gameObject.name = "Businesswoman";
                 break;
             case 2:
                 characterBehaviour = new PilotBehaviour(this, true, manager);
+                GameObject pilot = this.transform.Find("Piloto").gameObject;
+                pilot.SetActive(true);
+                this.animator = pilot.GetComponent<Animator>();
                 this.gameObject.name = "Pilot";
                 break;
             case 3:
                 characterBehaviour = new OldLadyBehaviour(this, true, manager);
+                GameObject oldLady = this.transform.Find("anciana").gameObject;
+                oldLady.SetActive(true);
+                this.animator = oldLady.GetComponent<Animator>();
                 this.gameObject.name = "Old Lady";
                 break;
             case 4:
                 characterBehaviour = new HippieBehaviour(this, true, manager);
+                GameObject hippie = this.transform.Find("hippie").gameObject;
+                hippie.SetActive(true);
+                this.animator = hippie.GetComponent<Animator>();
                 this.gameObject.name = "Hippie";
                 break;
             default:
                 characterBehaviour = new PilotBehaviour(this, true, manager);
+                pilot = this.transform.Find("Piloto").gameObject;
+                pilot.SetActive(true);
+                this.animator = pilot.GetComponent<Animator>();
                 this.gameObject.name = "Pilot";
                 break;
         }
