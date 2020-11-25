@@ -709,7 +709,7 @@ GameObject:
   - component: {fileID: 695636471}
   - component: {fileID: 695636470}
   m_Layer: 5
-  m_Name: Yellow
+  m_Name: Hippie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1172,10 +1172,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21b735fcc1f7a544491beefcc744016e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Blue: {fileID: 1175085047}
-  Green: {fileID: 1733993859}
-  Red: {fileID: 1998447354}
-  Yellow: {fileID: 695636471}
+  Businesswoman: {fileID: 1175085047}
+  OldLady: {fileID: 1733993859}
+  Pilot: {fileID: 1998447354}
+  Hippie: {fileID: 695636471}
 --- !u!4 &1085012073
 Transform:
   m_ObjectHideFlags: 0
@@ -1249,7 +1249,7 @@ GameObject:
   - component: {fileID: 1175085047}
   - component: {fileID: 1175085046}
   m_Layer: 5
-  m_Name: Blue
+  m_Name: Businesswoman
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1912,7 +1912,7 @@ GameObject:
   - component: {fileID: 1733993859}
   - component: {fileID: 1733993858}
   m_Layer: 5
-  m_Name: Green
+  m_Name: Old Lady
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2442,7 +2442,7 @@ GameObject:
   - component: {fileID: 1998447354}
   - component: {fileID: 1998447353}
   m_Layer: 5
-  m_Name: Red
+  m_Name: Pilot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

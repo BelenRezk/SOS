@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class Selector_Script : MonoBehaviour
 {
-    public Image Blue;
-    public Image Green;
-    public Image Red;
-    public Image Yellow;
+    public Image Businesswoman;
+    public Image OldLady;
+    public Image Pilot;
+    public Image Hippie;
     private Vector3 CharacterPosition;
     private Vector3 OffScreen;
     [HideInInspector]
@@ -16,8 +16,8 @@ public class Selector_Script : MonoBehaviour
 
     private void Awake()
     {
-        CharacterPosition = Blue.transform.position;
-        OffScreen = Red.transform.position;
+        CharacterPosition = Businesswoman.transform.position;
+        OffScreen = Pilot.transform.position;
     }
 
     public void NextCharacter()
@@ -25,31 +25,31 @@ public class Selector_Script : MonoBehaviour
         switch(CharacterInt)
         {
             case 1:
-                Blue.enabled = false;
-                Blue.transform.position = OffScreen;
-                Red.transform.position = CharacterPosition;
-                Red.enabled = true;
+                Businesswoman.enabled = false;
+                Businesswoman.transform.position = OffScreen;
+                Pilot.transform.position = CharacterPosition;
+                Pilot.enabled = true;
                 CharacterInt++;
                 break;
             case 2:
-                Red.enabled = false;
-                Red.transform.position = OffScreen;
-                Green.transform.position = CharacterPosition;
-                Green.enabled = true;
+                Pilot.enabled = false;
+                Pilot.transform.position = OffScreen;
+                OldLady.transform.position = CharacterPosition;
+                OldLady.enabled = true;
                 CharacterInt++;
                 break;
             case 3:
-                Green.enabled = false;
-                Green.transform.position = OffScreen;
-                Yellow.transform.position = CharacterPosition;
-                Yellow.enabled = true;
+                OldLady.enabled = false;
+                OldLady.transform.position = OffScreen;
+                Hippie.transform.position = CharacterPosition;
+                Hippie.enabled = true;
                 CharacterInt++;
                 break;
             case 4:
-                Yellow.enabled = false;
-                Yellow.transform.position = OffScreen;
-                Blue.transform.position = CharacterPosition;
-                Blue.enabled = true;
+                Hippie.enabled = false;
+                Hippie.transform.position = OffScreen;
+                Businesswoman.transform.position = CharacterPosition;
+                Businesswoman.enabled = true;
                 CharacterInt++;
                 ResetInt();
                 break;
@@ -64,31 +64,31 @@ public class Selector_Script : MonoBehaviour
         switch(CharacterInt)
         {
             case 1:
-                Blue.enabled = false;
-                Blue.transform.position = OffScreen;
-                Yellow.transform.position = CharacterPosition;
-                Yellow.enabled = true;
+                Businesswoman.enabled = false;
+                Businesswoman.transform.position = OffScreen;
+                Hippie.transform.position = CharacterPosition;
+                Hippie.enabled = true;
                 ResetInt();
                 break;
             case 2:
-                Red.enabled = false;
-                Red.transform.position = OffScreen;
-                Blue.transform.position = CharacterPosition;
-                Blue.enabled = true;
+                Pilot.enabled = false;
+                Pilot.transform.position = OffScreen;
+                Businesswoman.transform.position = CharacterPosition;
+                Businesswoman.enabled = true;
                 CharacterInt--;
                 break;
             case 3:
-                Green.enabled = false;
-                Green.transform.position = OffScreen;
-                Red.transform.position = CharacterPosition;
-                Red.enabled = true;
+                OldLady.enabled = false;
+                OldLady.transform.position = OffScreen;
+                Pilot.transform.position = CharacterPosition;
+                Pilot.enabled = true;
                 CharacterInt--;
                 break;
             case 4:
-                Yellow.enabled = false;
-                Yellow.transform.position = OffScreen;
-                Green.transform.position = CharacterPosition;
-                Green.enabled = true;
+                Hippie.enabled = false;
+                Hippie.transform.position = OffScreen;
+                OldLady.transform.position = CharacterPosition;
+                OldLady.enabled = true;
                 CharacterInt--;
                 break;
             default:

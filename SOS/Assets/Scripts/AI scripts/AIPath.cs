@@ -140,5 +140,4 @@ public class AIPath : MonoBehaviour
                 break;
         }
     }
-
 }
