@@ -19,7 +19,7 @@ public class AIItemsInteraction : MovementBase
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.Name.Contains("LavaPlane"))
+        if (other.gameObject.name.Contains("LavaPlane"))
         {
             this.GetComponent<UnityEngine.AI.NavMeshAgent>().Move(Vector3.back*50.0f);
             inventory.DropAllItems();
