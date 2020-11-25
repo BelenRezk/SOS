@@ -196,7 +196,7 @@ public class ThirdPersonMovement : MovementBase
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name.Contains("LavaPlane"))
+        if (other.gameObject.Name.Contains("LavaPlane"))
         {
             controller.Move(Vector3.back*50.0f);
             inventory.DropAllItems();

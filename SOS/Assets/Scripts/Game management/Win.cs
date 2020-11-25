@@ -14,7 +14,7 @@ public class Win : MonoBehaviour
         for (int i = 0; i < itemCount; i++)
         {
             IInventoryItem item = player.transform.GetChild(i).GetComponent<IInventoryItem>();
-            if (item != null && item.Name != null && (item.Name.Equals("Oar") || item.Name.Equals("Oar (1)") || item.Name.Equals("FlareGun")
+            if (item != null && item.Name != null && (item.Name.Contains("Oar") || item.Name.Equals("FlareGun")
                 || item.Name.Equals("EmergencyKit") || item.Name.Equals("Parachute")))
             {
                 winningItemsCount ++;
