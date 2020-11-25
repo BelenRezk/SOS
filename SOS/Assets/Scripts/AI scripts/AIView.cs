@@ -22,7 +22,6 @@ public class AIView : MonoBehaviour
         AIItemsInteraction aiPlayer = this.GetComponentInParent<AIItemsInteraction>();
         if (isPlayer && aiPlayer.coconutCount > 0)
         {
-            //TODO: Change name to each AI player
             if(other.name != aiTag){
 
                 AIPowerUps aiPowerUps = this.GetComponentInParent<AIPowerUps>();

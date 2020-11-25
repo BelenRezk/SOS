@@ -35,37 +35,8 @@ public class Win : MonoBehaviour
             catch(Exception){
                 //there's no music to play or stop
             }
-            LoadWinner.winner = "The winner is " + getWinnerName(player);
+            LoadWinner.winner = "The winner is " + player.name;
             SceneManager.LoadScene("winScene");
         }
-    }
-
-    private string getWinnerName(Collider player)
-    {
-        string winner;
-        if(player.name == "Main Character"){
-            switch (Selector_Script.CharacterInt)
-            {
-                case 1:
-                    winner = "Businesswoman";
-                    break;
-                case 2:
-                    winner = "Pilot";
-                    break;
-                case 3:
-                    winner = "Old lady";
-                    break;
-                case 4:
-                    winner = "Hippie";
-                    break;
-                default:
-                    winner = "Pilot";
-                    break;
-            }
-        }
-        else{
-            winner = player.name;
-        }
-        return winner;
     }
 }

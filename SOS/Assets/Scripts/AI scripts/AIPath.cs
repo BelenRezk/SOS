@@ -16,6 +16,18 @@ public class AIPath : MonoBehaviour
 
     void Start()
     {
+        bool assigned = false;
+        int charInt = 1;
+        while(!assigned)
+        {
+            if(Selector_Script.CharacterInt == charInt || GameObject.Find(getCharacterFromNumber(charInt)) != null){
+                charInt++;
+            }
+            else{
+                this.gameObject.name = getCharacterFromNumber(charInt);
+                assigned = true;
+            }
+        }
         randomDestination = (int)Random.Range(0f, path.Length);
         _navMeshAgent = this.GetComponent<NavMeshAgent>();
         _navMeshAgent.destination = path[randomDestination].position;
@@ -107,4 +119,25 @@ public class AIPath : MonoBehaviour
         return (winningItemsCount == 2);
     }
 
+    private string getCharacterFromNumber(int charInt)
+    {
+        switch (charInt)
+        {
+            case 1:
+                return "Businesswoman";
+                break;
+            case 2:
+                return "Pilot";
+                break;
+            case 3:
+                return "Old Lady";
+                break;
+            case 4:
+                return "Hippie";
+                break;
+            default:
+                return "Pilot";
+                break;
+        }
+    }
 }
