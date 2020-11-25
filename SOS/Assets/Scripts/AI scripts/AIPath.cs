@@ -46,6 +46,9 @@ public class AIPath : MonoBehaviour
             animator.SetBool("ThrowingCoconut", false);
         animator.SetBool("IsWalking", true);
         bool canWin = hasAllWinnableItems();
+        if(_navMeshAgent.velocity == Vector3.zero){
+            _navMeshAgent.Move(_navMeshAgent.transform.forward*1.5f);
+        }
         if(canWin)
         {
             _navMeshAgent.destination = boatTarget.position;
