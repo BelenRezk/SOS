@@ -48,8 +48,7 @@ public class AIPath : MonoBehaviour
         bool canWin = hasAllWinnableItems();
         int random = Random.Range(0,10);
         if(_navMeshAgent.velocity == Vector3.zero && (random == 6)){
-            _navMeshAgent.Move(_navMeshAgent.transform.forward*1.5f);
-            _navMeshAgent.destination = path[randomDestination].position;
+            _navMeshAgent.Move(_navMeshAgent.transform.forward*-1.3f);
         }
         if(canWin)
         {
