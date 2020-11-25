@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class ThirdPersonMovement : MovementBase
 {
     public CharacterController controller;
@@ -12,25 +11,19 @@ public class ThirdPersonMovement : MovementBase
     Vector3 velocity;
     bool isGrounded;
     public Transform GameCamera;
-
     public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
-
     float turnSmoothVelocity;
     public float turnSmoothTime = 0.1f;
     public float remainingBananaTime = 0f;
-
     public float bananaSpeedMultiplier = 2.0f;
     public bool hasShield = false;
     public AudioClip getHitSound;
     public AudioClip shieldSound;
     private CharacterDifferentiationBase characterBehaviour;
-
     public Animator animator;
-
     private int timer;
-
     void Start()
     {
         timer = 0;
@@ -63,7 +56,6 @@ public class ThirdPersonMovement : MovementBase
         }
         abilityCooldownRemaining = 3f;
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -80,16 +72,13 @@ public class ThirdPersonMovement : MovementBase
         var CharacterRotation = GameCamera.transform.rotation;
         CharacterRotation.x = 0;
         CharacterRotation.z = 0;
-
         transform.rotation = CharacterRotation;
         //jump
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-
         if (isGrounded && velocity.y < 0)
         {
             velocity.y = -2f;
         }
-
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             timer = 0;
@@ -99,7 +88,6 @@ public class ThirdPersonMovement : MovementBase
         //gravity
         velocity.y += gravity * Time.deltaTime * 2;
         controller.Move(velocity * Time.deltaTime);
-
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
@@ -114,7 +102,6 @@ public class ThirdPersonMovement : MovementBase
             animator.SetBool("IsWalking", true);
             timer = 0;
         }
-
         for (int i = 1; i <= 9; i++)
         {
             string action = "Position" + i;
@@ -135,9 +122,11 @@ public class ThirdPersonMovement : MovementBase
             {
                 animator.SetBool("ThrowingCoconut", true);
                 timer = 0;
-
             }
-            inventory.UseSelectedItem();
+            else
+            {
+                inventory.UseSelectedItem();
+            }
         }
         CheckBananaUsage();
         if (currentInvincibility > 0)
@@ -163,7 +152,13 @@ public class ThirdPersonMovement : MovementBase
         if (Input.GetButtonDown("ToggleMainMusic"))
             ToggleMainMusic();
     }
-
+    public void ThrowCoconut()
+    {
+        if (inventory.GetSelectedItemName().Equals("Coconut"))
+        {
+            inventory.UseSelectedItem();
+        }
+    }
     private void CheckBananaUsage()
     {
         if (isUsingBanana)
@@ -179,7 +174,6 @@ public class ThirdPersonMovement : MovementBase
             }
         }
     }
-
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         IInventoryItem item = hit.collider.GetComponent<IInventoryItem>();
@@ -188,7 +182,6 @@ public class ThirdPersonMovement : MovementBase
             AddToInventory(item);
         }   
     }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name.Contains("LavaPlane"))
@@ -206,7 +199,6 @@ public class ThirdPersonMovement : MovementBase
             }
         }   
     }
-
     private void AddToInventory(IInventoryItem item)
     {
         if(item != null && interactionCooldownRemaining <= 0)
@@ -245,7 +237,6 @@ public class ThirdPersonMovement : MovementBase
             }
         }
     }
-
     private void PlayGetHitSound()
     {
         try
@@ -258,7 +249,6 @@ public class ThirdPersonMovement : MovementBase
             Debug.Log("No audio clip");
         }
     }
-
     private void PlayShieldSound()
     {
         try
@@ -270,7 +260,6 @@ public class ThirdPersonMovement : MovementBase
             Debug.Log("No shield audio clip");
         }
     }
-
     public void UseBanana(float duration)
     {
         isUsingBanana = true;
@@ -278,7 +267,6 @@ public class ThirdPersonMovement : MovementBase
         remainingBananaTime = duration;
         FindObjectOfType<PositionRandomizer>().SpawnBanana();
     }
-
     public bool UseShield()
     {
         if (!hasShield)
@@ -289,7 +277,6 @@ public class ThirdPersonMovement : MovementBase
         else
             return false;
     }
-
     private void ToggleMainMusic()
     {
         AudioManager manager = FindObjectOfType<AudioManager>();
