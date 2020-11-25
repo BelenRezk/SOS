@@ -18,7 +18,7 @@ public class AIView : MonoBehaviour
 
     private void OnTriggerStay(Collider other) {
         bool isPlayer = other.CompareTag("Player");
-        string aiTag = this.tag;
+        string aiTag = transform.parent.name;
         AIItemsInteraction aiPlayer = this.GetComponentInParent<AIItemsInteraction>();
         if (isPlayer && aiPlayer.coconutCount > 0)
         {

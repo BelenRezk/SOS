@@ -27,9 +27,6 @@ public class AIItemsInteraction : MovementBase
         }
         else
         {
-            /*AIMovement aiMovement = this.GetComponentInParent<AIMovement>();
-            if(aiMovement.interactionCooldownRemaining <= 0)
-            aiMovement.ObjectInteraction(other);*/
             IInventoryItem item = other.GetComponent<Collider>().GetComponent<IInventoryItem>();           
             if(item != null && interactionCooldownRemaining <= 0)
             {
