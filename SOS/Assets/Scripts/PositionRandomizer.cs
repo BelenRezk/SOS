@@ -41,7 +41,7 @@ public class PositionRandomizer : MonoBehaviour
         landRandomPositions.Add(new Vector3(8, 3, 29));
         landRandomPositions.Add(new Vector3(18, 4, -80));
         landRandomPositions.Add(new Vector3(190, 15, -50));
-        landRandomPositions.Add(new Vector3(136,38,-103));
+        landRandomPositions.Add(new Vector3(142,5,-103));
         landRandomPositions.Add(new Vector3(162,39,-111));
     }
 

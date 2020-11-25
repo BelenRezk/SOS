@@ -198,7 +198,7 @@ public class ThirdPersonMovement : MovementBase
     {
         if (other.gameObject.name.Contains("LavaPlane"))
         {
-            controller.Move(Vector3.back*50.0f);
+            controller.Move(this.transform.forward*-30.0f);
             inventory.DropAllItems();
             winItems.DropAllItems();
         }

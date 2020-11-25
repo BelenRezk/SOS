@@ -23,6 +23,7 @@ public class CountdownTimer : MonoBehaviour
             timer -= Time.deltaTime;
             if(timer <= 0)
             {
+                try{
                 FindObjectOfType<AudioManager>().Stop("MainMusic");
                 FindObjectOfType<AudioManager>().Stop("BananaMusic");
                 FindObjectOfType<AudioManager>().Stop("OldLadyAbilityMusic");
@@ -30,6 +31,10 @@ public class CountdownTimer : MonoBehaviour
                 FindObjectOfType<AudioManager>().Stop("RadarBlip");
                 FindObjectOfType<AudioManager>().Play("GameOver");
                 FindObjectOfType<AudioManager>().Play("Jungle");
+                }
+                catch(Exception){
+                    //there is no music to stop
+                }
                 SceneManager.LoadScene("gameOverScene");
             }
         }

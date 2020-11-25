@@ -21,7 +21,7 @@ public class AIItemsInteraction : MovementBase
     {
         if (other.gameObject.name.Contains("LavaPlane"))
         {
-            this.GetComponent<UnityEngine.AI.NavMeshAgent>().Move(Vector3.back*50.0f);
+            this.GetComponent<UnityEngine.AI.NavMeshAgent>().Move(this.GetComponent<UnityEngine.AI.NavMeshAgent>().transform.forward*50.0f);
             inventory.DropAllItems();
             winItems.DropAllItems();
         }
@@ -45,7 +45,6 @@ public class AIItemsInteraction : MovementBase
                     AIPowerUps obj = gameObject.transform.GetComponent<AIPowerUps>();
                     if (!obj.hasShield)
                     {
-                        Debug.Log("WAS HIT");
                         animator.SetBool("WasHit", true);
                         PlayGetHitSound();
                         inventory.DropAllItems();
