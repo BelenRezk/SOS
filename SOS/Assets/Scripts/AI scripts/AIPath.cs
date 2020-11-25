@@ -46,8 +46,10 @@ public class AIPath : MonoBehaviour
             animator.SetBool("ThrowingCoconut", false);
         animator.SetBool("IsWalking", true);
         bool canWin = hasAllWinnableItems();
-        if(_navMeshAgent.velocity == Vector3.zero){
+        int random = Random.Range(0,10);
+        if(_navMeshAgent.velocity == Vector3.zero && (random == 6)){
             _navMeshAgent.Move(_navMeshAgent.transform.forward*1.5f);
+            _navMeshAgent.destination = path[randomDestination].position;
         }
         if(canWin)
         {
