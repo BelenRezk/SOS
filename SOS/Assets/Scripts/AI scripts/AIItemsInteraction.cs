@@ -21,7 +21,7 @@ public class AIItemsInteraction : MovementBase
     {
         if (other.gameObject.name.Contains("LavaPlane"))
         {
-            this.GetComponent<UnityEngine.AI.NavMeshAgent>().Move(this.GetComponent<UnityEngine.AI.NavMeshAgent>().transform.forward*30.0f);
+            this.GetComponent<UnityEngine.AI.NavMeshAgent>().Move(this.GetComponent<UnityEngine.AI.NavMeshAgent>().transform.forward*-20.0f);
             inventory.DropAllItems();
             winItems.DropAllItems();
         }
