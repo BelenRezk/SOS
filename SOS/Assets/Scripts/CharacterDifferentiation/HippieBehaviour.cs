@@ -31,7 +31,8 @@ public class HippieBehaviour : CharacterDifferentiationBase
             MovementBase movementScript = GetMovementScript(player);
             if (movementScript != null && !movementScript.Equals(movement) && IsInRange(movementScript))
             {
-                movementScript.inventory.DropAllItems();
+                movementScript.coconutInventory.DropAllItems();
+                movementScript.powerUpInventory.DropAllItems();
                 if (movementScript.winItems != null)
                     movementScript.winItems.DropAllItems();
             }

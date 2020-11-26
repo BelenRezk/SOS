@@ -79,7 +79,6 @@ public class ThirdPersonMovement : MovementBase
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(animator.GetBool("WasHit"));
         timer++;
         if (animator.GetBool("Jumping"))
             animator.SetBool("Jumping", false);
@@ -122,21 +121,23 @@ public class ThirdPersonMovement : MovementBase
             animator.SetBool("IsWalking", true);
             timer = 0;
         }
-        for (int i = 1; i <= 9; i++)
-        {
-            string action = "Position" + i;
-            if (Input.GetButtonDown(action))
-                inventory.ChangeSelectedPosition(i - 1);
-        }
-        for (int i = 1; i <= 5; i++)
+        /*for (int i = 1; i <= 5; i++)
         {
             string action = "DropWinItem" + i;
             if (Input.GetButtonDown(action))
                 winItems.RemoveItem(i - 1);
+        }*/
+        if (Input.GetButtonDown("UseCoconut") && coconutInventory.currentNumberOfItems > 0)
+        {
+            //coconutInventory.UseItem();
+            animator.SetBool("ThrowingCoconut", true);
+            timer = 0;
         }
-        if (Input.GetButtonDown("DropItem"))
-            inventory.RemoveSelectedItem();
-        if (Input.GetButtonDown("UseItem"))
+        if (Input.GetButtonDown("UsePowerUp") && powerUpInventory.currentNumberOfItems > 0)
+            powerUpInventory.UseItem();
+        /*if (Input.GetButtonDown("DropItem"))
+            inventory.RemoveSelectedItem();*/
+        /*if (Input.GetButtonDown("UseItem"))
         {
             if (inventory.GetSelectedItemName().Equals("Coconut"))
             {
@@ -147,7 +148,7 @@ public class ThirdPersonMovement : MovementBase
             {
                 inventory.UseSelectedItem();
             }
-        }
+        }*/
         CheckBananaUsage();
         if (currentInvincibility > 0)
             currentInvincibility -= Time.deltaTime;
@@ -174,10 +175,8 @@ public class ThirdPersonMovement : MovementBase
     }
     public void ThrowCoconut()
     {
-        if (inventory.GetSelectedItemName().Equals("Coconut"))
-        {
-            inventory.UseSelectedItem();
-        }
+        if (coconutInventory.currentNumberOfItems > 0)
+            coconutInventory.UseItem();
     }
     private void CheckBananaUsage()
     {
@@ -207,7 +206,8 @@ public class ThirdPersonMovement : MovementBase
         if (other.gameObject.name.Contains("LavaPlane"))
         {
             controller.Move(this.transform.forward*-30.0f);
-            inventory.DropAllItems();
+            coconutInventory.DropAllItems();
+            powerUpInventory.DropAllItems();
             winItems.DropAllItems();
         }
         else
@@ -228,8 +228,10 @@ public class ThirdPersonMovement : MovementBase
             {
                 if (item.WinItem)
                     winItems.AddItem(item);
+                else if(item.Name == "Coconut")
+                    coconutInventory.AddItem(item);
                 else
-                    inventory.AddItem(item);
+                    powerUpInventory.AddItem(item);
                 item.HasOwner = true;
             }
             else
@@ -240,7 +242,8 @@ public class ThirdPersonMovement : MovementBase
                     if (!hasShield)
                     {
                         PlayGetHitSound();
-                        inventory.DropAllItems();
+                        coconutInventory.DropAllItems();
+                        powerUpInventory.DropAllItems();
                         winItems.DropAllItems();
                     }
                     else

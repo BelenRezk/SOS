@@ -22,7 +22,8 @@ public class AIItemsInteraction : MovementBase
         if (other.gameObject.name.Contains("LavaPlane"))
         {
             this.GetComponent<UnityEngine.AI.NavMeshAgent>().Move(this.GetComponent<UnityEngine.AI.NavMeshAgent>().transform.forward*-20.0f);
-            inventory.DropAllItems();
+            coconutInventory.DropAllItems();
+            powerUpInventory.DropAllItems();
             winItems.DropAllItems();
         }
         else
@@ -36,8 +37,10 @@ public class AIItemsInteraction : MovementBase
                 {
                     if(item.WinItem)
                         winItems.AddItem(item);
+                    else if(item.Name == "Coconut")
+                        coconutInventory.AddItem(item);
                     else
-                        inventory.AddItem(item);
+                        powerUpInventory.AddItem(item);
                     item.HasOwner = true;
                 }
                 else if (item != null && item.HasOwner)
@@ -47,7 +50,8 @@ public class AIItemsInteraction : MovementBase
                     {
                         animator.SetBool("WasHit", true);
                         PlayGetHitSound();
-                        inventory.DropAllItems();
+                        coconutInventory.DropAllItems();
+                        powerUpInventory.DropAllItems();
                         winItems.DropAllItems();
                     }
                     else
