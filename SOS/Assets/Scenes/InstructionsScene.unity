@@ -264,42 +264,20 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: d3d96032cd3f7a6429fdf07d0eb72e0c, type: 3}
-    m_FontSize: 40
+    m_Font: {fileID: 12800000, guid: bbdc91c882c63964eba93baec2d6723e, type: 3}
+    m_FontSize: 78
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
-    m_MaxSize: 42
+    m_MaxSize: 78
     m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: 'Nothing seems out of the ordinary during the flight, until an engine failure
-    forces the pilot to do an emergency landing on a small uninhabited island. Shocked
-    by the outcome of events, the pilot and passengers get out of the plane and start
-    looking for the fastest way out of there. Suddenly, they notice a small boat
-    which can fit only one of them; this means war.
-
-
-    During the competition
-    all characters have to seek the necessary objects (two oars, one flare gun, one
-    emergency kit and one parachute). When one of them gets all the items, he or
-    she must go to the boat in order to successfully escape the island.
-
-
-    But
-    this wouldn''t be a real competition without some perks and fighting, would it?
-    All players can attack each other with coconuts, causing the opponent to lose
-    all collected items. Plus, there are bananas and turtle shells scattered around
-    the island, which will give its owner temporary high speed and coconut immunity.
-    Even better, each character has a special skill which can be used for a limited
-    time period.
-
-
-    Beware! You must reach your goal as fast as possible since
-    the volcano is doomed to erupt. '
+    m_LineSpacing: 1.39
+  m_Text: Get all the items you need to sail in the boat. Make sure to find them
+    all before your oponents or you will have to steal from them.
 --- !u!222 &318160510
 CanvasRenderer:
   m_ObjectHideFlags: 0
