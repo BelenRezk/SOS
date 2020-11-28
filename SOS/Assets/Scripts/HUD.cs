@@ -6,71 +6,74 @@ using UnityEngine.UI;
 
 public class HUD : MonoBehaviour
 {
-    public Inventory Inventory;
+    public Inventory CoconutInventory;
+    public Text CoconutCount;
+    public Inventory PowerUpInventory;
     public Inventory WinItems;
 
     void Start()
     {
-        Inventory.ItemAdded += InventoryScript_ItemAdded;
-        Inventory.ItemRemoved += Inventory_ItemRemoved;
-        Inventory.PositionChanged += Inventory_PositionChanged;
+        CoconutInventory.ItemAdded += InventoryScript_ItemAdded;
+        CoconutInventory.ItemRemoved += Inventory_ItemRemoved;
+
+        PowerUpInventory.ItemAdded += InventoryScript_ItemAdded;
+        PowerUpInventory.ItemRemoved += Inventory_ItemRemoved;
 
         WinItems.ItemAdded += InventoryScript_ItemAdded;
         WinItems.ItemRemoved += Inventory_ItemRemoved;
-        WinItems.PositionChanged += Inventory_PositionChanged;
         
     }
 
     private void InitInventory()
     {
-        Transform inventoryPanel = transform.Find("InventoryPanel");
         Transform winItems = transform.Find("WinItems");
-        int position = 0;
-        foreach (Transform slot in inventoryPanel)
-        {
-            Transform imageTransform = slot.GetChild(0).GetChild(0);
-            Image image = imageTransform.GetComponent<Image>();
-            if (position == 0)
-                image.color = new Color32(255, 255, 255, 255);
-            else
-                image.color = new Color32(120, 120, 120, 140);
-            position++;
-        }
     }
 
     private void InventoryScript_ItemAdded(object sender, InventoryEventArgs e)
     {
         Transform inventoryPanel;
         if (e.Item.WinItem)
-        {
             inventoryPanel = transform.Find("WinItems");
+        else if(e.Item.Name == "Coconut")
+        {
+            inventoryPanel = transform.Find("CoconutPanel");
+            CoconutCount.text = "" + (Int32.Parse(CoconutCount.text) + 1);
+        }
+        else
+            inventoryPanel = transform.Find("PowerUpPanel");
+        if(e.Item.WinItem)
+        {
+            foreach (Transform slot in inventoryPanel)
+            {
+                Transform imageTransform = slot.GetChild(0).GetChild(0);
+                Image image = imageTransform.GetComponent<Image>();
+                ItemDragHandler itemDragHandler = imageTransform.GetComponent<ItemDragHandler>();
+                if (!image.enabled)
+                {
+                    image.enabled = true;
+                    image.sprite = e.Item.Image;
+                    if(itemDragHandler != null)
+                        itemDragHandler.Item = e.Item;
+                    break;
+                }
+            }
         }
         else
         {
-            inventoryPanel = transform.Find("InventoryPanel");
-        }
-        int position = 0;
-        foreach (Transform slot in inventoryPanel)
-        {
-            Transform imageTransform = slot.GetChild(0).GetChild(0);
-            Image image = imageTransform.GetComponent<Image>();
-            ItemDragHandler itemDragHandler = imageTransform.GetComponent<ItemDragHandler>();
-            if(!e.Item.WinItem)
+            if(e.ShouldUpdateSprite)
             {
-                if(position != e.SelectedPosition)
-                    image.color = new Color32(120, 120, 120, 140);
-                else
-                    image.color = new Color32(255, 255, 255, 255);
+                foreach (Transform slot in inventoryPanel)
+                {
+                    Transform imageTransform = slot.GetChild(0).GetChild(0);
+                    Image image = imageTransform.GetComponent<Image>();
+                    ItemDragHandler itemDragHandler = imageTransform.GetComponent<ItemDragHandler>();
+                    image.enabled = true;
+                    image.sprite = e.Item.Image;
+                    if(itemDragHandler != null)
+                        itemDragHandler.Item = e.Item;
+                    break;
+                }   
             }
-            if (!image.enabled)
-            {
-                image.enabled = true;
-                image.sprite = e.Item.Image;
-                if(itemDragHandler != null)
-                    itemDragHandler.Item = e.Item;
-                break;
-            }
-            position++;
         }
     }
 
@@ -79,47 +82,28 @@ public class HUD : MonoBehaviour
         Transform inventoryPanel;
         if (e.Item.WinItem)
             inventoryPanel = transform.Find("WinItems");
-        else
-            inventoryPanel = transform.Find("InventoryPanel");
-        foreach (Transform slot in inventoryPanel)
+        else if(e.Item.Name == "Coconut")
         {
-            Transform imageTransform = slot.GetChild(0).GetChild(0);
-            Image image = imageTransform.GetComponent<Image>();
-            ItemDragHandler itemDragHandler = imageTransform.GetComponent<ItemDragHandler>();
-
-            if (itemDragHandler.Item != null && itemDragHandler.Item.Equals(e.Item))
-            {
-                image.enabled = false;
-                image.sprite = null;
-                itemDragHandler.Item = null;
-                break;
-            }
+            inventoryPanel = transform.Find("CoconutPanel");
+            CoconutCount.text = "" + (Int32.Parse(CoconutCount.text) - 1);
         }
-    }
-
-    private void Inventory_PositionChanged(object sender, Tuple<int, int> positions)
-    {
-        int previousPosition = positions.Item1;
-        int newPosition = positions.Item2;
-        if (previousPosition != newPosition)
+        else
+            inventoryPanel = transform.Find("PowerUpPanel");
+        if(e.Item.WinItem || e.ShouldUpdateSprite)
         {
-            Transform inventoryPanel = transform.Find("InventoryPanel");
-            int position = 0;
             foreach (Transform slot in inventoryPanel)
             {
-                if (position == newPosition)
+                Transform imageTransform = slot.GetChild(0).GetChild(0);
+                Image image = imageTransform.GetComponent<Image>();
+                ItemDragHandler itemDragHandler = imageTransform.GetComponent<ItemDragHandler>();
+                image.enabled = false;
+                image.sprite = null;
+
+                if (itemDragHandler.Item != null && itemDragHandler.Item.Equals(e.Item))
                 {
-                    Transform imageTransform = slot.GetChild(0).GetChild(0);
-                    Image image = imageTransform.GetComponent<Image>();
-                    image.color = new Color32(255, 255, 255, 255);
+                    itemDragHandler.Item = null;
+                    break;
                 }
-                if (position == previousPosition)
-                {
-                    Transform imageTransform = slot.GetChild(0).GetChild(0);
-                    Image image = imageTransform.GetComponent<Image>();
-                    image.color = new Color32(120, 120, 120, 140);
-                }
-                position++;
             }
         }
     }

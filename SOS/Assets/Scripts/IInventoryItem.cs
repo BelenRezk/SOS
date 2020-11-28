@@ -15,11 +15,11 @@ public interface IInventoryItem
 
 public class InventoryEventArgs : EventArgs
 {
-    public InventoryEventArgs(IInventoryItem item, int selectedPosition)
+    public InventoryEventArgs(IInventoryItem item, bool shouldUpdateSprite)
     {
         Item = item;
-        SelectedPosition = selectedPosition;
+        ShouldUpdateSprite = shouldUpdateSprite;
     }
     public IInventoryItem Item;
-    public int SelectedPosition;
+    public bool ShouldUpdateSprite;
 }

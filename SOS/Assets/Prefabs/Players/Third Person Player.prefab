@@ -438,7 +438,8 @@ MonoBehaviour:
   afterHitInvincibility: 1
   currentInvincibility: 0
   isUsingBanana: 0
-  inventory: {fileID: 0}
+  coconutInventory: {fileID: 0}
+  powerUpInventory: {fileID: 0}
   winItems: {fileID: 0}
   playerId: 1
   interactionCooldown: 0.5
@@ -701,7 +702,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 6a88759bf41d1da459b786453eb738b0, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 6a88759bf41d1da459b786453eb738b0, type: 3}
       propertyPath: m_Controller
