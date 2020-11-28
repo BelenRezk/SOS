@@ -35,13 +35,31 @@ public class AIItemsInteraction : MovementBase
                 
                 if (item != null && !item.HasOwner)
                 {
-                    if(item.WinItem)
-                        winItems.AddItem(item);
+                    bool wasItemAdded = false;
+                    if (item.WinItem)
+                    {
+                        if(winItems.currentNumberOfItems < winItems.SLOTS)
+                        {
+                            winItems.AddItem(item);
+                            wasItemAdded = true;
+                        }
+                    }
                     else if(item.Name == "Coconut")
-                        coconutInventory.AddItem(item);
+                    {
+                        if(coconutInventory.currentNumberOfItems < coconutInventory.SLOTS)
+                        {
+                            coconutInventory.AddItem(item);
+                            wasItemAdded = true;
+                        }
+                    }
                     else
-                        powerUpInventory.AddItem(item);
-                    item.HasOwner = true;
+                        if(powerUpInventory.currentNumberOfItems < powerUpInventory.SLOTS)
+                        {
+                            powerUpInventory.AddItem(item);
+                            wasItemAdded = true;
+                        }
+                    if(wasItemAdded)
+                        item.HasOwner = true;
                 }
                 else if (item != null && item.HasOwner)
                 {
