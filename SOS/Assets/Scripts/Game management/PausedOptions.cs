@@ -13,7 +13,7 @@ public class PausedOptions : MonoBehaviour
 
     void Update()
     {
-        if((Input.GetKeyDown(KeyCode.Escape) && !pauseMenuUI.activeSelf) || (Input.GetKeyDown(KeyCode.Escape) && pausePanel.activeSelf))
+        if(Input.GetKeyDown(KeyCode.Escape))
         {
             isPaused = !isPaused;
         }        
@@ -30,8 +30,11 @@ public class PausedOptions : MonoBehaviour
     void ActivateMenu()
     {
         Time.timeScale = 0;
+        if(!pauseMenuUI.activeSelf)
+        {
+            pausePanel.SetActive(true);
+        }
         pauseMenuUI.SetActive(true);
-        pausePanel.SetActive(true);
     }
     
     void DeactivateMenu()
@@ -43,9 +46,9 @@ public class PausedOptions : MonoBehaviour
         instructionsPanel.SetActive(false);
     }
 
-    public void ResumeGame()
+    public void GoBackToGame()
     {
-        DeactivateMenu();
+        isPaused = !isPaused;
     }
 
     public void GoToMainMenu()
