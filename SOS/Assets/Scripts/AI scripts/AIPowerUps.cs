@@ -72,27 +72,43 @@ public class AIPowerUps : MonoBehaviour
             {
                 continueSearch = false;
             
-                Debug.Log("THROWING COCONUT");
                 animator.SetBool("ThrowingCoconut", true);
+                
+            }
+        }
+
+
+        void UseBanana()
+        {
+            isUsingBanana = true;
+            _navMeshAgent.speed = _navMeshAgent.speed * bananaSpeedMultiplier;
+            remainingBananaTime = 5f;
+            FindObjectOfType<PositionRandomizer>().SpawnBanana();
+        }
+
+        void UseShield()
+        {
+            if (!hasShield)
+            {
+                hasShield = true;
+            }
+        }
+    }
+
+    public void ThrowCoconut()
+    {
+        int itemCount = gameObject.transform.childCount;
+        bool continueSearch = true;
+        for (int i = 0; i < itemCount && continueSearch; i++)
+        {
+            IInventoryItem item = gameObject.transform.GetChild(i).GetComponent<IInventoryItem>();
+            gameObject.transform.GetChild(i).GetComponent<IInventoryItem>();
+            if (item != null && item.Name.Equals("Coconut") && hasClosePlayer)
+            {
+                continueSearch = false;
                 AIItemsInteraction aiMovement = this.GetComponentInParent<AIItemsInteraction>();
                 aiMovement.inventory.UseItem(item);
             }
-    }
-
-    void UseBanana()
-    {
-        isUsingBanana = true;
-        _navMeshAgent.speed = _navMeshAgent.speed * bananaSpeedMultiplier;
-        remainingBananaTime = 5f;
-        FindObjectOfType<PositionRandomizer>().SpawnBanana();
-    }
-
-    void UseShield()
-    {
-        if (!hasShield)
-        {
-            hasShield = true;
         }
     }
-}
 }
