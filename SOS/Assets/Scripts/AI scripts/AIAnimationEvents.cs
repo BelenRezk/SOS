@@ -7,7 +7,8 @@ public class AIAnimationEvents : MonoBehaviour
 
     public void ThrowCoconut()
     {
-        ThirdPersonMovement thirdPersonMovement = gameObject.GetComponentInParent<ThirdPersonMovement>();
-        thirdPersonMovement.ThrowCoconut();
+        Debug.Log("CALLED THROW COCONUT");
+        AIPowerUps powerups = gameObject.GetComponentInParent<AIPowerUps>();
+        powerups.ThrowCoconut();
     }
 }

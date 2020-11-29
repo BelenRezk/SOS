@@ -46,9 +46,10 @@ public class AIPath : MonoBehaviour
         if (animator.GetBool("Jumping"))
             animator.SetBool("Jumping", false);
         if (animator.GetBool("WasHit"))
+        {
             animator.SetBool("WasHit", false);
-        if (animator.GetBool("ThrowingCoconut"))
-            animator.SetBool("ThrowingCoconut", false);
+        }
+
         animator.SetBool("IsWalking", true);
         bool canWin = hasAllWinnableItems();
         int random = Random.Range(0,10);
