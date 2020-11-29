@@ -438,7 +438,8 @@ MonoBehaviour:
   afterHitInvincibility: 1
   currentInvincibility: 0
   isUsingBanana: 0
-  inventory: {fileID: 0}
+  coconutInventory: {fileID: 0}
+  powerUpInventory: {fileID: 0}
   winItems: {fileID: 0}
   playerId: 1
   interactionCooldown: 0.5

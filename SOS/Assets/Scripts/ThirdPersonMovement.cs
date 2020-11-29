@@ -81,7 +81,6 @@ public class ThirdPersonMovement : MovementBase
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(animator.GetBool("WasHit"));
         timer++;
         if (animator.GetBool("Jumping"))
             animator.SetBool("Jumping", false);
@@ -117,15 +116,16 @@ public class ThirdPersonMovement : MovementBase
         {
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
-            //transform.rotation = Quaternion.Euler(0f, angle, 0f);
             
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
             animator.SetBool("IsWalking", true);
             timer = 0;
         }
-        for (int i = 1; i <= 9; i++)
+        if (Input.GetButtonDown("UseCoconut") && coconutInventory.currentNumberOfItems > 0)
         {
+            //CAMBIO NOELA
+            /*
             string action = "Position" + i;
             if (Input.GetButtonDown(action))
                 inventory.ChangeSelectedPosition(i - 1);
@@ -154,8 +154,14 @@ public class ThirdPersonMovement : MovementBase
             else
             {
                 gameJustResumed = false;
-            }
+            }*/
+            ////CAMBIO MATIAS
+            animator.SetBool("ThrowingCoconut", true);
+            timer = 0;
+            ////////fin 
         }
+        if (Input.GetButtonDown("UsePowerUp") && powerUpInventory.currentNumberOfItems > 0)
+            powerUpInventory.UseItem();
         CheckBananaUsage();
         if (currentInvincibility > 0)
             currentInvincibility -= Time.deltaTime;
@@ -182,10 +188,8 @@ public class ThirdPersonMovement : MovementBase
     }
     public void ThrowCoconut()
     {
-        if (inventory.GetSelectedItemName().Equals("Coconut"))
-        {
-            inventory.UseSelectedItem();
-        }
+        if (coconutInventory.currentNumberOfItems > 0)
+            coconutInventory.UseItem();
     }
     private void CheckBananaUsage()
     {
@@ -215,7 +219,8 @@ public class ThirdPersonMovement : MovementBase
         if (other.gameObject.name.Contains("LavaPlane"))
         {
             controller.Move(this.transform.forward*-30.0f);
-            inventory.DropAllItems();
+            coconutInventory.DropAllItems();
+            powerUpInventory.DropAllItems();
             winItems.DropAllItems();
         }
         else
@@ -234,11 +239,31 @@ public class ThirdPersonMovement : MovementBase
             interactionCooldownRemaining = interactionCooldown;
             if(!item.HasOwner)
             {
+                bool wasItemAdded = false;
                 if (item.WinItem)
-                    winItems.AddItem(item);
+                {
+                    if(winItems.currentNumberOfItems < winItems.SLOTS)
+                    {
+                        winItems.AddItem(item);
+                        wasItemAdded = true;
+                    }
+                }
+                else if(item.Name == "Coconut")
+                {
+                    if(coconutInventory.currentNumberOfItems < coconutInventory.SLOTS)
+                    {
+                        coconutInventory.AddItem(item);
+                        wasItemAdded = true;
+                    }
+                }
                 else
-                    inventory.AddItem(item);
-                item.HasOwner = true;
+                    if(powerUpInventory.currentNumberOfItems < powerUpInventory.SLOTS)
+                    {
+                        powerUpInventory.AddItem(item);
+                        wasItemAdded = true;
+                    }
+                if(wasItemAdded)
+                    item.HasOwner = true;
             }
             else
             {
@@ -248,7 +273,8 @@ public class ThirdPersonMovement : MovementBase
                     if (!hasShield)
                     {
                         PlayGetHitSound();
-                        inventory.DropAllItems();
+                        coconutInventory.DropAllItems();
+                        powerUpInventory.DropAllItems();
                         winItems.DropAllItems();
                     }
                     else

@@ -75,7 +75,7 @@ public class AIPowerUps : MonoBehaviour
                 Debug.Log("THROWING COCONUT");
                 animator.SetBool("ThrowingCoconut", true);
                 AIItemsInteraction aiMovement = this.GetComponentInParent<AIItemsInteraction>();
-                aiMovement.inventory.UseItem(item);
+                aiMovement.coconutInventory.UseItem();
             }
     }
 
