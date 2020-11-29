@@ -11,6 +11,10 @@ public class PausedOptions : MonoBehaviour
     [SerializeField] public GameObject keyMappingPanel;
     [SerializeField] public bool isPaused;
 
+    [SerializeField] public GameObject mainPlayer;
+
+    [SerializeField] private bool hasDeactivated;
+
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape))
@@ -19,17 +23,23 @@ public class PausedOptions : MonoBehaviour
         }        
         if(isPaused)
         {
+            hasDeactivated = false;
             ActivateMenu();
         }
         else
         {
-            DeactivateMenu();
+            if(!hasDeactivated)
+            {
+                DeactivateMenu();
+            }
         }
     }
 
     void ActivateMenu()
     {
         Time.timeScale = 0;
+        ThirdPersonMovement options = mainPlayer.GetComponent<ThirdPersonMovement>();
+        options.gameJustResumed = true;
         if(!pauseMenuUI.activeSelf)
         {
             pausePanel.SetActive(true);
@@ -44,6 +54,9 @@ public class PausedOptions : MonoBehaviour
         pausePanel.SetActive(false);
         keyMappingPanel.SetActive(false);
         instructionsPanel.SetActive(false);
+        ThirdPersonMovement options = mainPlayer.GetComponent<ThirdPersonMovement>();
+        options.gameJustResumed = false;
+        hasDeactivated = true;
     }
 
     public void GoBackToGame()

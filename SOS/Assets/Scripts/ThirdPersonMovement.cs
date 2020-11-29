@@ -24,8 +24,10 @@ public class ThirdPersonMovement : MovementBase
     private CharacterDifferentiationBase characterBehaviour;
     public Animator animator;
     private int timer;
+    public bool gameJustResumed;
     void Start()
     {
+        gameJustResumed = false;
         timer = 0;
         AudioManager manager = FindObjectOfType<AudioManager>();
         try{    
@@ -138,14 +140,20 @@ public class ThirdPersonMovement : MovementBase
             inventory.RemoveSelectedItem();
         if (Input.GetButtonDown("UseItem"))
         {
-            if (inventory.GetSelectedItemName().Equals("Coconut"))
-            {
-                animator.SetBool("ThrowingCoconut", true);
-                timer = 0;
+            if(!gameJustResumed){
+                if (inventory.GetSelectedItemName().Equals("Coconut"))
+                {
+                    animator.SetBool("ThrowingCoconut", true);
+                    timer = 0;
+                }
+                else
+                {
+                    inventory.UseSelectedItem();
+                }
             }
             else
             {
-                inventory.UseSelectedItem();
+                gameJustResumed = false;
             }
         }
         CheckBananaUsage();
