@@ -461,6 +461,7 @@ MonoBehaviour:
   getHitSound: {fileID: 8300000, guid: dd2c2f53c9b72034db1e135ba2610657, type: 3}
   shieldSound: {fileID: 8300000, guid: d0895f110e527bc4fa19006e8484585b, type: 3}
   animator: {fileID: 963530797359181813}
+  gameJustResumed: 0
 --- !u!136 &510921748
 CapsuleCollider:
   m_ObjectHideFlags: 0
