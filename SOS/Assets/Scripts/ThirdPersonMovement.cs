@@ -124,41 +124,15 @@ public class ThirdPersonMovement : MovementBase
         }
         if (Input.GetButtonDown("UseCoconut") && coconutInventory.currentNumberOfItems > 0)
         {
-            //CAMBIO NOELA
-            /*
-            string action = "Position" + i;
-            if (Input.GetButtonDown(action))
-                inventory.ChangeSelectedPosition(i - 1);
-        }
-        for (int i = 1; i <= 5; i++)
-        {
-            string action = "DropWinItem" + i;
-            if (Input.GetButtonDown(action))
-                winItems.RemoveItem(i - 1);
-        }
-        if (Input.GetButtonDown("DropItem"))
-            inventory.RemoveSelectedItem();
-        if (Input.GetButtonDown("UseItem"))
-        {
-            if(!gameJustResumed){
-                if (inventory.GetSelectedItemName().Equals("Coconut"))
-                {
-                    animator.SetBool("ThrowingCoconut", true);
-                    timer = 0;
-                }
-                else
-                {
-                    inventory.UseSelectedItem();
-                }
+            if(!gameJustResumed)
+            {
+                animator.SetBool("ThrowingCoconut", true);
+                timer = 0;
             }
             else
             {
                 gameJustResumed = false;
-            }*/
-            ////CAMBIO MATIAS
-            animator.SetBool("ThrowingCoconut", true);
-            timer = 0;
-            ////////fin 
+            }
         }
         if (Input.GetButtonDown("UsePowerUp") && powerUpInventory.currentNumberOfItems > 0)
             powerUpInventory.UseItem();
