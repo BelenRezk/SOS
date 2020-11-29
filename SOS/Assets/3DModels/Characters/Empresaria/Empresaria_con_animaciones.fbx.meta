@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 6a8f1599bddd239459646bc69042ad74
+guid: 4c734562b26c07e4abc7ff37d485afea
 ModelImporter:
   serializedVersion: 20101
   internalIDToNameTable:
   - first:
-      74: 4606369795756564216
-    second: rig|Character_Empresaria_Character.001Action
+      74: 41931680872866741
+    second: rig|Empresaria_Corrida
   - first:
       74: -522905161293057790
     second: rig|Empresaria_Golpe
@@ -21,12 +21,15 @@ ModelImporter:
   - first:
       74: -7361427651036151181
     second: rig|Idle
+  - first:
+      74: 8077546582614639689
+    second: rig|no
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Blanco
-    second: {fileID: 2100000, guid: 11b2fdfcaa9f94242917614dea7d0fc3, type: 2}
+    second: {fileID: 2100000, guid: 7b2961de246175a48bb3e290be57c7cd, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -54,6 +57,35 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations:
+    - serializedVersion: 16
+      name: rig|Empresaria_Corrida
+      takeName: rig|Empresaria_Corrida
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 18
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: rig|Empresaria_Golpe
       takeName: rig|Empresaria_Golpe
@@ -166,7 +198,7 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.46001062
+      - time: 0.4711516
         functionName: ThrowCoconut
         data: 
         objectReferenceParameter: {instanceID: 0}

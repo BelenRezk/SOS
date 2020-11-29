@@ -101,6 +101,7 @@ public class AIPowerUps : MonoBehaviour
     public void ThrowCoconut()
     {
         animator.SetBool("ThrowingCoconut", false);
+        animator.SetBool("IsWalking", true);
         Debug.Log("CALLED THROW COCONUT");
         int itemCount = gameObject.transform.childCount;
         bool continueSearch = true;
