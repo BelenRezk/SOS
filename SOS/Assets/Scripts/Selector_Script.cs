@@ -26,12 +26,9 @@ public class Selector_Script : MonoBehaviour
         {
             PreviousCharacter();
         }
-        else
+        if(Input.GetKey("right"))
         {
-            if(Input.GetKey("right"))
-            {
-                NextCharacter();
-            }
+            NextCharacter();
         }
     }
 
