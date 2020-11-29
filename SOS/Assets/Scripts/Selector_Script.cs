@@ -20,6 +20,21 @@ public class Selector_Script : MonoBehaviour
         OffScreen = Pilot.transform.position;
     }
 
+    void Update()
+    {
+        if(Input.GetKey("left"))
+        {
+            PreviousCharacter();
+        }
+        else
+        {
+            if(Input.GetKey("right"))
+            {
+                NextCharacter();
+            }
+        }
+    }
+
     public void NextCharacter()
     {
         switch(CharacterInt)
