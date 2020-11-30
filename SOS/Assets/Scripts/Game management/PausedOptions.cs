@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -66,7 +67,24 @@ public class PausedOptions : MonoBehaviour
 
     public void GoToMainMenu()
     {
-        SceneManager.LoadScene("menuScene");
+        try
+        {
+            AudioManager manager = FindObjectOfType<AudioManager>();
+            manager.Stop("MainMusic");
+            manager.Stop("BananaMusic");
+            manager.Stop("OldLadyAbilityMusic");
+            manager.Stop("HippieAbilityMusic");
+            manager.Stop("RadarBlip");
+            manager.Play("Jungle");
+        }
+        catch(Exception)
+        {
+            Debug.Log("Error with audio");
+        }
+        finally
+        {
+            SceneManager.LoadScene("menuScene");
+        }
     }
 
     public void KeyMappingMenu()
