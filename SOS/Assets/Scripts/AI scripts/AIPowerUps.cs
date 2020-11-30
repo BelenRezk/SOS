@@ -115,7 +115,7 @@ public class AIPowerUps : MonoBehaviour
                 Debug.Log("ENTERED IF");
                 continueSearch = false;
                 AIItemsInteraction aiMovement = this.GetComponentInParent<AIItemsInteraction>();
-                aiMovement.inventory.UseItem(item);
+                aiMovement.coconutInventory.UseItem(item);
                 
                 animator.SetBool("Jumping", false);
                 animator.SetBool("WasHit", false);

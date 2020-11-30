@@ -135,19 +135,14 @@ public class AIPath : MonoBehaviour
         {
             case 1:
                 return "Businesswoman";
-                break;
             case 2:
                 return "Pilot";
-                break;
             case 3:
                 return "Old Lady";
-                break;
             case 4:
                 return "Hippie";
-                break;
             default:
                 return "Pilot";
-                break;
         }
     }
 }

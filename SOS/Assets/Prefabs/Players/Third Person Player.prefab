@@ -438,7 +438,8 @@ MonoBehaviour:
   afterHitInvincibility: 1
   currentInvincibility: 0
   isUsingBanana: 0
-  inventory: {fileID: 0}
+  coconutInventory: {fileID: 0}
+  powerUpInventory: {fileID: 0}
   winItems: {fileID: 0}
   playerId: 1
   interactionCooldown: 0.5
@@ -460,6 +461,7 @@ MonoBehaviour:
   getHitSound: {fileID: 8300000, guid: dd2c2f53c9b72034db1e135ba2610657, type: 3}
   shieldSound: {fileID: 8300000, guid: d0895f110e527bc4fa19006e8484585b, type: 3}
   animator: {fileID: 0}
+  gameJustResumed: 0
 --- !u!136 &510921748
 CapsuleCollider:
   m_ObjectHideFlags: 0

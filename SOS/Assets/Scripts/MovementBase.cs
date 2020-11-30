@@ -13,7 +13,8 @@ public abstract class MovementBase : MonoBehaviour
     public float afterHitInvincibility = 1f;
     public float currentInvincibility = 0f;
     public bool isUsingBanana = false;
-    public Inventory inventory;
+    public Inventory coconutInventory;
+    public Inventory powerUpInventory;
     public Inventory winItems;
     public int playerId;
     public float interactionCooldown = 0.5f;

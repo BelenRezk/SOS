@@ -8,16 +8,15 @@ public class Inventory : MonoBehaviour
 {
     public GameObject owner;
     public int SLOTS = 9;
-    public int selectedPosition = 0;
     public int currentNumberOfItems = 0;
-    public IInventoryItem[] mItems;
+    public List<IInventoryItem> mItems;
     public event EventHandler<InventoryEventArgs> ItemAdded;
     public event EventHandler<InventoryEventArgs> ItemRemoved;
-    public event EventHandler<Tuple<int, int>> PositionChanged;
+    //public event EventHandler<Tuple<int, int>> PositionChanged;
 
     private void Start()
     {
-        mItems = new IInventoryItem[SLOTS];
+        mItems = new List<IInventoryItem>();
     }
 
     public void AddItem(IInventoryItem item)
@@ -28,64 +27,23 @@ public class Inventory : MonoBehaviour
             if (collider.enabled)
             {
                 collider.enabled = false;
-                for (int i = 0; i < mItems.Length; i++)
-                {
-                    if (mItems[i] == null)
-                    {
-                        mItems[i] = item;
-                        break;
-                    }
-                }
+                mItems.Add(item);
                 currentNumberOfItems++;
                 item.OnPickup(owner);
 
                 if (ItemAdded != null)
                 {
-                    ItemAdded(this, new InventoryEventArgs(item, selectedPosition));
-                    /*Transform inventoryPanel = transform.Find("InventoryPanel");
-                    Transform imageTransform = inventoryPanel[selectedPosition].GetChild(0).GetChild(0);
-                    Image image = imageTransform.GetComponent<Image>();
-                    image.color = new Color32(255, 255, 255, 255);*/
+                    ItemAdded(this, new InventoryEventArgs(item, currentNumberOfItems == 1));
                 }
             }
         }
     }
 
-    public void ChangeSelectedPosition(int position)
-    {
-        Tuple<int, int> positions = new Tuple<int, int>(selectedPosition, position);
-        if (PositionChanged != null)
-        {
-            PositionChanged(this, positions);
-        }
-        selectedPosition = position;
-    }
-
-    public void RemoveSelectedItem()
-    {
-        IInventoryItem item = mItems[selectedPosition];
-        if (item != null)
-            RemoveItem(item);
-    }
-
-    public void UseSelectedItem()
-    {
-        IInventoryItem item = mItems[selectedPosition];
-        if (item != null)
-            UseItem(item);
-
-    }
     public void RemoveItem(IInventoryItem item)
     {
-        int itemPosition = -1;
-        for (int i = 0; i < mItems.Length && itemPosition == -1; i++)
+        if (mItems.Contains(item))
         {
-            if (mItems[i] == item)
-                itemPosition = i;
-        }
-        if (itemPosition != -1)
-        {
-            mItems[itemPosition] = null;
+            mItems.Remove(item);
             currentNumberOfItems--;
             item.OnDrop();
             Collider collider = (item as MonoBehaviour).GetComponent<Collider>();
@@ -99,58 +57,40 @@ public class Inventory : MonoBehaviour
                 rigidbody.AddForce(xForce, 800f, zForce);
             }
             if (ItemRemoved != null)
-                ItemRemoved(this, new InventoryEventArgs(item, selectedPosition));
+                ItemRemoved(this, new InventoryEventArgs(item, currentNumberOfItems == 0));
         }
+    }
+
+    public void UseItem()
+    {
+        UseItem(mItems[0]);
     }
 
     public void UseItem(IInventoryItem item)
     {
-        int itemPosition = -1;
-        for (int i = 0; i < mItems.Length && itemPosition == -1; i++)
-        {
-            if (mItems[i] == item)
-                itemPosition = i;
-        }
-        if (itemPosition != -1)
+        if (mItems.Contains(item))
         {
             bool usedItem = item.OnUse();
             if (usedItem)
             {
-                mItems[itemPosition] = null;
+                mItems.Remove(item);
                 currentNumberOfItems--;
                 Collider collider = (item as MonoBehaviour).GetComponent<Collider>();
                 if (collider != null)
                     collider.enabled = true;
                 if (ItemRemoved != null)
-                    ItemRemoved(this, new InventoryEventArgs(item, selectedPosition));
+                    ItemRemoved(this, new InventoryEventArgs(item, currentNumberOfItems == 0));
             }
         }
     }
 
     public void DropAllItems()
     {
-        int position = 0;
-        while (currentNumberOfItems != 0 && position < SLOTS)
+        while (currentNumberOfItems != 0)
         {
-            IInventoryItem item = mItems[position];
+            IInventoryItem item = mItems[0];
             if (item != null)
                 RemoveItem(item);
-            position++;
         }
-    }
-
-    public void RemoveItem(int position)
-    {
-        IInventoryItem item = mItems[position];
-        if (item != null)
-            RemoveItem(item);
-    }
-
-    public string GetSelectedItemName()
-    {
-        IInventoryItem item = mItems[selectedPosition];
-        if (item != null)
-            return item.Name;
-        return "";
     }
 }

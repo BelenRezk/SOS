@@ -22,7 +22,8 @@ public class AIItemsInteraction : MovementBase
         if (other.gameObject.name.Contains("LavaPlane"))
         {
             this.GetComponent<UnityEngine.AI.NavMeshAgent>().Move(this.GetComponent<UnityEngine.AI.NavMeshAgent>().transform.forward*-20.0f);
-            inventory.DropAllItems();
+            coconutInventory.DropAllItems();
+            powerUpInventory.DropAllItems();
             winItems.DropAllItems();
         }
         else
@@ -34,11 +35,31 @@ public class AIItemsInteraction : MovementBase
                 
                 if (item != null && !item.HasOwner)
                 {
-                    if(item.WinItem)
-                        winItems.AddItem(item);
+                    bool wasItemAdded = false;
+                    if (item.WinItem)
+                    {
+                        if(winItems.currentNumberOfItems < winItems.SLOTS)
+                        {
+                            winItems.AddItem(item);
+                            wasItemAdded = true;
+                        }
+                    }
+                    else if(item.Name == "Coconut")
+                    {
+                        if(coconutInventory.currentNumberOfItems < coconutInventory.SLOTS)
+                        {
+                            coconutInventory.AddItem(item);
+                            wasItemAdded = true;
+                        }
+                    }
                     else
-                        inventory.AddItem(item);
-                    item.HasOwner = true;
+                        if(powerUpInventory.currentNumberOfItems < powerUpInventory.SLOTS)
+                        {
+                            powerUpInventory.AddItem(item);
+                            wasItemAdded = true;
+                        }
+                    if(wasItemAdded)
+                        item.HasOwner = true;
                 }
                 else if (item != null && item.HasOwner)
                 {
@@ -47,7 +68,8 @@ public class AIItemsInteraction : MovementBase
                     {
                         animator.SetBool("WasHit", true);
                         PlayGetHitSound();
-                        inventory.DropAllItems();
+                        coconutInventory.DropAllItems();
+                        powerUpInventory.DropAllItems();
                         winItems.DropAllItems();
                     }
                     else
