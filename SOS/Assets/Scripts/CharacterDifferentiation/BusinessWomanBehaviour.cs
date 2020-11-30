@@ -90,7 +90,7 @@ public class BusinessWomanBehaviour : CharacterDifferentiationBase
             if (movement.isUsingBanana)
                 audioManager.Play("BananaMusic");
             else
-                audioManager.PlayMainMusic();
+                audioManager.Play("MainMusic");
         }
         Debug.Log("Finish Business Woman Ability");
     }
