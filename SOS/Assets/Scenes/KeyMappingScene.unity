@@ -563,8 +563,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: d3d96032cd3f7a6429fdf07d0eb72e0c, type: 3}
-    m_FontSize: 48
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 38
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
@@ -575,14 +575,14 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Move forward:                            W\nMove backwards:                        
+  m_Text: "Move forward:                           W\nMove backwards:                     
     S \nMove left:                                  A\nMove right:                               
-    D\nJump:                                       Spacebar\n\nMain inventory interaction:             
+    D\nJump:                                       Spacebar\n\nMain inventory interaction:           
     1 - 9 keyboard numbers (correlated to inventory position) \nDrop main inventory
-    item:                E\nUse main inventory item:                  Left mouse
-    button\nDrop winning inventory item:            Z, X , C , V  ,B (correlated
-    to inventory position)\n\nUse character special skill:            Q\n\nEnable/disable
-    main music:              P\n\n\n\n"
+    item:             E\nUse main inventory item:              Left mouse button\nDrop
+    winning inventory item:         Z, X , C , V  ,B (correlated to inventory position)\n\nUse
+    character special skill:            Q\n\nEnable/disable main music:          
+    P\n\n\n\n"
 --- !u!222 &486175747
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -997,7 +997,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: key mapping E
+  m_Text: key mapping
 --- !u!222 &1610684668
 CanvasRenderer:
   m_ObjectHideFlags: 0
