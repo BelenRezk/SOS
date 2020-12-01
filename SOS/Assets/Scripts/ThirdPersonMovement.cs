@@ -32,7 +32,7 @@ public class ThirdPersonMovement : MovementBase
         AudioManager manager = FindObjectOfType<AudioManager>();
         try{    
             manager.Stop("Jungle");
-            manager.PlayMainMusic();
+            manager.Play("MainMusic");
             manager.Play("Waves");
         }
         catch(Exception){
@@ -157,8 +157,6 @@ public class ThirdPersonMovement : MovementBase
             abilityDurationRemaining -= Time.deltaTime;
         if (interactionCooldownRemaining > 0)
             interactionCooldownRemaining -= Time.deltaTime;
-        if (Input.GetButtonDown("ToggleMainMusic"))
-            ToggleMainMusic();
     }
     public void ThrowCoconut()
     {
@@ -176,7 +174,7 @@ public class ThirdPersonMovement : MovementBase
                 isUsingBanana = false;
                 speed = speed / bananaSpeedMultiplier;
                 FindObjectOfType<AudioManager>().Stop("BananaMusic");
-                FindObjectOfType<AudioManager>().PlayMainMusic();
+                FindObjectOfType<AudioManager>().Play("MainMusic");
             }
         }
     }
@@ -304,18 +302,5 @@ public class ThirdPersonMovement : MovementBase
         }
         else
             return false;
-    }
-    private void ToggleMainMusic()
-    {
-        AudioManager manager = FindObjectOfType<AudioManager>();
-        bool currentValue = manager.shouldPlayMainMusic;
-        if(currentValue)
-            manager.StopMainMusic();
-        else
-        {
-            manager.ResumeMainMusic();
-            if(!isUsingBanana && !abilityActive)
-                manager.PlayMainMusic();
-        }
     }
 }

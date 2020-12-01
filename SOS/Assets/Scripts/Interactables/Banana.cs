@@ -25,18 +25,20 @@ public class Banana : InventoryItemBase
     public override bool OnUse()
     {
         Transform player = this.transform.parent;
-
         GameObject playerGO = player.gameObject;
-
-        this.transform.parent = null;
-
         try
         {
             ThirdPersonMovement thirdPersonMovement = playerGO.GetComponent<ThirdPersonMovement>();
-            thirdPersonMovement.UseBanana(duration);
-            FindObjectOfType<AudioManager>().Stop("MainMusic");
-            if(!thirdPersonMovement.abilityActive)
-                FindObjectOfType<AudioManager>().Play("BananaMusic");
+            if(!thirdPersonMovement.isUsingBanana)
+            {
+                this.transform.parent = null;
+                thirdPersonMovement.UseBanana(duration);
+                FindObjectOfType<AudioManager>().Stop("MainMusic");
+                if(!thirdPersonMovement.abilityActive)
+                    FindObjectOfType<AudioManager>().Play("BananaMusic");
+            }
+            else
+                return false;
         }
         catch  (Exception)
         {

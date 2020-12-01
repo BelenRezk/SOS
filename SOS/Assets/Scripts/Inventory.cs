@@ -24,6 +24,12 @@ public class Inventory : MonoBehaviour
         if (currentNumberOfItems < SLOTS)
         {
             Collider collider = (item as MonoBehaviour).GetComponent<Collider>();
+            Rigidbody rigidbody = (item as MonoBehaviour).GetComponent<Rigidbody>();
+            if(rigidbody != null)
+            {
+                rigidbody.velocity = Vector3.zero;
+                rigidbody.angularVelocity = Vector3.zero;
+            }
             if (collider.enabled)
             {
                 collider.enabled = false;
