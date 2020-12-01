@@ -39,7 +39,6 @@ public class Coconut : InventoryItemBase
         try
         {
             AIItemsInteraction ai = this.transform.parent.GetComponent<AIItemsInteraction>();
-            Debug.Log(ai);
             ai.coconutCount--;
         }
         catch (Exception)

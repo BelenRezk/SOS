@@ -18,7 +18,6 @@ public class BusinessWomanBehaviour : CharacterDifferentiationBase
 
     public override void UseSpecialAbility()
     {
-        Debug.Log("Business Woman Ability");
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
         MovementBase playerToStealFrom = null;
         float playerToStealFromDistance = float.MaxValue;

@@ -66,7 +66,9 @@ public class AIItemsInteraction : MovementBase
                     AIPowerUps obj = gameObject.transform.GetComponent<AIPowerUps>();
                     if (!obj.hasShield)
                     {
+                        animator.SetBool("IsWalking",false);
                         animator.SetBool("WasHit", true);
+                        Debug.Log("Was hit");
                         PlayGetHitSound();
                         coconutInventory.DropAllItems();
                         powerUpInventory.DropAllItems();
