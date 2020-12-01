@@ -11,11 +11,21 @@ public class AIItemsInteraction : MovementBase
     public int coconutCount = 0;
     public Animator animator;
 
-    void Start(){}
+    void Start()
+    {
+        abilityCooldownRemaining = 3f;
+    }
 
     void Update(){
-        if (interactionCooldownRemaining > 0)
+        if (interactionCooldownRemaining > 0){
             interactionCooldownRemaining -= Time.deltaTime;
+        }
+        if (abilityCooldownRemaining > 0){
+            abilityCooldownRemaining -= Time.deltaTime;
+        }
+        if (abilityDurationRemaining > 0){
+            abilityDurationRemaining -= Time.deltaTime;
+        }
     }
     private void OnTriggerEnter(Collider other)
     {
