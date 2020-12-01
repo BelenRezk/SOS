@@ -3,7 +3,12 @@ guid: 768f69c2b21a66c47816a9e1db8dacff
 ModelImporter:
   serializedVersion: 20101
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Remo
+    second: {fileID: 2100000, guid: a46bd61b0a6e5e24e9a18cccdedd3d21, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

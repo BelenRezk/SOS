@@ -356,7 +356,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: bbdc91c882c63964eba93baec2d6723e, type: 3}
+    m_Font: {fileID: 12800000, guid: d1fd432a484ac424aa9a495c4c869cd0, type: 3}
     m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
@@ -368,7 +368,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Main menu
+  m_Text: main menu U
 --- !u!222 &779730858
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -435,7 +435,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: bbdc91c882c63964eba93baec2d6723e, type: 3}
+    m_Font: {fileID: 12800000, guid: d1fd432a484ac424aa9a495c4c869cd0, type: 3}
     m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
@@ -447,7 +447,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Play again
+  m_Text: play again Y
 --- !u!222 &1103388782
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -515,7 +515,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: bbdc91c882c63964eba93baec2d6723e, type: 3}
+    m_Font: {fileID: 12800000, guid: d1fd432a484ac424aa9a495c4c869cd0, type: 3}
     m_FontSize: 150
     m_FontStyle: 0
     m_BestFit: 0
@@ -527,7 +527,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: You won
+  m_Text: you won T
 --- !u!222 &1186018741
 CanvasRenderer:
   m_ObjectHideFlags: 0

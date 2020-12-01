@@ -343,7 +343,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: bbdc91c882c63964eba93baec2d6723e, type: 3}
+    m_Font: {fileID: 12800000, guid: d1fd432a484ac424aa9a495c4c869cd0, type: 3}
     m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
@@ -355,7 +355,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Time limited special skills
+  m_Text: time limited special skills A
 --- !u!222 &247416036
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -524,7 +524,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: bbdc91c882c63964eba93baec2d6723e, type: 3}
+    m_Font: {fileID: 12800000, guid: d1fd432a484ac424aa9a495c4c869cd0, type: 3}
     m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
@@ -536,7 +536,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Next
+  m_Text: next O
 --- !u!222 &440145436
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1425,7 +1425,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: bbdc91c882c63964eba93baec2d6723e, type: 3}
+    m_Font: {fileID: 12800000, guid: d1fd432a484ac424aa9a495c4c869cd0, type: 3}
     m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
@@ -1437,7 +1437,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Select
+  m_Text: select S
 --- !u!222 &1259528944
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1878,7 +1878,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: bbdc91c882c63964eba93baec2d6723e, type: 3}
+    m_Font: {fileID: 12800000, guid: d1fd432a484ac424aa9a495c4c869cd0, type: 3}
     m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
@@ -1890,7 +1890,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Previous
+  m_Text: previous P
 --- !u!222 &1563502953
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2276,7 +2276,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: bbdc91c882c63964eba93baec2d6723e, type: 3}
+    m_Font: {fileID: 12800000, guid: d1fd432a484ac424aa9a495c4c869cd0, type: 3}
     m_FontSize: 100
     m_FontStyle: 0
     m_BestFit: 0
@@ -2288,7 +2288,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Choose your character
+  m_Text: choose your character I
 --- !u!222 &1879292851
 CanvasRenderer:
   m_ObjectHideFlags: 0

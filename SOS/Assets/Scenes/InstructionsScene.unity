@@ -264,7 +264,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: bbdc91c882c63964eba93baec2d6723e, type: 3}
+    m_Font: {fileID: 12800000, guid: d1fd432a484ac424aa9a495c4c869cd0, type: 3}
     m_FontSize: 78
     m_FontStyle: 0
     m_BestFit: 0
@@ -276,7 +276,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.39
-  m_Text: Get all the items you need to sail in the boat. Make sure to find them
+  m_Text: get all the items you need to sail in the boat. Make sure to find them
     all before your oponents or you will have to steal from them.
 --- !u!222 &318160510
 CanvasRenderer:
@@ -344,7 +344,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: bbdc91c882c63964eba93baec2d6723e, type: 3}
+    m_Font: {fileID: 12800000, guid: d1fd432a484ac424aa9a495c4c869cd0, type: 3}
     m_FontSize: 100
     m_FontStyle: 0
     m_BestFit: 0
@@ -356,7 +356,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Instructions
+  m_Text: instructions W
 --- !u!222 &516363219
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -772,7 +772,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: bbdc91c882c63964eba93baec2d6723e, type: 3}
+    m_Font: {fileID: 12800000, guid: d1fd432a484ac424aa9a495c4c869cd0, type: 3}
     m_FontSize: 60
     m_FontStyle: 0
     m_BestFit: 0
@@ -784,7 +784,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Close
+  m_Text: close R
 --- !u!222 &1920865377
 CanvasRenderer:
   m_ObjectHideFlags: 0
