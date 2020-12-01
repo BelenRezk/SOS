@@ -9,4 +9,10 @@ public class AnimationEvents : MonoBehaviour
         ThirdPersonMovement thirdPersonMovement = gameObject.GetComponentInParent<ThirdPersonMovement>();
         thirdPersonMovement.ThrowCoconut();
     }
+
+    public void TurnOnWalk()
+    {
+        ThirdPersonMovement thirdPersonMovement = gameObject.GetComponentInParent<ThirdPersonMovement>();
+        thirdPersonMovement.animator.SetBool("WasHit", false);
+    }
 }
