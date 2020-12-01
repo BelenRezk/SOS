@@ -22,13 +22,13 @@ public class Selector_Script : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKey("left"))
+        if(Input.GetKeyDown("left"))
         {
-            GameObject.Find("Previous").GetComponent<Button>().onClick.Invoke();
+            PreviousCharacter();
         }
-        if(Input.GetKey("right"))
+        if(Input.GetKeyDown("right"))
         {
-            GameObject.Find("Next").GetComponent<Button>().onClick.Invoke();
+            NextCharacter();
         }
     }
 
