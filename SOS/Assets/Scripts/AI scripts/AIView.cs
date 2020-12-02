@@ -7,6 +7,7 @@ public class AIView : MonoBehaviour
 {
     public List<(string, Vector3)> PlayersPositions { get; set; }
     public List<(string, Vector3)> ItemsPositions { get; set; }
+    public CharacterDifferentiationBase characterBehaviour;
 
 
     private void Start()
@@ -20,15 +21,29 @@ public class AIView : MonoBehaviour
         bool isPlayer = other.CompareTag("Player");
         string aiTag = transform.parent.name;
         AIItemsInteraction aiPlayer = this.GetComponentInParent<AIItemsInteraction>();
-        if (isPlayer && aiPlayer.coconutCount > 0)
+        if (isPlayer)
         {
             if(other.name != aiTag){
 
                 AIPowerUps aiPowerUps = this.GetComponentInParent<AIPowerUps>();
                 aiPowerUps.hasClosePlayer = true;
+                if(aiPlayer.abilityCooldownRemaining <= 0 && !aiPlayer.abilityActive)
+                {
+                    characterBehaviour.UseSpecialAbility();
+                    aiPlayer.abilityDurationRemaining = aiPlayer.abilityDuration;
+                    aiPlayer.abilityActive = true;
+                }
+               
+                if (aiPlayer.abilityActive && aiPlayer.abilityDurationRemaining <= 0)
+                {
+                    characterBehaviour.FinishSpecialAbility();
+                    aiPlayer.abilityActive = false;
+                    aiPlayer.abilityCooldownRemaining = aiPlayer.abilityCooldown;
+                }
+
                 //Found player to attack
                 
-                if (aiPlayer.coconutCount>0){
+                if (aiPlayer.coconutCount > 0){
                     aiPlayer.transform.LookAt(other.transform);
                 }
                 if (PlayersPositions.FindAll(p => p.Item1 == other.name).Count > 0)

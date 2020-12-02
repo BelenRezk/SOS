@@ -6,9 +6,6 @@ public class AudioManager : MonoBehaviour
 {
 
 	public static AudioManager instance;
-	public bool shouldPlayMainMusic = true;
-
-	//public AudioMixerGroup mixerGroup;
 
 	public Sound[] sounds;
 
@@ -29,10 +26,19 @@ public class AudioManager : MonoBehaviour
 			s.source = gameObject.AddComponent<AudioSource>();
 			s.source.clip = s.clip;
 			s.source.loop = s.loop;
-
-			//s.source.outputAudioMixerGroup = mixerGroup;
 		}
 	}
+
+	void Update()
+	{
+		if (Input.GetButtonDown("ToggleSounds"))
+            ToggleSounds();
+	}
+
+	private void ToggleSounds()
+    {
+        AudioListener.pause = !AudioListener.pause;
+    }
 
 	public void Play(string sound)
 	{
@@ -60,22 +66,5 @@ public class AudioManager : MonoBehaviour
 
 	
 		s.source.Stop();
-	}
-
-	public void StopMainMusic()
-	{
-		Stop("MainMusic");
-		shouldPlayMainMusic = false;
-	}
-
-	public void ResumeMainMusic()
-	{
-		shouldPlayMainMusic = true;
-	}
-
-	public void PlayMainMusic()
-	{
-		if(shouldPlayMainMusic)
-			Play("MainMusic");
 	}
 }

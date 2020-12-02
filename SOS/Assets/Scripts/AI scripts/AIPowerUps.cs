@@ -71,9 +71,7 @@ public class AIPowerUps : MonoBehaviour
             else if (item != null && item.Name.Equals("Coconut") && hasClosePlayer)
             {
                 continueSearch = false;
-                Debug.Log("SETTING ANIMATION TO TRUE");
                 animator.SetBool("Jumping", false);
-                animator.SetBool("WasHit", false);
                 animator.SetBool("IsWalking", false);
                 animator.SetBool("ThrowingCoconut", true);
                 
@@ -102,23 +100,20 @@ public class AIPowerUps : MonoBehaviour
     {
         animator.SetBool("ThrowingCoconut", false);
         animator.SetBool("IsWalking", true);
-        Debug.Log("CALLED THROW COCONUT");
         int itemCount = gameObject.transform.childCount;
         bool continueSearch = true;
         for (int i = 0; i < itemCount && continueSearch; i++)
         {
-            Debug.Log("ENTERED FOR");
             IInventoryItem item = gameObject.transform.GetChild(i).GetComponent<IInventoryItem>();
             gameObject.transform.GetChild(i).GetComponent<IInventoryItem>();
             if (item != null && item.Name.Equals("Coconut") && hasClosePlayer)
             {
-                Debug.Log("ENTERED IF");
                 continueSearch = false;
                 AIItemsInteraction aiMovement = this.GetComponentInParent<AIItemsInteraction>();
                 aiMovement.coconutInventory.UseItem(item);
                 
                 animator.SetBool("Jumping", false);
-                animator.SetBool("WasHit", false);
+                //animator.SetBool("WasHit", false);
                 animator.SetBool("IsWalking", true);
             }
         }

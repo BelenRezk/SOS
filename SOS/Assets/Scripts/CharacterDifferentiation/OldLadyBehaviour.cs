@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 
 public class OldLadyBehaviour : CharacterDifferentiationBase
 {
@@ -20,9 +21,12 @@ public class OldLadyBehaviour : CharacterDifferentiationBase
         movement.currentInvincibility += duration;
         if (shouldPlayMusic)
         {
-            audioManager.Stop("MainMusic");
-            audioManager.Stop("BananaMusic");
-            audioManager.Play("OldLadyAbilityMusic");
+            try{
+                audioManager.Stop("MainMusic");
+                audioManager.Stop("BananaMusic");
+                audioManager.Play("OldLadyAbilityMusic");
+            }
+            catch(Exception){}
         }
     }
 
@@ -32,11 +36,20 @@ public class OldLadyBehaviour : CharacterDifferentiationBase
         movement.speed /= speedMultiplier;
         if (shouldPlayMusic)
         {
-            audioManager.Stop("OldLadyAbilityMusic");
+            try{
+                audioManager.Stop("OldLadyAbilityMusic");
+            }
+            catch(Exception){}
             if (movement.isUsingBanana)
-                audioManager.Play("BananaMusic");
+                try{
+                    audioManager.Play("BananaMusic");
+                }
+                catch(Exception){}
             else
-                audioManager.PlayMainMusic();
+                try{
+                    audioManager.Play("MainMusic");
+                }
+                catch(Exception){}
         }
     }
 }

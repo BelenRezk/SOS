@@ -11,17 +11,27 @@ public class AIItemsInteraction : MovementBase
     public int coconutCount = 0;
     public Animator animator;
 
-    void Start(){}
+    void Start()
+    {
+        abilityCooldownRemaining = 3f;
+    }
 
     void Update(){
-        if (interactionCooldownRemaining > 0)
+        if (interactionCooldownRemaining > 0){
             interactionCooldownRemaining -= Time.deltaTime;
+        }
+        if (abilityCooldownRemaining > 0){
+            abilityCooldownRemaining -= Time.deltaTime;
+        }
+        if (abilityDurationRemaining > 0){
+            abilityDurationRemaining -= Time.deltaTime;
+        }
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name.Contains("LavaPlane"))
         {
-            this.GetComponent<UnityEngine.AI.NavMeshAgent>().Move(this.GetComponent<UnityEngine.AI.NavMeshAgent>().transform.forward*-20.0f);
+            this.GetComponent<UnityEngine.AI.NavMeshAgent>().Move(this.GetComponent<UnityEngine.AI.NavMeshAgent>().transform.forward*35.0f);
             coconutInventory.DropAllItems();
             powerUpInventory.DropAllItems();
             winItems.DropAllItems();
@@ -66,7 +76,9 @@ public class AIItemsInteraction : MovementBase
                     AIPowerUps obj = gameObject.transform.GetComponent<AIPowerUps>();
                     if (!obj.hasShield)
                     {
+                        animator.SetBool("IsWalking",false);
                         animator.SetBool("WasHit", true);
+                        Debug.Log("Was hit");
                         PlayGetHitSound();
                         coconutInventory.DropAllItems();
                         powerUpInventory.DropAllItems();

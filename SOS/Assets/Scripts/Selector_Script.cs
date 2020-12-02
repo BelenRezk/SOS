@@ -5,19 +5,32 @@ using UnityEngine.UI;
 
 public class Selector_Script : MonoBehaviour
 {
-    public Image Businesswoman;
-    public Image OldLady;
-    public Image Pilot;
-    public Image Hippie;
-    private Vector3 CharacterPosition;
-    private Vector3 OffScreen;
+    public GameObject Businesswoman;
+    public GameObject OldLady;
+    public GameObject Pilot;
+    public GameObject Hippie;
     [HideInInspector]
-    public static int CharacterInt = 1;
+    public static int CharacterInt;
 
-    private void Awake()
+    void Start()
     {
-        CharacterPosition = Businesswoman.transform.position;
-        OffScreen = Pilot.transform.position;
+        Businesswoman.SetActive(true);
+        OldLady.SetActive(false);
+        Pilot.SetActive(false);
+        Hippie.SetActive(false);
+        CharacterInt = 1;
+    }
+
+    void Update()
+    {
+        if(Input.GetKeyDown("left"))
+        {
+            PreviousCharacter();
+        }
+        if(Input.GetKeyDown("right"))
+        {
+            NextCharacter();
+        }
     }
 
     public void NextCharacter()
@@ -25,31 +38,23 @@ public class Selector_Script : MonoBehaviour
         switch(CharacterInt)
         {
             case 1:
-                Businesswoman.enabled = false;
-                Businesswoman.transform.position = OffScreen;
-                Pilot.transform.position = CharacterPosition;
-                Pilot.enabled = true;
+                Businesswoman.SetActive(false);
+                Pilot.SetActive(true);
                 CharacterInt++;
                 break;
             case 2:
-                Pilot.enabled = false;
-                Pilot.transform.position = OffScreen;
-                OldLady.transform.position = CharacterPosition;
-                OldLady.enabled = true;
+                Pilot.SetActive(false);
+                OldLady.SetActive(true);
                 CharacterInt++;
                 break;
             case 3:
-                OldLady.enabled = false;
-                OldLady.transform.position = OffScreen;
-                Hippie.transform.position = CharacterPosition;
-                Hippie.enabled = true;
+                OldLady.SetActive(false);
+                Hippie.SetActive(true);
                 CharacterInt++;
                 break;
             case 4:
-                Hippie.enabled = false;
-                Hippie.transform.position = OffScreen;
-                Businesswoman.transform.position = CharacterPosition;
-                Businesswoman.enabled = true;
+                Hippie.SetActive(false);
+                Businesswoman.SetActive(true);
                 CharacterInt++;
                 ResetInt();
                 break;
@@ -64,31 +69,23 @@ public class Selector_Script : MonoBehaviour
         switch(CharacterInt)
         {
             case 1:
-                Businesswoman.enabled = false;
-                Businesswoman.transform.position = OffScreen;
-                Hippie.transform.position = CharacterPosition;
-                Hippie.enabled = true;
+                Businesswoman.SetActive(false);
+                Hippie.SetActive(true);
                 ResetInt();
                 break;
             case 2:
-                Pilot.enabled = false;
-                Pilot.transform.position = OffScreen;
-                Businesswoman.transform.position = CharacterPosition;
-                Businesswoman.enabled = true;
+                Pilot.SetActive(false);
+                Businesswoman.SetActive(true);
                 CharacterInt--;
                 break;
             case 3:
-                OldLady.enabled = false;
-                OldLady.transform.position = OffScreen;
-                Pilot.transform.position = CharacterPosition;
-                Pilot.enabled = true;
+                OldLady.SetActive(false);
+                Pilot.SetActive(true);
                 CharacterInt--;
                 break;
             case 4:
-                Hippie.enabled = false;
-                Hippie.transform.position = OffScreen;
-                OldLady.transform.position = CharacterPosition;
-                OldLady.enabled = true;
+                Hippie.SetActive(false);
+                OldLady.SetActive(true);
                 CharacterInt--;
                 break;
             default:

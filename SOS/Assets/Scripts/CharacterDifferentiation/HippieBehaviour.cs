@@ -4,9 +4,9 @@ using System.Collections;
 
 public class HippieBehaviour : CharacterDifferentiationBase
 {
-    public float xRange = 10f;
-    public float yRange = 5f;
-    public float zRange = 10f;
+    public float xRange = 100f;
+    public float yRange = 50f;
+    public float zRange = 100f;
     public HippieBehaviour(MovementBase movementBase, bool playMusic, AudioManager manager)
     {
         movement = movementBase;
@@ -21,9 +21,12 @@ public class HippieBehaviour : CharacterDifferentiationBase
         Debug.Log("Hippie Ability");
         if (shouldPlayMusic)
         {
+            try{
             audioManager.Stop("MainMusic");
             audioManager.Stop("BananaMusic");
             audioManager.Play("HippieAbilityMusic");
+            }
+            catch(Exception){}
         }
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
         foreach (GameObject player in players)
@@ -60,11 +63,20 @@ public class HippieBehaviour : CharacterDifferentiationBase
     {
         if (shouldPlayMusic)
         {
+            try{
             audioManager.Stop("HippieAbilityMusic");
+            }
+            catch(Exception){}
             if (movement.isUsingBanana)
+                try{
                 audioManager.Play("BananaMusic");
+                }
+                catch(Exception){}
             else
-                audioManager.PlayMainMusic();
+                try{
+                audioManager.Play("MainMusic");
+                }
+                catch(Exception){}
         }
         Debug.Log("Finish Hippie Ability");
     }

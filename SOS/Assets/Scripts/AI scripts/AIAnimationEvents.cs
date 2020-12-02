@@ -7,8 +7,13 @@ public class AIAnimationEvents : MonoBehaviour
 
     public void ThrowCoconut()
     {
-        Debug.Log("CALLED THROW COCONUT");
         AIPowerUps powerups = gameObject.GetComponentInParent<AIPowerUps>();
         powerups.ThrowCoconut();
+    }
+
+    public void TurnOnWalk()
+    {
+        AIPowerUps powerups = gameObject.GetComponentInParent<AIPowerUps>();
+        powerups.animator.SetBool("WasHit", false);
     }
 }

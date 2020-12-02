@@ -32,7 +32,7 @@ public class ThirdPersonMovement : MovementBase
         AudioManager manager = FindObjectOfType<AudioManager>();
         try{    
             manager.Stop("Jungle");
-            manager.PlayMainMusic();
+            manager.Play("MainMusic");
             manager.Play("Waves");
         }
         catch(Exception){
@@ -48,7 +48,7 @@ public class ThirdPersonMovement : MovementBase
                 this.gameObject.name = "Businesswoman";
                 break;
             case 2:
-                characterBehaviour = new PilotBehaviour(this, true, manager);
+                characterBehaviour = new PilotBehaviour(this, true, manager, null);
                 GameObject pilot = this.transform.Find("Piloto").gameObject;
                 pilot.SetActive(true);
                 this.animator = pilot.GetComponent<Animator>();
@@ -69,7 +69,7 @@ public class ThirdPersonMovement : MovementBase
                 this.gameObject.name = "Hippie";
                 break;
             default:
-                characterBehaviour = new PilotBehaviour(this, true, manager);
+                characterBehaviour = new PilotBehaviour(this, true, manager, null);
                 pilot = this.transform.Find("Piloto").gameObject;
                 pilot.SetActive(true);
                 this.animator = pilot.GetComponent<Animator>();
@@ -84,8 +84,6 @@ public class ThirdPersonMovement : MovementBase
         timer++;
         if (animator.GetBool("Jumping"))
             animator.SetBool("Jumping", false);
-        if (animator.GetBool("WasHit"))
-            animator.SetBool("WasHit", false);
         if (animator.GetBool("ThrowingCoconut"))
             animator.SetBool("ThrowingCoconut", false);
         if (animator.GetBool("IsWalking") && timer == 5)
@@ -157,8 +155,6 @@ public class ThirdPersonMovement : MovementBase
             abilityDurationRemaining -= Time.deltaTime;
         if (interactionCooldownRemaining > 0)
             interactionCooldownRemaining -= Time.deltaTime;
-        if (Input.GetButtonDown("ToggleMainMusic"))
-            ToggleMainMusic();
     }
     public void ThrowCoconut()
     {
@@ -176,7 +172,7 @@ public class ThirdPersonMovement : MovementBase
                 isUsingBanana = false;
                 speed = speed / bananaSpeedMultiplier;
                 FindObjectOfType<AudioManager>().Stop("BananaMusic");
-                FindObjectOfType<AudioManager>().PlayMainMusic();
+                FindObjectOfType<AudioManager>().Play("MainMusic");
             }
         }
     }
@@ -304,18 +300,5 @@ public class ThirdPersonMovement : MovementBase
         }
         else
             return false;
-    }
-    private void ToggleMainMusic()
-    {
-        AudioManager manager = FindObjectOfType<AudioManager>();
-        bool currentValue = manager.shouldPlayMainMusic;
-        if(currentValue)
-            manager.StopMainMusic();
-        else
-        {
-            manager.ResumeMainMusic();
-            if(!isUsingBanana && !abilityActive)
-                manager.PlayMainMusic();
-        }
     }
 }
