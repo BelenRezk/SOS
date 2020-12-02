@@ -73,7 +73,7 @@ public class AIPath : MonoBehaviour
             animator.SetBool("Jumping", false);
         if (animator.GetBool("WasHit"))
         {
-            animator.SetBool("WasHit", false);
+            //animator.SetBool("WasHit", false);
         }
 
         animator.SetBool("IsWalking", true);

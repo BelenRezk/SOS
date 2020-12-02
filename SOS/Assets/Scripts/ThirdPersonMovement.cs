@@ -84,8 +84,6 @@ public class ThirdPersonMovement : MovementBase
         timer++;
         if (animator.GetBool("Jumping"))
             animator.SetBool("Jumping", false);
-        if (animator.GetBool("WasHit"))
-            animator.SetBool("WasHit", false);
         if (animator.GetBool("ThrowingCoconut"))
             animator.SetBool("ThrowingCoconut", false);
         if (animator.GetBool("IsWalking") && timer == 5)
