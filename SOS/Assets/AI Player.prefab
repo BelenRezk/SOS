@@ -1567,7 +1567,7 @@ GameObject:
   - component: {fileID: 1948867602}
   - component: {fileID: 1948867603}
   m_Layer: 0
-  m_Name: HeldObject2
+  m_Name: HeldObject3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6004,7 +6004,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 6473913d921262f449faa21a886a2dee, type: 3}
       propertyPath: m_Name
-      value: Pj Final 2
+      value: Pj Final 3
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 6473913d921262f449faa21a886a2dee, type: 3}
       propertyPath: m_IsActive
@@ -6082,7 +6082,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b99804abf74a28d439cc173f665394a5, type: 3}
       propertyPath: m_Name
-      value: AICamera2
+      value: AICamera3
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b99804abf74a28d439cc173f665394a5, type: 3}
       propertyPath: m_TagString
