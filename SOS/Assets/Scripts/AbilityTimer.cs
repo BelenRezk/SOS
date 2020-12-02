@@ -15,10 +15,10 @@ public class AbilityTimer : MonoBehaviour
 
     void Update()
     {
-        timerUI.text = "Ability: ";
+        timerUI.text = "ability: ";
         float timer = character.abilityCooldownRemaining;
         if (character.abilityActive)
-            timerUI.text += "In use";
+            timerUI.text += "in use";
         else
         {
             if (timer >= 0)
@@ -27,7 +27,7 @@ public class AbilityTimer : MonoBehaviour
                 timerUI.text += spanTime.Seconds.ToString("00");
             }
             else
-                timerUI.text += "Ready";
+                timerUI.text += "ready";
         }
     }
 }

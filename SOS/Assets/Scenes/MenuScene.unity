@@ -495,7 +495,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c2505dad5f5ff8498b13cd1a8dbeba5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shouldPlayMainMusic: 1
   sounds:
   - name: Win
     clip: {fileID: 8300000, guid: d486b55e603ff04489b41828a79752a2, type: 3}
@@ -645,7 +644,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 494, y: 401}
+  m_AnchoredPosition: {x: 960, y: 540}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &600114850
