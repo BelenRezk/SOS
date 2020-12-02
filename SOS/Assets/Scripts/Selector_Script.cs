@@ -10,7 +10,7 @@ public class Selector_Script : MonoBehaviour
     public GameObject Pilot;
     public GameObject Hippie;
     [HideInInspector]
-    public static int CharacterInt = 1;
+    public static int CharacterInt;
 
     void Start()
     {
@@ -18,6 +18,7 @@ public class Selector_Script : MonoBehaviour
         OldLady.SetActive(false);
         Pilot.SetActive(false);
         Hippie.SetActive(false);
+        CharacterInt = 1;
     }
 
     void Update()
