@@ -48,7 +48,7 @@ public class ThirdPersonMovement : MovementBase
                 this.gameObject.name = "Businesswoman";
                 break;
             case 2:
-                characterBehaviour = new PilotBehaviour(this, true, manager);
+                characterBehaviour = new PilotBehaviour(this, true, manager, null);
                 GameObject pilot = this.transform.Find("Piloto").gameObject;
                 pilot.SetActive(true);
                 this.animator = pilot.GetComponent<Animator>();
@@ -69,7 +69,7 @@ public class ThirdPersonMovement : MovementBase
                 this.gameObject.name = "Hippie";
                 break;
             default:
-                characterBehaviour = new PilotBehaviour(this, true, manager);
+                characterBehaviour = new PilotBehaviour(this, true, manager, null);
                 pilot = this.transform.Find("Piloto").gameObject;
                 pilot.SetActive(true);
                 this.animator = pilot.GetComponent<Animator>();

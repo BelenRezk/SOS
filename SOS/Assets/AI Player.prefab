@@ -5689,6 +5689,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2499755259808908964}
     m_Modifications:
+    - target: {fileID: 919132149155446097, guid: 69234da0c0e92e74e828fa0d85516521, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6bc35f3c90ba0ea4e8adb7f86f8f39e0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -5757,10 +5761,6 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 6dd57ff911ea90c43bf008c1dea89aef, type: 2}
-    - target: {fileID: 919132149155446097, guid: 69234da0c0e92e74e828fa0d85516521, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6bc35f3c90ba0ea4e8adb7f86f8f39e0, type: 3}
 --- !u!4 &543450652928684806 stripped
@@ -6086,7 +6086,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b99804abf74a28d439cc173f665394a5, type: 3}
       propertyPath: m_TagString
-      value: AI Player
+      value: AI Player 3
       objectReference: {fileID: 0}
     - target: {fileID: 3451118302482216456, guid: b99804abf74a28d439cc173f665394a5, type: 3}
       propertyPath: m_Convex

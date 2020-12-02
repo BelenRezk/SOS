@@ -31,6 +31,7 @@ public class AIPath : MonoBehaviour
                 character.SetActive(true);
                 this.GetComponent<AIItemsInteraction>().animator = character.GetComponent<Animator>();
                 this.GetComponent<AIPowerUps>().animator = character.GetComponent<Animator>();
+                AssignBehaviour(charInt);
             }
         }
         randomDestination = (int)Random.Range(0f, path.Length);
@@ -39,6 +40,31 @@ public class AIPath : MonoBehaviour
         followsPath = true;
         GameObject[] boatPosition = GameObject.FindGameObjectsWithTag("BoatTag");
         boatTarget = boatPosition[0].transform;
+    }
+
+    void AssignBehaviour(int charInt)
+    {
+        AudioManager manager = FindObjectOfType<AudioManager>();
+        MovementBase mBase = this.GetComponent<AIItemsInteraction>();
+        AIView aiPlayer = gameObject.GetComponentInChildren<AIView>();
+        switch (charInt)
+        {
+            case 1:
+                aiPlayer.characterBehaviour = new BusinessWomanBehaviour(mBase, false, manager);
+                break;
+            case 2:
+                aiPlayer.characterBehaviour = new PilotBehaviour(mBase, false, manager, aiPlayer);
+                break;
+            case 3:
+                aiPlayer.characterBehaviour = new OldLadyBehaviour(mBase, false, manager);
+                break;
+            case 4:
+                aiPlayer.characterBehaviour = new HippieBehaviour(mBase, false, manager);
+                break;
+            default:
+                aiPlayer.characterBehaviour = new PilotBehaviour(mBase, false, manager, aiPlayer);
+                break;
+        }
     }
 
     void Update()
