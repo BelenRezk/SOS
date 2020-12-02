@@ -15,7 +15,7 @@ public class BananaTimer : MonoBehaviour
 
     void Update()
     {
-        timerUI.text = "Banana: ";
+        timerUI.text = "banana: ";
         float timer = character.remainingBananaTime;
         if (timer > 0)
         {
