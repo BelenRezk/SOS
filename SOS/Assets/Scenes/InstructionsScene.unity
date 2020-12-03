@@ -277,7 +277,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1.39
   m_Text: "get all the items you need to sail in the boat. \n\nmake sure to find
-    them all before your oponents or you will have to steal from them."
+    them all before your opponents or you will have to steal from them."
 --- !u!222 &318160510
 CanvasRenderer:
   m_ObjectHideFlags: 0
