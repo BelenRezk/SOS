@@ -25,6 +25,8 @@ public class ThirdPersonMovement : MovementBase
     public Animator animator;
     private int timer;
     public bool gameJustResumed;
+    public Transform messagePanel;
+
     void Start()
     {
         gameJustResumed = false;
@@ -300,5 +302,13 @@ public class ThirdPersonMovement : MovementBase
         }
         else
             return false;
+    }
+
+    public IEnumerator EnableMessagePanel()
+    {
+        Debug.Log("Called Enable message panel");
+        messagePanel.gameObject.SetActive(true);
+        yield return new WaitForSeconds(5f);
+        messagePanel.gameObject.SetActive(false);
     }
 }

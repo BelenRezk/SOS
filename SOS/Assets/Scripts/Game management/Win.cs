@@ -20,7 +20,7 @@ public class Win : MonoBehaviour
                 winningItemsCount ++;
             }
         }
-        if(winningItemsCount == 5)
+        if (winningItemsCount == 5)
         {
             try
             {
@@ -32,11 +32,28 @@ public class Win : MonoBehaviour
                 FindObjectOfType<AudioManager>().Play("Win");
                 FindObjectOfType<AudioManager>().Play("Jungle");
             }
-            catch(Exception){
+            catch (Exception)
+            {
                 //there's no music to play or stop
             }
             LoadWinner.winner = "The winner is " + player.name;
             SceneManager.LoadScene("winScene");
+        }
+        else
+        {
+            try
+            {
+                if (player.tag == "Player")
+                {
+                    Debug.Log("Entered else!");
+                    StartCoroutine(player.GetComponent<ThirdPersonMovement>().EnableMessagePanel());
+                }
+            }
+            catch (Exception)
+            {
+                Debug.Log("Error!");
+                //is ai
+            }
         }
     }
 }
