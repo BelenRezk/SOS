@@ -36,4 +36,9 @@ public class LevelLoader : MonoBehaviour
             yield return null;
         }
     }
+
+    public void BackToMainMenu()
+    {
+        SceneManager.LoadScene("menuScene");
+    }
 }
