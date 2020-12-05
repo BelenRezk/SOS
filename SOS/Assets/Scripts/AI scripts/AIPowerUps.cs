@@ -14,9 +14,11 @@ public class AIPowerUps : MonoBehaviour
     [HideInInspector]
     public bool hasClosePlayer = false;
     public Animator animator;
+    private int coconutCount;
 
     void Start()
     {
+        coconutCount = 0;
         _navMeshAgent = this.GetComponent<NavMeshAgent>();
         if (_navMeshAgent == null)
         {
@@ -70,9 +72,15 @@ public class AIPowerUps : MonoBehaviour
             }
             else if (item != null && item.Name.Equals("Coconut") && hasClosePlayer)
             {
-                continueSearch = false;
-                animator.SetBool("Jumping", false);
-                animator.SetBool("ThrowingCoconut", true);
+                if (coconutCount == 1)
+                {
+                    Debug.Log(gameObject.transform.GetChild(i).name + " Has coconut, and close player: " + transform.name);
+                    continueSearch = false;
+                    animator.SetBool("Jumping", false);
+                    animator.SetBool("ThrowingCoconut", true);
+                    coconutCount = -1;
+                }
+                coconutCount++;
             }
         }
 
