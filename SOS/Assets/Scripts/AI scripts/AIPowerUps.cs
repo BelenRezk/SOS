@@ -72,9 +72,7 @@ public class AIPowerUps : MonoBehaviour
             {
                 continueSearch = false;
                 animator.SetBool("Jumping", false);
-                animator.SetBool("IsWalking", false);
                 animator.SetBool("ThrowingCoconut", true);
-                
             }
         }
 
@@ -113,7 +111,6 @@ public class AIPowerUps : MonoBehaviour
                 aiMovement.coconutInventory.UseItem(item);
                 
                 animator.SetBool("Jumping", false);
-                //animator.SetBool("WasHit", false);
                 animator.SetBool("IsWalking", true);
             }
         }

@@ -78,7 +78,6 @@ public class AIItemsInteraction : MovementBase
                     {
                         animator.SetBool("IsWalking",false);
                         animator.SetBool("WasHit", true);
-                        Debug.Log("Was hit");
                         PlayGetHitSound();
                         coconutInventory.DropAllItems();
                         powerUpInventory.DropAllItems();
