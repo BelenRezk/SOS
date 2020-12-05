@@ -5006,6 +5006,10 @@ PrefabInstance:
       propertyPath: m_Colors.m_HighlightedColor.g
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9081733238347663657, guid: aa9440d793a0b6f4b86295f79a23fcbd, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ded3af11e80b1446a32bdd579faf6cf, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa9440d793a0b6f4b86295f79a23fcbd, type: 3}
 --- !u!224 &2971355608971901530 stripped
