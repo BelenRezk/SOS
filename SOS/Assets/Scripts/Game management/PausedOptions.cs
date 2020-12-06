@@ -110,4 +110,10 @@ public class PausedOptions : MonoBehaviour
         instructionsPanel.SetActive(false);
         pausePanel.SetActive(true);
     }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+        Debug.Log("Game exit");
+    }
 }

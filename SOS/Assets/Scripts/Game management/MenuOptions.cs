@@ -34,4 +34,10 @@ public class MenuOptions : MonoBehaviour
     {
         SceneManager.LoadScene("menuScene");
     }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+        Debug.Log("Game exit");
+    }
 }
