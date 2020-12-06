@@ -7,6 +7,7 @@ public class AIAnimationEvents : MonoBehaviour
 
     public void ThrowCoconut()
     {
+        this.GetComponent<Animator>().SetBool("ThrowingCoconut", false);
         AIPowerUps powerups = gameObject.GetComponentInParent<AIPowerUps>();
         powerups.ThrowCoconut();
     }

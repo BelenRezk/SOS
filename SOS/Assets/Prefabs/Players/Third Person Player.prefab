@@ -429,7 +429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f21654e6ae164ae42af3c5d115a92687, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
+  speed: 13
   abilityCooldown: 40
   abilityCooldownRemaining: 0
   abilityDuration: 10
@@ -462,6 +462,7 @@ MonoBehaviour:
   shieldSound: {fileID: 8300000, guid: d0895f110e527bc4fa19006e8484585b, type: 3}
   animator: {fileID: 0}
   gameJustResumed: 0
+  messagePanel: {fileID: 0}
 --- !u!136 &510921748
 CapsuleCollider:
   m_ObjectHideFlags: 0

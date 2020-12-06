@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8826343524477512763}
   - component: {fileID: 8826343524477512760}
   m_Layer: 0
-  m_Name: Banana 1
+  m_Name: Banana
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58180a52643035647872b0bf2e1177e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Image: {fileID: 21300000, guid: 825a287a857b43644be6ee4b9278ef1f, type: 3}
+  _Image: {fileID: 21300000, guid: 99078e30a130c5d469f1963f2f3d59c6, type: 3}
   soundClip: {fileID: 8300000, guid: 0e75e97a4744a1e45adaf0054f6d33e8, type: 3}
   objectDestination: {fileID: 0}
   itemId: 0
