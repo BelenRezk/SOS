@@ -592,6 +592,14 @@ MonoBehaviour:
     pitchVariance: 0
     loop: 0
     source: {fileID: 0}
+  - name: HippieLaugh
+    clip: {fileID: 8300000, guid: 1cb3c687c87adee43bc51f00d85142ad, type: 3}
+    volume: 0.3
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    source: {fileID: 0}
 --- !u!4 &516529063
 Transform:
   m_ObjectHideFlags: 0

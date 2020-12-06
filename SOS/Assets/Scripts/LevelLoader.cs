@@ -31,7 +31,7 @@ public class LevelLoader : MonoBehaviour
             else
             {
                 slider.value = 0.99f;
-                progressText.text = "99% - Finalizing activation";
+                progressText.text = "99% - finalizing activation";
             }
             yield return null;
         }
