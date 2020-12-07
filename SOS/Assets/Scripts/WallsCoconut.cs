@@ -6,7 +6,6 @@ public class WallsCoconut : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        Debug.LogError("ENTRA A ALGO " + other.gameObject.name);
         if (other.gameObject.name.Contains("coco") || other.gameObject.tag == "Item")
         {
             var coconut =other.gameObject.GetComponent<Rigidbody>();
