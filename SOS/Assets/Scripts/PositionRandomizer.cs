@@ -38,7 +38,7 @@ public class PositionRandomizer : MonoBehaviour
 
     void ValidInstantiationLandPositionsGenerator()
     {
-        landRandomPositions.Add(new Vector3(8, 3, 29));
+        landRandomPositions.Add(new Vector3(21, 6, 29));
         landRandomPositions.Add(new Vector3(18, 4, -80));
         landRandomPositions.Add(new Vector3(190, 15, -50));
         landRandomPositions.Add(new Vector3(142,5,-103));
