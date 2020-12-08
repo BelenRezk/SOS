@@ -11,6 +11,11 @@ public class WallsCoconut : MonoBehaviour
             var coconut =other.gameObject.GetComponent<Rigidbody>();
             coconut.velocity = Vector3.zero;
             coconut.angularVelocity = Vector3.zero;
+            IInventoryItem item = other.GetComponent<IInventoryItem>();
+            if (item != null)
+            {
+                item.HasOwner = false;
+            }
         }
     }
 
