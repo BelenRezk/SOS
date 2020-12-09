@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8963137351542579338}
   - component: {fileID: 6595383834650072128}
   - component: {fileID: 911776176365274225}
+  - component: {fileID: 4053986497961380176}
   m_Layer: 0
   m_Name: Balsa
   m_TagString: Untagged
@@ -90,8 +91,21 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4649824603961849237}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 8.086667, y: 0.99, z: 8.046881}
   m_Center: {x: 0.036657333, y: 0, z: 0}
+--- !u!114 &4053986497961380176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4649824603961849237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0520f1304329e4e4e846f42f344a658b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  winScene: 

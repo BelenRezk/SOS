@@ -86,7 +86,7 @@ Material:
     - _Dissolveamount: 0.42899
     - _DstBlend: 0
     - _EffectPower: 1.664951
-    - _EmmisionStrench: 4.95
+    - _EmmisionStrench: 3.27
     - _Frensnel: 0
     - _FrensnelStranch: 1
     - _FrensnelStrench: 1
@@ -114,7 +114,7 @@ Material:
     - _Strench: 0.2
     - _Strensh: 2
     - _Teseeellation: 1
-    - _TextureChangespeed: 0.2
+    - _TextureChangespeed: 6.1
     - _TextureDistanse: 1
     - _TextureStrench: 1
     - _UVSec: 0
