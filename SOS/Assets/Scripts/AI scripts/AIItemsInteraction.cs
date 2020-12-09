@@ -7,6 +7,7 @@ public class AIItemsInteraction : MovementBase
 {
     public AudioClip getHitSound;
     public AudioClip shieldSound;
+    public AudioClip oldLadyLaugh;
     [HideInInspector]
     public int coconutCount = 0;
     public Animator animator;
@@ -26,6 +27,8 @@ public class AIItemsInteraction : MovementBase
         if (abilityDurationRemaining > 0){
             abilityDurationRemaining -= Time.deltaTime;
         }
+        if (currentInvincibility > 0)
+            currentInvincibility -= Time.deltaTime;
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -74,20 +77,25 @@ public class AIItemsInteraction : MovementBase
                 else if (item != null && item.HasOwner)
                 {
                     AIPowerUps obj = gameObject.transform.GetComponent<AIPowerUps>();
-                    if (!obj.hasShield)
+                    if(currentInvincibility <= 0)
                     {
-                        animator.SetBool("IsWalking",false);
-                        PlayGetHitSound();
-                        coconutInventory.DropAllItems();
-                        powerUpInventory.DropAllItems();
-                        winItems.DropAllItems();
+                        if (!obj.hasShield)
+                        {
+                            animator.SetBool("IsWalking",false);
+                            PlayGetHitSound();
+                            coconutInventory.DropAllItems();
+                            powerUpInventory.DropAllItems();
+                            winItems.DropAllItems();
+                        }
+                        else
+                        {
+                            PlayShieldSound();
+                            obj.hasShield = false;
+                            FindObjectOfType<PositionRandomizer>().SpawnShield();
+                        }
                     }
                     else
-                    {
-                        PlayShieldSound();
-                        obj.hasShield = false;
-                        FindObjectOfType<PositionRandomizer>().SpawnShield();
-                    }
+                        AudioSource.PlayClipAtPoint(oldLadyLaugh, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z));
                     item.DestroyObject();
                     FindObjectOfType<PositionRandomizer>().SpawnCoconut();
                 }

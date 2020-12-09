@@ -2716,6 +2716,7 @@ MonoBehaviour:
   interactionCooldownRemaining: 0
   getHitSound: {fileID: 8300000, guid: dd2c2f53c9b72034db1e135ba2610657, type: 3}
   shieldSound: {fileID: 8300000, guid: d0895f110e527bc4fa19006e8484585b, type: 3}
+  oldLadyLaugh: {fileID: 8300000, guid: 21793d5e30067c041b637e7daeeff205, type: 3}
   coconutCount: 0
   animator: {fileID: 0}
 --- !u!1 &2499755259950904792

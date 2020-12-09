@@ -34,6 +34,8 @@ public class HippieBehaviour : CharacterDifferentiationBase
             MovementBase movementScript = GetMovementScript(player);
             if (movementScript != null && !movementScript.Equals(movement) && IsInRange(movementScript))
             {
+                if(!shouldPlayMusic && movementScript is ThirdPersonMovement)
+                    audioManager.Play("HippieLaugh");
                 movementScript.coconutInventory.DropAllItems();
                 movementScript.powerUpInventory.DropAllItems();
                 if (movementScript.winItems != null)
