@@ -75,9 +75,9 @@ public class AIPath : MonoBehaviour
         animator.SetBool("IsWalking", true);
         bool canWin = hasAllWinnableItems();
         int random = Random.Range(0,10);
-        if(_navMeshAgent.velocity == Vector3.zero && (random == 6)){
+        /*if(_navMeshAgent.velocity == Vector3.zero && (random == 6)){
             _navMeshAgent.Move(_navMeshAgent.transform.forward*-1.3f);
-        }
+        }*/
         if(canWin)
         {
             _navMeshAgent.destination = boatTarget.position;
