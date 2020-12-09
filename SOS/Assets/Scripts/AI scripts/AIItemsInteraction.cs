@@ -82,8 +82,6 @@ public class AIItemsInteraction : MovementBase
                         if (!obj.hasShield)
                         {
                             animator.SetBool("IsWalking",false);
-                            animator.SetBool("WasHit", true);
-                            Debug.Log("Was hit");
                             PlayGetHitSound();
                             coconutInventory.DropAllItems();
                             powerUpInventory.DropAllItems();
@@ -109,6 +107,7 @@ public class AIItemsInteraction : MovementBase
     {
         try
         {
+            animator.SetBool("WasHit", true);
             AudioSource.PlayClipAtPoint(getHitSound, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z));
         }
         catch (Exception)

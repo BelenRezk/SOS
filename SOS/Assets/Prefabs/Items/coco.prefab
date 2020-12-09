@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7392f1fd0573434dbb3b6b887b4ccfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Image: {fileID: 21300000, guid: 65a936ff44804b84f9b4bdc153410be9, type: 3}
+  _Image: {fileID: 21300000, guid: 1ded3af11e80b1446a32bdd579faf6cf, type: 3}
   soundClip: {fileID: 8300000, guid: 0e75e97a4744a1e45adaf0054f6d33e8, type: 3}
   objectDestination: {fileID: 0}
   itemId: 0
