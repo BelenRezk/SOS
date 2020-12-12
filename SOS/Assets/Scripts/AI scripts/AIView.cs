@@ -44,6 +44,7 @@ public class AIView : MonoBehaviour
                 //Found player to attack
                 
                 if (aiPlayer.coconutCount > 0){
+                    aiPlayer.coconutCount--;
                     aiPlayer.transform.LookAt(other.transform);
                 }
                 if (PlayersPositions.FindAll(p => p.Item1 == other.name).Count > 0)
@@ -52,7 +53,6 @@ public class AIView : MonoBehaviour
                     PlayersPositions.Remove(playerToUpdate);
                 }
                 PlayersPositions.Add((other.name, other.transform.position));
-                
             }
         }
         bool isItem = other.CompareTag("Item");

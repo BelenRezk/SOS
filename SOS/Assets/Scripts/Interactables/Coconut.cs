@@ -40,6 +40,9 @@ public class Coconut : InventoryItemBase
         {
             AIItemsInteraction ai = this.transform.parent.GetComponent<AIItemsInteraction>();
             ai.coconutCount--;
+            if(ai.coconutCount < 0){
+                ai.coconutCount = 0;
+            }
         }
         catch (Exception)
         {
