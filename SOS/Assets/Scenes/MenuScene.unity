@@ -505,7 +505,7 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: MainMusic
-    clip: {fileID: 8300000, guid: c44d42ca07d1467439a16c7066cc0bbd, type: 3}
+    clip: {fileID: 8300000, guid: c6292494aebe25d419e5b2a3f0c41f02, type: 3}
     volume: 0.2
     volumeVariance: 0
     pitch: 1
