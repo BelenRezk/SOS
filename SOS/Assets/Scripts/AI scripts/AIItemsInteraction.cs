@@ -91,6 +91,9 @@ public class AIItemsInteraction : MovementBase
                         {
                             PlayShieldSound();
                             obj.hasShield = false;
+                            Transform ai = this.transform;
+                            GameObject shieldBubble = ai.Find("ShieldBubble").gameObject;
+                            shieldBubble.SetActive(false);
                             FindObjectOfType<PositionRandomizer>().SpawnShield();
                         }
                     }
