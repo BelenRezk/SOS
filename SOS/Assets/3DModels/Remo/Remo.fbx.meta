@@ -2,16 +2,8 @@ fileFormatVersion: 2
 guid: c0fccf51d28f5514083caa8a35adc0ea
 ModelImporter:
   serializedVersion: 20101
-  internalIDToNameTable:
-  - first:
-      74: 1827226128182048838
-    second: Take 001
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Remo
-    second: {fileID: 2100000, guid: 7df213ecff05d4b4d8db17592fc6d535, type: 2}
+  internalIDToNameTable: []
+  externalObjects: {}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -53,7 +45,7 @@ ModelImporter:
     importLights: 1
     fileIdsGeneration: 2
     swapUVChannels: 0
-    generateSecondaryUV: 1
+    generateSecondaryUV: 0
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1
