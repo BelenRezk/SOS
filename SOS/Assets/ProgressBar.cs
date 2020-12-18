@@ -9,7 +9,11 @@ public class ProgressBar : MonoBehaviour
     public float minimum;
     public float maximum;
     public float current;
-    public Image mask;
+    public Image oldLadyMask;
+    public Image pilotMask;
+    public Image businessWomanMask;
+    public Image hippieMask;
+    public Image fillMask;
     public ThirdPersonMovement player;
 
     // Start is called before the first frame update
@@ -23,7 +27,29 @@ public class ProgressBar : MonoBehaviour
     {
         maximum = player.abilityCooldown;
         current = maximum - player.abilityCooldownRemaining;
+        Transform fill = this.transform.Find("Fill");
         GetCurrentFill();
+        string name = "";
+        switch (player.gameObject.name)
+        {
+            case "Old Lady":
+                name = "MaskOldLady";
+                break;
+            case "Pilot":
+                name = "MaskPilot";
+                break;
+            case "Businesswoman":
+                name = "MaskBusinessWoman";
+                break;
+            case "Hippie":
+                name = "MaskHippie";
+                break;
+            default:
+                name = "MaskPilot";
+                break;
+        }
+        GameObject mask = fill.Find(name).gameObject;
+        mask.SetActive(true);
     }
 
     void GetCurrentFill()
@@ -31,6 +57,6 @@ public class ProgressBar : MonoBehaviour
         float currentOffset = current - minimum;
         float maximumOffset = maximum - minimum;
         float fillAmount = currentOffset / maximumOffset;
-        mask.fillAmount = fillAmount;
+        fillMask.fillAmount = fillAmount;
     }
 }
