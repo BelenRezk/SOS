@@ -50,6 +50,10 @@ public class ProgressBar : MonoBehaviour
         }
         GameObject mask = fill.Find(name).gameObject;
         mask.SetActive(true);
+        if (current >= maximum && !player.abilityActive)
+            fillMask.color = new Color32(0, 255, 0, 100);
+        else
+            fillMask.color = new Color32(255, 255, 255, 100);
     }
 
     void GetCurrentFill()
