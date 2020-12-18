@@ -43,8 +43,7 @@ public class AIView : MonoBehaviour
 
                 //Found player to attack
                 
-                if (aiPlayer.coconutCount > 0){
-                    aiPlayer.coconutCount--;
+                if (aiPlayer.coconutInventory.currentNumberOfItems > 0){
                     aiPlayer.transform.LookAt(other.transform);
                 }
                 if (PlayersPositions.FindAll(p => p.Item1 == other.name).Count > 0)
