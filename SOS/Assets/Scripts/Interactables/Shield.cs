@@ -54,6 +54,8 @@ public class Shield : InventoryItemBase
         {
             this.transform.parent = null;
             PlayShieldActivationSound();
+            GameObject shieldBubble = player.Find("ShieldBubble").gameObject;
+            shieldBubble.SetActive(true);
         }
         return shieldUsed;
     }

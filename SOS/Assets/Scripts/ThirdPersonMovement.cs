@@ -253,6 +253,9 @@ public class ThirdPersonMovement : MovementBase
                     {
                         PlayShieldSound();
                         hasShield = false;
+                        Transform player = this.transform;
+                        GameObject shieldBubble = player.Find("ShieldBubble").gameObject;
+                        shieldBubble.SetActive(false);
                         FindObjectOfType<PositionRandomizer>().SpawnShield();
                     }
                     currentInvincibility = afterHitInvincibility;
