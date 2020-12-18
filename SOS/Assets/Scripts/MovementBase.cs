@@ -3,7 +3,7 @@ using UnityEngine;
 public abstract class MovementBase : MonoBehaviour
 {
     public float speed = 6f;
-    public float abilityCooldown = 40f;
+    public float abilityCooldown;
     public float abilityCooldownRemaining = 0f;
 
     public float abilityDuration = 10f;

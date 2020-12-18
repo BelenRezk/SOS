@@ -44,6 +44,7 @@ public class ThirdPersonMovement : MovementBase
         {
             case 1:
                 characterBehaviour = new BusinessWomanBehaviour(this, true, manager);
+                abilityCooldown = 35f;
                 GameObject businessWoman = this.transform.Find("Empresaria").gameObject;
                 businessWoman.SetActive(true);
                 this.animator = businessWoman.GetComponent<Animator>();
@@ -51,6 +52,7 @@ public class ThirdPersonMovement : MovementBase
                 break;
             case 2:
                 characterBehaviour = new PilotBehaviour(this, true, manager, null);
+                abilityCooldown =  15f;
                 GameObject pilot = this.transform.Find("Piloto").gameObject;
                 pilot.SetActive(true);
                 this.animator = pilot.GetComponent<Animator>();
@@ -58,6 +60,7 @@ public class ThirdPersonMovement : MovementBase
                 break;
             case 3:
                 characterBehaviour = new OldLadyBehaviour(this, true, manager);
+                abilityCooldown = 35f;
                 GameObject oldLady = this.transform.Find("anciana").gameObject;
                 oldLady.SetActive(true);
                 this.animator = oldLady.GetComponent<Animator>();
@@ -65,6 +68,7 @@ public class ThirdPersonMovement : MovementBase
                 break;
             case 4:
                 characterBehaviour = new HippieBehaviour(this, true, manager);
+                abilityCooldown = 40f;
                 GameObject hippie = this.transform.Find("hippie").gameObject;
                 hippie.SetActive(true);
                 this.animator = hippie.GetComponent<Animator>();
@@ -72,6 +76,7 @@ public class ThirdPersonMovement : MovementBase
                 break;
             default:
                 characterBehaviour = new PilotBehaviour(this, true, manager, null);
+                abilityCooldown =  15f;
                 pilot = this.transform.Find("Piloto").gameObject;
                 pilot.SetActive(true);
                 this.animator = pilot.GetComponent<Animator>();
