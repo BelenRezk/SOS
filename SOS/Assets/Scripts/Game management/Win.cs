@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -36,7 +36,7 @@ public class Win : MonoBehaviour
             {
                 //there's no music to play or stop
             }
-            LoadWinner.winner = "The winner is " + player.name;
+            LoadWinner.winner = "the winner is " + player.name.ToLower();
             SceneManager.LoadScene("winScene");
         }
         else

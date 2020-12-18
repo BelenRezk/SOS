@@ -98,6 +98,9 @@ public class AIPowerUps : MonoBehaviour
             if (!hasShield)
             {
                 hasShield = true;
+                Transform ai = this.transform;
+                GameObject shieldBubble = ai.Find("ShieldBubble").gameObject;
+                shieldBubble.SetActive(true);
             }
         }
     }

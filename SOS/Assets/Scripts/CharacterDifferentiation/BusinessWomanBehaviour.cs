@@ -82,7 +82,14 @@ public class BusinessWomanBehaviour : CharacterDifferentiationBase
         foreach(IInventoryItem winItem in playerToStealFrom.winItems.mItems)
         {
             if(winItem != null && item == null)
+            {
                 item = winItem;
+                if(!shouldPlayMusic && playerToStealFrom is ThirdPersonMovement)
+                    try{
+                    audioManager.Play("BusinessWomanLaugh");
+                    }
+                    catch(Exception){}
+            }
         }
         return item;
     }
