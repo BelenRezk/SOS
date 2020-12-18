@@ -85,7 +85,10 @@ public class BusinessWomanBehaviour : CharacterDifferentiationBase
             {
                 item = winItem;
                 if(!shouldPlayMusic && playerToStealFrom is ThirdPersonMovement)
+                    try{
                     audioManager.Play("BusinessWomanLaugh");
+                    }
+                    catch(Exception){}
             }
         }
         return item;
