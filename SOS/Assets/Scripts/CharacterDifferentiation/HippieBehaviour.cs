@@ -39,10 +39,33 @@ public class HippieBehaviour : CharacterDifferentiationBase
                         audioManager.Play("HippieLaugh");
                     }
                     catch(Exception){}
-                movementScript.coconutInventory.DropAllItems();
-                movementScript.powerUpInventory.DropAllItems();
-                if (movementScript.winItems != null)
-                    movementScript.winItems.DropAllItems();
+                if(movementScript is ThirdPersonMovement)
+                {
+                    ThirdPersonMovement movementPlayer = (ThirdPersonMovement)movementScript;
+                    if(movementPlayer.hasShield)
+                        movementPlayer.RemoveShield();
+                    else
+                    {
+                        movementScript.coconutInventory.DropAllItems();
+                        movementScript.powerUpInventory.DropAllItems();
+                        if (movementScript.winItems != null)
+                            movementScript.winItems.DropAllItems();     
+                    }
+                }
+                else
+                {
+                    AIItemsInteraction movementAI = (AIItemsInteraction)movementScript;
+                    AIPowerUps obj = movementAI.gameObject.transform.GetComponent<AIPowerUps>();
+                    if(obj.hasShield)
+                        movementAI.RemoveShield();
+                    else
+                    {
+                        movementScript.coconutInventory.DropAllItems();
+                        movementScript.powerUpInventory.DropAllItems();
+                        if (movementScript.winItems != null)
+                            movementScript.winItems.DropAllItems();
+                    }
+                }
             }
         }
     }
