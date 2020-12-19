@@ -130,4 +130,14 @@ public class AIItemsInteraction : MovementBase
             Debug.Log("No shield audio clip");
         }
     }
+
+    public void RemoveShield()
+    {
+        AIPowerUps obj = gameObject.transform.GetComponent<AIPowerUps>();
+        obj.hasShield = false;
+        Transform ai = this.transform;
+        GameObject shieldBubble = ai.Find("ShieldBubble").gameObject;
+        shieldBubble.SetActive(false);
+        FindObjectOfType<PositionRandomizer>().SpawnShield();
+    }
 }

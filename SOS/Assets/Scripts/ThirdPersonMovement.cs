@@ -319,4 +319,13 @@ public class ThirdPersonMovement : MovementBase
         yield return new WaitForSeconds(5f);
         messagePanel.gameObject.SetActive(false);
     }
+
+    public void RemoveShield()
+    {
+        hasShield = false;
+        Transform player = this.transform;
+        GameObject shieldBubble = player.Find("ShieldBubble").gameObject;
+        shieldBubble.SetActive(false);
+        FindObjectOfType<PositionRandomizer>().SpawnShield();
+    }
 }
