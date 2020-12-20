@@ -191,7 +191,7 @@ public class ThirdPersonMovement : MovementBase
         if (other.gameObject.name.Contains("LavaPlane"))
         {
             if(other.gameObject.name.Contains("9") || other.gameObject.name.Contains("10") || other.gameObject.name.Contains("11") || other.gameObject.name.Contains("12") || other.gameObject.name.Contains("16")
-            || other.gameObject.name.Contains("19"))
+            || other.gameObject.name.Contains("19") || other.gameObject.name.Contains("20") || other.gameObject.name.Contains("21") || other.gameObject.name.Contains("22"))
             {
                 controller.Move(this.transform.right*30.0f);
             }
