@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -190,7 +190,15 @@ public class ThirdPersonMovement : MovementBase
     {
         if (other.gameObject.name.Contains("LavaPlane"))
         {
-            controller.Move(this.transform.forward*-30.0f);
+            if(other.gameObject.name.Contains("9") || other.gameObject.name.Contains("10") || other.gameObject.name.Contains("11") || other.gameObject.name.Contains("12") || other.gameObject.name.Contains("16")
+            || other.gameObject.name.Contains("19"))
+            {
+                controller.Move(this.transform.right*30.0f);
+            }
+            else
+            {
+                controller.Move(this.transform.forward*-30.0f);
+            }
             coconutInventory.DropAllItems();
             powerUpInventory.DropAllItems();
             winItems.DropAllItems();
