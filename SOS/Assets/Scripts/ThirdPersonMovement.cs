@@ -34,7 +34,7 @@ public class ThirdPersonMovement : MovementBase
         AudioManager manager = FindObjectOfType<AudioManager>();
         try{    
             manager.Stop("Jungle");
-            manager.Play("MainMusic");
+            manager.PlayMainMusic();
             manager.Play("Waves");
         }
         catch(Exception){
@@ -179,7 +179,7 @@ public class ThirdPersonMovement : MovementBase
                 isUsingBanana = false;
                 speed = speed / bananaSpeedMultiplier;
                 FindObjectOfType<AudioManager>().Stop("BananaMusic");
-                FindObjectOfType<AudioManager>().Play("MainMusic");
+                FindObjectOfType<AudioManager>().PlayMainMusic();
             }
         }
     }
@@ -318,5 +318,14 @@ public class ThirdPersonMovement : MovementBase
         messagePanel.gameObject.SetActive(true);
         yield return new WaitForSeconds(5f);
         messagePanel.gameObject.SetActive(false);
+    }
+
+    public void RemoveShield()
+    {
+        hasShield = false;
+        Transform player = this.transform;
+        GameObject shieldBubble = player.Find("ShieldBubble").gameObject;
+        shieldBubble.SetActive(false);
+        FindObjectOfType<PositionRandomizer>().SpawnShield();
     }
 }

@@ -74,7 +74,7 @@ public class PilotBehaviour : CharacterDifferentiationBase
             {
                 try
                 {
-                    audioManager.Play("MainMusic");
+                    audioManager.PlayMainMusic();
                 }
                 catch(Exception){}
             }
