@@ -137,7 +137,7 @@ public class BusinessWomanBehaviour : CharacterDifferentiationBase
             }
             else{
                 try{
-                    audioManager.Play("MainMusic");
+                    audioManager.PlayMainMusic();
                 }
                 catch(Exception){}
             }

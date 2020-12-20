@@ -9,6 +9,8 @@ public class AudioManager : MonoBehaviour
 
 	public Sound[] sounds;
 
+	public bool shouldPlayMainMusic = true;
+
 	void Awake()
 	{
 		if (instance != null)
@@ -66,5 +68,22 @@ public class AudioManager : MonoBehaviour
 
 	
 		s.source.Stop();
+	}
+
+	public void StopMainMusic()
+	{
+		Stop("MainMusic");
+		shouldPlayMainMusic = false;
+	}
+
+	public void ResumeMainMusic()
+	{
+		shouldPlayMainMusic = true;
+	}
+
+	public void PlayMainMusic()
+	{
+		if(shouldPlayMainMusic)
+			Play("MainMusic");
 	}
 }

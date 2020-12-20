@@ -102,7 +102,7 @@ public class HippieBehaviour : CharacterDifferentiationBase
                 catch(Exception){}
             else
                 try{
-                audioManager.Play("MainMusic");
+                audioManager.PlayMainMusic();
                 }
                 catch(Exception){}
         }

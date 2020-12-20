@@ -116,4 +116,19 @@ public class PausedOptions : MonoBehaviour
         Application.Quit();
         Debug.Log("Game exit");
     }
+
+    public void ToggleMainMusic()
+    {
+        AudioManager manager = FindObjectOfType<AudioManager>();
+        bool currentValue = manager.shouldPlayMainMusic;
+        if(currentValue)
+            manager.StopMainMusic();
+        else
+        {
+            ThirdPersonMovement player = FindObjectOfType<ThirdPersonMovement>();
+            manager.ResumeMainMusic();
+            if(!player.isUsingBanana && !player.abilityActive)
+                manager.PlayMainMusic();
+        }
+    }
 }

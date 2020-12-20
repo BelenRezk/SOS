@@ -34,7 +34,7 @@ public class ThirdPersonMovement : MovementBase
         AudioManager manager = FindObjectOfType<AudioManager>();
         try{    
             manager.Stop("Jungle");
-            manager.Play("MainMusic");
+            manager.PlayMainMusic();
             manager.Play("Waves");
         }
         catch(Exception){
@@ -179,7 +179,7 @@ public class ThirdPersonMovement : MovementBase
                 isUsingBanana = false;
                 speed = speed / bananaSpeedMultiplier;
                 FindObjectOfType<AudioManager>().Stop("BananaMusic");
-                FindObjectOfType<AudioManager>().Play("MainMusic");
+                FindObjectOfType<AudioManager>().PlayMainMusic();
             }
         }
     }
