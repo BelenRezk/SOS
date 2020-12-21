@@ -17,22 +17,11 @@ public class LevelLoader : MonoBehaviour
     IEnumerator LoadAsynchronously(int sceneIndex)
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
-
-        loadingScreen.SetActive(true);
+        GameObject menu = GameObject.Find("Menu UI");
+        menu.SetActive(false);       
 
         while (!operation.isDone)
         {
-            float progress = Mathf.Clamp01(operation.progress / .9f);
-            if (progress < 1)
-            {
-                slider.value = progress;
-                progressText.text = "" + (progress * 100f) + "%";
-            }
-            else
-            {
-                slider.value = 0.99f;
-                progressText.text = "99% - finalizing activation";
-            }
             yield return null;
         }
     }

@@ -3,7 +3,12 @@ guid: fac0311ba79e19647b15c9fb4699729e
 ModelImporter:
   serializedVersion: 20101
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Banana
+    second: {fileID: 4481005128293969958, guid: fac0311ba79e19647b15c9fb4699729e, type: 3}
   materials:
     materialImportMode: 1
     materialName: 0
