@@ -26,5 +26,5 @@ Material:
     m_Colors:
     - Color_3E6D2805: {r: 1, g: 0.3024, b: 0.184, a: 0}
     - Color_8ED40CA0: {r: 1, g: 0.6255837, b: 0.38300002, a: 1}
-    - Color_B389BCFF: {r: 0.206, g: 0.01895199, b: 0.026179528, a: 0}
+    - Color_B389BCFF: {r: 0.255, g: 0.084915, b: 0.09200185, a: 0}
   m_BuildTextureStacks: []
