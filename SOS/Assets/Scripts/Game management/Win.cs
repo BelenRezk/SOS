@@ -20,7 +20,7 @@ public class Win : MonoBehaviour
                 winningItemsCount ++;
             }
         }
-        if (winningItemsCount == 5)
+        if (winningItemsCount == 1)
         {
             try
             {
@@ -36,8 +36,8 @@ public class Win : MonoBehaviour
             {
                 //there's no music to play or stop
             }
-            LoadWinner.winner = "the winner is " + player.name.ToLower();
-            SceneManager.LoadScene("winScene");
+            LoadWinner.winner = player.name;
+            SceneManager.LoadScene("win-Lose");
         }
         else
         {
