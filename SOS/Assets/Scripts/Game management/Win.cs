@@ -20,7 +20,7 @@ public class Win : MonoBehaviour
                 winningItemsCount ++;
             }
         }
-        if (winningItemsCount == 1)
+        if (winningItemsCount == 5)
         {
             try
             {
