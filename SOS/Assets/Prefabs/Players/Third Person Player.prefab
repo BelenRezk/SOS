@@ -551,7 +551,7 @@ MonoBehaviour:
     m_Bits: 256
   turnSmoothTime: 0.1
   remainingBananaTime: 0
-  bananaSpeedMultiplier: 2
+  bananaSpeedMultiplier: 1.5
   hasShield: 0
   getHitSound: {fileID: 8300000, guid: dd2c2f53c9b72034db1e135ba2610657, type: 3}
   shieldSound: {fileID: 8300000, guid: d0895f110e527bc4fa19006e8484585b, type: 3}

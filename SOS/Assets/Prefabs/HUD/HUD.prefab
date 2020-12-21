@@ -355,7 +355,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d00cc0342149e7143855e0351bd94ea4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: acb2e5c462523034fab1bcd2e3475d9e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -450,7 +450,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d00cc0342149e7143855e0351bd94ea4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: acb2e5c462523034fab1bcd2e3475d9e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1458,7 +1458,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 955, y: -22}
+  m_AnchoredPosition: {x: 955, y: -21.999878}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &977034777
@@ -1601,7 +1601,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -893, y: 74}
+  m_AnchoredPosition: {x: -893, y: 76}
   m_SizeDelta: {x: 99.34497, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1037515925
@@ -2175,7 +2175,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -760, y: 74}
+  m_AnchoredPosition: {x: -760, y: 76}
   m_SizeDelta: {x: 99.34497, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1376221702
@@ -3060,7 +3060,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d00cc0342149e7143855e0351bd94ea4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: acb2e5c462523034fab1bcd2e3475d9e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3155,7 +3155,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d00cc0342149e7143855e0351bd94ea4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: acb2e5c462523034fab1bcd2e3475d9e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3555,7 +3555,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d00cc0342149e7143855e0351bd94ea4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: acb2e5c462523034fab1bcd2e3475d9e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3641,7 +3641,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4122,7 +4122,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 659, y: 930}
+  m_AnchoredPosition: {x: 659, y: 885}
   m_SizeDelta: {x: 1791, y: 1089}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5614614219708268610
@@ -4221,7 +4221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.20995016, g: 0.3301887, b: 0.2783211, a: 1}
+  m_Color: {r: 0.7962264, g: 1, b: 0.908343, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4963,7 +4963,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8818167921848776499, guid: 98b1d2d9f8801ce49b97870574f23eb3, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -141
+      value: -138.90002
       objectReference: {fileID: 0}
     - target: {fileID: 8818167921848776499, guid: 98b1d2d9f8801ce49b97870574f23eb3, type: 3}
       propertyPath: m_SizeDelta.x
@@ -5383,7 +5383,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8605623241182430709, guid: 72a1786fdeea5bb43bd2de37492b3511, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -308
+      value: -301.00003
       objectReference: {fileID: 0}
     - target: {fileID: 8605623241182430709, guid: 72a1786fdeea5bb43bd2de37492b3511, type: 3}
       propertyPath: m_SizeDelta.x
