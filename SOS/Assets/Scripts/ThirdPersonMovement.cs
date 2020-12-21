@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -34,7 +34,7 @@ public class ThirdPersonMovement : MovementBase
         AudioManager manager = FindObjectOfType<AudioManager>();
         try{    
             manager.Stop("Jungle");
-            manager.Play("MainMusic");
+            manager.PlayMainMusic();
             manager.Play("Waves");
         }
         catch(Exception){
@@ -44,6 +44,7 @@ public class ThirdPersonMovement : MovementBase
         {
             case 1:
                 characterBehaviour = new BusinessWomanBehaviour(this, true, manager);
+                abilityCooldown = 35f;
                 GameObject businessWoman = this.transform.Find("Empresaria").gameObject;
                 businessWoman.SetActive(true);
                 this.animator = businessWoman.GetComponent<Animator>();
@@ -51,6 +52,7 @@ public class ThirdPersonMovement : MovementBase
                 break;
             case 2:
                 characterBehaviour = new PilotBehaviour(this, true, manager, null);
+                abilityCooldown =  15f;
                 GameObject pilot = this.transform.Find("Piloto").gameObject;
                 pilot.SetActive(true);
                 this.animator = pilot.GetComponent<Animator>();
@@ -58,6 +60,7 @@ public class ThirdPersonMovement : MovementBase
                 break;
             case 3:
                 characterBehaviour = new OldLadyBehaviour(this, true, manager);
+                abilityCooldown = 35f;
                 GameObject oldLady = this.transform.Find("anciana").gameObject;
                 oldLady.SetActive(true);
                 this.animator = oldLady.GetComponent<Animator>();
@@ -65,6 +68,7 @@ public class ThirdPersonMovement : MovementBase
                 break;
             case 4:
                 characterBehaviour = new HippieBehaviour(this, true, manager);
+                abilityCooldown = 40f;
                 GameObject hippie = this.transform.Find("hippie").gameObject;
                 hippie.SetActive(true);
                 this.animator = hippie.GetComponent<Animator>();
@@ -72,6 +76,7 @@ public class ThirdPersonMovement : MovementBase
                 break;
             default:
                 characterBehaviour = new PilotBehaviour(this, true, manager, null);
+                abilityCooldown =  15f;
                 pilot = this.transform.Find("Piloto").gameObject;
                 pilot.SetActive(true);
                 this.animator = pilot.GetComponent<Animator>();
@@ -174,7 +179,7 @@ public class ThirdPersonMovement : MovementBase
                 isUsingBanana = false;
                 speed = speed / bananaSpeedMultiplier;
                 FindObjectOfType<AudioManager>().Stop("BananaMusic");
-                FindObjectOfType<AudioManager>().Play("MainMusic");
+                FindObjectOfType<AudioManager>().PlayMainMusic();
             }
         }
     }
@@ -190,7 +195,15 @@ public class ThirdPersonMovement : MovementBase
     {
         if (other.gameObject.name.Contains("LavaPlane"))
         {
-            controller.Move(this.transform.forward*-30.0f);
+            if(other.gameObject.name.Contains("9")|| other.gameObject.name.Contains("11") || other.gameObject.name.Contains("12") || other.gameObject.name.Contains("16")
+            || other.gameObject.name.Contains("19") || other.gameObject.name.Contains("21") || other.gameObject.name.Contains("22") )
+            {
+                controller.Move(this.transform.right*30.0f);
+            }
+            else
+            {
+                controller.Move(this.transform.forward*-30.0f);
+            }
             coconutInventory.DropAllItems();
             powerUpInventory.DropAllItems();
             winItems.DropAllItems();
@@ -313,5 +326,14 @@ public class ThirdPersonMovement : MovementBase
         messagePanel.gameObject.SetActive(true);
         yield return new WaitForSeconds(5f);
         messagePanel.gameObject.SetActive(false);
+    }
+
+    public void RemoveShield()
+    {
+        hasShield = false;
+        Transform player = this.transform;
+        GameObject shieldBubble = player.Find("ShieldBubble").gameObject;
+        shieldBubble.SetActive(false);
+        FindObjectOfType<PositionRandomizer>().SpawnShield();
     }
 }

@@ -71,9 +71,38 @@ public class BusinessWomanBehaviour : CharacterDifferentiationBase
 
     private void StealWinItem(MovementBase playerToStealFrom)
     {
-        IInventoryItem item = GetFirstWinItem(playerToStealFrom); 
-        playerToStealFrom.winItems.RemoveItem(item);
-        movement.winItems.AddItem(item);
+        if(playerToStealFrom is ThirdPersonMovement)
+        {
+            ThirdPersonMovement movementPlayer = (ThirdPersonMovement)playerToStealFrom;
+            if(movementPlayer.hasShield)
+            {
+                movementPlayer.RemoveShield();
+                try{
+                    audioManager.Play("BusinessWomanLaugh");
+                }
+                catch(Exception){}
+            }
+            else
+            {
+                IInventoryItem item = GetFirstWinItem(playerToStealFrom);
+                playerToStealFrom.winItems.RemoveItem(item);
+                movement.winItems.AddItem(item); 
+            }
+        }
+        else
+        {
+            AIItemsInteraction movementAI = (AIItemsInteraction)playerToStealFrom;
+            AIPowerUps obj = movementAI.gameObject.transform.GetComponent<AIPowerUps>();
+            if(obj.hasShield)
+                movementAI.RemoveShield();
+            else
+            {
+                IInventoryItem item = GetFirstWinItem(playerToStealFrom); 
+                playerToStealFrom.winItems.RemoveItem(item);
+                movement.winItems.AddItem(item); 
+            }
+        }
+        
     }
 
     private IInventoryItem GetFirstWinItem(MovementBase playerToStealFrom)
@@ -85,10 +114,12 @@ public class BusinessWomanBehaviour : CharacterDifferentiationBase
             {
                 item = winItem;
                 if(!shouldPlayMusic && playerToStealFrom is ThirdPersonMovement)
+                {
                     try{
                     audioManager.Play("BusinessWomanLaugh");
                     }
                     catch(Exception){}
+                }
             }
         }
         return item;
@@ -106,7 +137,7 @@ public class BusinessWomanBehaviour : CharacterDifferentiationBase
             }
             else{
                 try{
-                    audioManager.Play("MainMusic");
+                    audioManager.PlayMainMusic();
                 }
                 catch(Exception){}
             }
