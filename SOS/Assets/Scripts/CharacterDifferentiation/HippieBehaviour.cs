@@ -35,11 +35,37 @@ public class HippieBehaviour : CharacterDifferentiationBase
             if (movementScript != null && !movementScript.Equals(movement) && IsInRange(movementScript))
             {
                 if(!shouldPlayMusic && movementScript is ThirdPersonMovement)
-                    audioManager.Play("HippieLaugh");
-                movementScript.coconutInventory.DropAllItems();
-                movementScript.powerUpInventory.DropAllItems();
-                if (movementScript.winItems != null)
-                    movementScript.winItems.DropAllItems();
+                    try{
+                        audioManager.Play("HippieLaugh");
+                    }
+                    catch(Exception){}
+                if(movementScript is ThirdPersonMovement)
+                {
+                    ThirdPersonMovement movementPlayer = (ThirdPersonMovement)movementScript;
+                    if(movementPlayer.hasShield)
+                        movementPlayer.RemoveShield();
+                    else
+                    {
+                        movementScript.coconutInventory.DropAllItems();
+                        movementScript.powerUpInventory.DropAllItems();
+                        if (movementScript.winItems != null)
+                            movementScript.winItems.DropAllItems();     
+                    }
+                }
+                else
+                {
+                    AIItemsInteraction movementAI = (AIItemsInteraction)movementScript;
+                    AIPowerUps obj = movementAI.gameObject.transform.GetComponent<AIPowerUps>();
+                    if(obj.hasShield)
+                        movementAI.RemoveShield();
+                    else
+                    {
+                        movementScript.coconutInventory.DropAllItems();
+                        movementScript.powerUpInventory.DropAllItems();
+                        if (movementScript.winItems != null)
+                            movementScript.winItems.DropAllItems();
+                    }
+                }
             }
         }
     }
@@ -76,7 +102,7 @@ public class HippieBehaviour : CharacterDifferentiationBase
                 catch(Exception){}
             else
                 try{
-                audioManager.Play("MainMusic");
+                audioManager.PlayMainMusic();
                 }
                 catch(Exception){}
         }

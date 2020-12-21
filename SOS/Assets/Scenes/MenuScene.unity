@@ -600,6 +600,7 @@ MonoBehaviour:
     pitchVariance: 0
     loop: 0
     source: {fileID: 0}
+  shouldPlayMainMusic: 1
 --- !u!4 &516529063
 Transform:
   m_ObjectHideFlags: 0
